@@ -50,7 +50,7 @@ export default function ActionPopup() {
   });
 
   const toggleFavorite = (e, path) => {
-    e.preventDefault(); // Prevent link navigation
+    e.preventDefault(); 
     setFavorites((prev) =>
       prev.includes(path) ? prev.filter((f) => f !== path) : [...prev, path]
     );

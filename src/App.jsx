@@ -1,42 +1,31 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Header from './assets/components/header'; // ✅ Correct component name
+import BankForm from './assets/components/pages/Myfav/fav/Employee/employeepop/bankdetails';
 import SettingsPage from './assets/components/SettingsPage';
-import Header from './assets/components/header';
+import GenerateLetter from './assets/components/pages/Myfav/fav/Employee/employeepop/preletter';
+import LopFormPage from './assets/components/pages/Myfav/fav/Employee/employeepop/lop';
+import LopSummaryPage from './assets/components/pages/Myfav/fav/Employee/employeepop/lopsummary';
 import Body from './assets/components/pages/body';
-import ActionPopup from './assets/components/pages/Myfav/popup';
-import GenerateLetter from './assets/components/pages/Myfav/fav/prepletter/preletter';
-
-import GeneratePasswordPage from './assets/components/pages/Myfav/fav/export';
-import EmailGenerator from './assets/components/pages/Myfav/fav/export';
-import PayslipMailer from './assets/components/pages/Myfav/fav/prepletter/slippay';
-import EmployeeNumberChange from './assets/components/pages/Myfav/fav/prepletter/updateemp.no';
-import AddEmployee from './assets/components/pages/Myfav/fav/prepletter/updateemp.no';
-import EmployeeSearch from './assets/components/pages/Myfav/fav/prepletter/updateemp.no';
-import LopEntryForm from './assets/components/pages/Myfav/fav/prepletter/lop';
-import LopFormPage from './assets/components/pages/Myfav/fav/prepletter/lop';
-import LopSummaryPage from './assets/components/pages/Myfav/fav/prepletter/lopsummary';
+import BankDetailsForm from './assets/components/pages/Myfav/fav/Employee/employeepop/bankdetails';
 
 function App() {
   return (
     <Router>
-      <Header />
+      <Header /> 
 
       <div style={{ marginTop: '90px' }}>
         <Body />
-     
-       
+      
       </div>
-
+<BankDetailsForm/>
       <Routes>
-        <Route path="/Sit" element={<SettingsPage/>} />
-        <Route path="/Header" element={<Headers/>} />
-        <Route path="/Headera" element={<Header/>} />
-        <Route path="/Actions" element={<ActionPopup/>} />
-        <Route path="/preletter" element={<GenerateLetter/>} />
-        <Route path="/leavepage" element={<SettingsPage/>} />
-        <Route path="/" element={<LopFormPage/>} />
-        <Route path="/summary" element={<LopSummaryPage/>} />
+        <Route path="/Sit" element={<SettingsPage />} />
+        <Route path="/preletter" element={<GenerateLetter />} />
+        <Route path="/leavepage" element={<SettingsPage />} />
+        <Route path="/" element={<LopFormPage />} />
+        <Route path="/summary" element={<LopSummaryPage />} />
       </Routes>
     </Router>
   );
