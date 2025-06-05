@@ -9,6 +9,7 @@ import LopFormPage from './assets/components/pages/Myfav/fav/Employee/employeepo
 import LopSummaryPage from './assets/components/pages/Myfav/fav/Employee/employeepop/lopsummary';
 import Body from './assets/components/pages/body';
 import BankDetailsForm from './assets/components/pages/Myfav/fav/Employee/employeepop/bankdetails';
+import NominationDetailsForm from './assets/components/pages/Myfav/fav/Employee/employeepop/Nominee';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
 
       <div style={{ marginTop: '90px' }}>
         <Body />
-      
+      <NominationDetailsForm/>
       </div>
 <BankDetailsForm/>
       <Routes>
