@@ -159,7 +159,7 @@ export default function EmployeeQuickAdd() {
           <h3 className="font-semibold mb-2">Recently Added</h3>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-800 font-bold">
-              UV
+              
             </div>
             <div>
               <button className="text-blue-600 underline">Click here to see all employees</button>
