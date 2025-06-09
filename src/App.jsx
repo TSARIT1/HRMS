@@ -9,6 +9,7 @@ import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
 import LopFormPage from './assets/components/pages/Myfav/Employee/lop';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
 import ExcelImporter from './assets/components/pages/Myfav/Employee/Bulkdata';
+import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
 
 
 
@@ -18,8 +19,7 @@ function App() {
       <Header/>
       <div style={{ marginTop: '90px' }}>
         <Body/>
-        <NominationDetailsForm/>
-        <BankDetailsForm/>
+       <EmployeeQuickAdd/>
         <ExcelImporter/>
       </div>
       <Routes>

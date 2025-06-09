@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Bulkdata.css'; 
+import * as XLSX from 'xlsx';
+import './Bulkdata.css';
 
 const mappingOptions = [
   'Employee No',
@@ -7,20 +8,62 @@ const mappingOptions = [
   'Date of Joining',
   'Department',
   'Designation',
+  'Email',
+  'Phone Number',
+  'Address',
+  'City',
+  'State',
+  'Pincode',
+  'Country',
+  'Gender',
+  'Date of Birth',
+  'Marital Status',
+  'Nationality',
+  'Emergency Contact',
+  'Blood Group',
+  'Aadhaar Number',
+  'PAN Number'
 ];
 
 export default function ExcelImporterApp() {
   const [step, setStep] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
+  const [excelData, setExcelData] = useState([]); // Dynamic field list
   const [mappings, setMappings] = useState({});
   const [validationResult, setValidationResult] = useState('');
 
-  const excelPreview = [
-    { field: 'Employee Number', value: 'E0001' },
-    { field: 'Name', value: 'Kumar Anand Rao .A' },
-    { field: 'Joining Date', value: '01-May-2005' },
-  ];
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file && !/\.(xls|xlsx)$/i.test(file.name)) {
+      alert('Invalid file type. Please upload a .xls or .xlsx file.');
+      return;
+    }
+
+    setSelectedFile(file);
+
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const binaryStr = evt.target.result;
+      const workbook = XLSX.read(binaryStr, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+      const headers = data[0];
+      const firstRow = data[1];
+
+      const previewData = headers.map((header, idx) => ({
+        field: header,
+        value: firstRow?.[idx] || '',
+      }));
+
+      setExcelData(previewData);
+    };
+
+    reader.readAsBinaryString(file);
+  };
 
   const handleNext = () => {
     if (step === 1) {
@@ -44,7 +87,7 @@ export default function ExcelImporterApp() {
   };
 
   const handleMappingChange = (field, value) => {
-    setMappings(prev => ({ ...prev, [field]: value }));
+    setMappings((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -75,7 +118,8 @@ export default function ExcelImporterApp() {
           </select>
 
           <label>Upload Excel File</label>
-          <input type="file" accept=".xls,.xlsx" onChange={(e) => setSelectedFile(e.target.files[0])} />
+          <input type="file" accept=".xls,.xlsx" onChange={handleFileChange} />
+          {selectedFile && <p>Selected File: {selectedFile.name}</p>}
 
           <div className="button-group">
             <button className="btn btn-cancel" onClick={() => window.location.reload()}>
@@ -102,7 +146,7 @@ export default function ExcelImporterApp() {
               </tr>
             </thead>
             <tbody>
-              {excelPreview.map((row, idx) => (
+              {excelData.map((row, idx) => (
                 <tr key={idx}>
                   <td>{row.field}</td>
                   <td>
@@ -112,7 +156,13 @@ export default function ExcelImporterApp() {
                     >
                       <option value="">-- Select Field --</option>
                       {mappingOptions.map((option, i) => (
-                        <option key={i} value={option}>{option}</option>
+                        <option
+                          key={i}
+                          value={option}
+                          disabled={Object.values(mappings).includes(option)}
+                        >
+                          {option}
+                        </option>
                       ))}
                     </select>
                   </td>
@@ -162,6 +212,7 @@ export default function ExcelImporterApp() {
           </ul>
 
           <div className="button-group">
+            <button className="btn btn-prev" onClick={() => setStep(3)}>← Previous</button>
             <button className="btn btn-cancel" onClick={() => window.location.reload()}>
               Done
             </button>

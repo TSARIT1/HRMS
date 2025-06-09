@@ -1,0 +1,113 @@
+/* Addemployee.css */
+
+/* Container Styling (in case Tailwind not fully applied) */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Input, Select and Text Styling */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+  border-radius: 4px;
+  transition: border 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #2563eb; /* Tailwind blue-600 */
+  outline: none;
+}
+
+/* Buttons */
+button {
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"] {
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+  border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+button[type="button"] {
+  background-color: #f9fafb; /* gray-50 */
+  border: 1px solid #d1d5db;
+  color: #374151; /* gray-700 */
+}
+
+button[type="button"]:hover {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+/* Recently Added & Related Actions Box */
+.card {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card .avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e40af; /* blue-800 */
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive (if Tailwind isn't used) */
+@media (min-width: 768px) {
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
