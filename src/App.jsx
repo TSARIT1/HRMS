@@ -10,6 +10,9 @@ import LopFormPage from './assets/components/pages/Myfav/Employee/lop';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
 import ExcelImporter from './assets/components/pages/Myfav/Employee/Bulkdata';
 import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
+import CompanyPolicyForm from './assets/components/pages/Myfav/Employee/Policy';
+import CreateForm from './assets/components/pages/Myfav/Employee/Policy';
+import AssignManager from './assets/components/pages/Myfav/Employee/Assignmanager';
 
 
 
@@ -19,9 +22,12 @@ function App() {
       <Header/>
       <div style={{ marginTop: '90px' }}>
         <Body/>
-       <EmployeeQuickAdd/>
-        <ExcelImporter/>
+     
       </div>
+        <EmployeeQuickAdd/>
+        <ExcelImporter/>
+       <CreateForm/>
+       <AssignManager/>
       <Routes>
         <Route path="/Sit" element={<SettingsPage/>} />
         <Route path="/preletter" element={<GenerateLetter/>} />

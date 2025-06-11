@@ -29,7 +29,7 @@ export default function ExcelImporterApp() {
   const [step, setStep] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
-  const [excelData, setExcelData] = useState([]); // Dynamic field list
+  const [excelData, setExcelData] = useState([]); 
   const [mappings, setMappings] = useState({});
   const [validationResult, setValidationResult] = useState('');
 

@@ -15,7 +15,6 @@ const NominationDetailsForm = () => {
       isMinor
     };
     console.log('Form Data:', formData);
-    // You can send formData to backend API here
   };
 
   return (

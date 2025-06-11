@@ -30,18 +30,15 @@ export default function EmployeeQuickAdd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Employee Data:', formData);
-    // Submit API logic here
   };
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     console.log('Selected file:', e.target.files[0]);
-    // Add file upload API logic here
   };
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg border">
-      {/* Bulk Upload Section */}
       <div className="mb-8">
         <h2 className="text-lg font-semibold mb-2">Quickly add employee to the company!</h2>
         <p className="text-sm text-gray-600 mb-3">
@@ -153,7 +150,6 @@ export default function EmployeeQuickAdd() {
         </div>
       </form>
 
-      {/* Recently Added and Related Actions */}
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-gray-100 p-4 rounded-lg">
           <h3 className="font-semibold mb-2">Recently Added</h3>
