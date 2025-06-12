@@ -19,7 +19,6 @@ function Body() {
   return (
     <div className="dashboard-wrapper">
 
-      {/* Navigation Buttons */}
       <div className="navigation-buttons">
         <Link to="/" className="nav-btn">Welcome</Link>
         <Link to="/dashboard" className="nav-btn">Dashboard</Link>

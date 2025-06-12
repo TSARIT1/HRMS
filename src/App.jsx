@@ -6,13 +6,14 @@ import SettingsPage from './assets/components/SettingsPage';
 import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Nominee';
 import BankDetailsForm from './assets/components/pages/Myfav/Employee/bankdetails';
 import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
-import LopFormPage from './assets/components/pages/Myfav/Employee/lop';
+import LopFormPage from './assets/components/pages/Myfav/Employee/loppayroll';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
 import ExcelImporter from './assets/components/pages/Myfav/Employee/Bulkdata';
 import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
 import CompanyPolicyForm from './assets/components/pages/Myfav/Employee/Policy';
 import CreateForm from './assets/components/pages/Myfav/Employee/Policy';
 import AssignManager from './assets/components/pages/Myfav/Employee/Assignmanager';
+import ActionPopup from './assets/components/pages/Myfav/popup';
 
 
 
@@ -29,6 +30,8 @@ function App() {
        <CreateForm/>
        <AssignManager/>
       <Routes>
+        <Route path="/Actions" element={<ActionPopup/>} />
+
         <Route path="/Sit" element={<SettingsPage/>} />
         <Route path="/preletter" element={<GenerateLetter/>} />
         <Route path="/leavepage" element={<SettingsPage/>} />

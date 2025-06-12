@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Policy.css'; // optional custom styles
+import './Policy.css';
 
 export default function CreateForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +10,10 @@ export default function CreateForm() {
     isPrefilled: false,
     file: null,
   });
+
+  const [categories, setCategories] = useState([]);
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
+  const [newCategory, setNewCategory] = useState({ name: '', code: '' });
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -23,6 +27,13 @@ export default function CreateForm() {
     e.preventDefault();
     console.log('Form Data Submitted:', formData);
     alert('Form submitted successfully!');
+  };
+
+  const handleAddCategory = () => {
+    if (newCategory.name && newCategory.code) {
+      setCategories([...categories, newCategory]);
+      setNewCategory({ name: '', code: '' });
+    }
   };
 
   return (
@@ -63,17 +74,24 @@ export default function CreateForm() {
 
         <label>
           Form Category *
-          <select
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select</option>
-            <option value="HR">HR</option>
-            <option value="Finance">Finance</option>
-            <option value="IT">IT</option>
-          </select>
+          <div className="category-select-container">
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select</option>
+              {categories.map((cat, index) => (
+                <option key={index} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+            <button type="button" className="edit-btn" onClick={() => setShowCategoryModal(true)}>
+              Edit Category
+            </button>
+          </div>
         </label>
 
         <label className="checkbox-label">
@@ -104,6 +122,38 @@ export default function CreateForm() {
           <button type="submit">Submit</button>
         </div>
       </form>
+
+      {showCategoryModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Company Policy Category</h3>
+            <input
+              type="text"
+              placeholder="Enter Category Name"
+              value={newCategory.name}
+              onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
+            />
+            <input
+              type="text"
+              placeholder="Enter Code"
+              value={newCategory.code}
+              onChange={(e) => setNewCategory({ ...newCategory, code: e.target.value })}
+            />
+            <button onClick={handleAddCategory}>+ Add Category</button>
+            <ul>
+              {categories.map((cat, i) => (
+                <li key={i}>
+                  {cat.name} ({cat.code}){' '}
+                  <button onClick={() => setCategories(categories.filter((_, idx) => idx !== i))}>
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <button onClick={() => setShowCategoryModal(false)}>Save</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

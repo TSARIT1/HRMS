@@ -57,7 +57,6 @@ const LopFormPage = () => {
     <div style={{ padding: "30px" }}>
       <h2>Enter LOP Details</h2>
       <form onSubmit={handleSubmit} autoComplete="off">
-        {/* Searchable Employee Input */}
         <div style={{ position: "relative" }}>
           <label>Employee</label><br />
           <input
