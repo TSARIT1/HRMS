@@ -6,7 +6,7 @@ import SettingsPage from './assets/components/SettingsPage';
 import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Nominee';
 import BankDetailsForm from './assets/components/pages/Myfav/Employee/bankdetails';
 import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
-import LopFormPage from './assets/components/pages/Myfav/Employee/loppayroll';
+import LopFormPage from './assets/components/pages/Myfav/Employee/Deduct LOP';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
 import ExcelImporter from './assets/components/pages/Myfav/Employee/Bulkdata';
 import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
@@ -14,6 +14,7 @@ import CompanyPolicyForm from './assets/components/pages/Myfav/Employee/Policy';
 import CreateForm from './assets/components/pages/Myfav/Employee/Policy';
 import AssignManager from './assets/components/pages/Myfav/Employee/Assignmanager';
 import ActionPopup from './assets/components/pages/Myfav/popup';
+import ExitSettlement from './assets/components/pages/Myfav/Employee/payrollsettlement';
 
 
 
@@ -25,10 +26,7 @@ function App() {
         <Body/>
      
       </div>
-        <EmployeeQuickAdd/>
-        <ExcelImporter/>
-       <CreateForm/>
-       <AssignManager/>
+      <EmployeeQuickAdd/>
       <Routes>
         <Route path="/Actions" element={<ActionPopup/>} />
 

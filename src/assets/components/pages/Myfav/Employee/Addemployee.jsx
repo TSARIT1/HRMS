@@ -11,6 +11,8 @@ export default function EmployeeQuickAdd() {
   });
 
   const [file, setFile] = useState(null);
+  const [employees, setEmployees] = useState([]);
+  const [showAll, setShowAll] = useState(false); // toggle list visibility
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +32,10 @@ export default function EmployeeQuickAdd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Employee Data:', formData);
+
+    // Add to list
+    setEmployees((prev) => [...prev, formData]);
+    handleCancel(); // Reset form
   };
 
   const handleFileChange = (e) => {
@@ -39,6 +45,7 @@ export default function EmployeeQuickAdd() {
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg border">
+      {/* File Upload */}
       <div className="mb-8">
         <h2 className="text-lg font-semibold mb-2">Quickly add employee to the company!</h2>
         <p className="text-sm text-gray-600 mb-3">
@@ -51,11 +58,10 @@ export default function EmployeeQuickAdd() {
             onChange={handleFileChange}
             className="block"
           />
-         
         </div>
       </div>
 
-      {/* Single Employee Add Form */}
+      {/* Employee Form */}
       <h2 className="text-xl font-semibold mb-4">Add details of an employee</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -72,7 +78,6 @@ export default function EmployeeQuickAdd() {
               className="w-full mt-1 border border-gray-300 rounded p-2"
             />
           </div>
-
           <div>
             <label className="block font-medium">Employee Number *</label>
             <input
@@ -85,7 +90,6 @@ export default function EmployeeQuickAdd() {
               className="w-full mt-1 border border-gray-300 rounded p-2"
             />
           </div>
-
           <div>
             <label className="block font-medium">Date Of Joining *</label>
             <input
@@ -114,7 +118,6 @@ export default function EmployeeQuickAdd() {
               <option value="Chennai">Chennai</option>
             </select>
           </div>
-
           <div>
             <label className="block font-medium">Email ID *</label>
             <input
@@ -128,10 +131,6 @@ export default function EmployeeQuickAdd() {
             />
           </div>
         </div>
-
-        <p className="text-sm text-gray-600">
-          After saving, the onboarding process will start and employee will receive a Welcome Email with the link to set his password.
-        </p>
 
         <div className="flex justify-end gap-4 pt-4">
           <button
@@ -150,21 +149,58 @@ export default function EmployeeQuickAdd() {
         </div>
       </form>
 
+      {/* Recently Added */}
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-gray-100 p-4 rounded-lg">
           <h3 className="font-semibold mb-2">Recently Added</h3>
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-800 font-bold">
-              
+              👤
             </div>
             <div>
-              <button className="text-blue-600 underline">Click here to see all employees</button>
+              <button
+                className="text-blue-600 underline"
+                onClick={() => setShowAll(!showAll)}
+              >
+                Click here to see all employees
+              </button>
             </div>
           </div>
         </div>
-
-       
       </div>
+
+      {/* Show Employee List */}
+      {showAll && (
+        <div className="mt-6 border-t pt-4">
+          <h3 className="text-lg font-semibold mb-2">All Employees</h3>
+          {employees.length === 0 ? (
+            <p className="text-gray-600">No employees added yet.</p>
+          ) : (
+            <table className="min-w-full border text-sm">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th className="border px-2 py-1">Name</th>
+                  <th className="border px-2 py-1">Number</th>
+                  <th className="border px-2 py-1">DOJ</th>
+                  <th className="border px-2 py-1">Location</th>
+                  <th className="border px-2 py-1">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                {employees.map((emp, index) => (
+                  <tr key={index}>
+                    <td className="border px-2 py-1">{emp.name}</td>
+                    <td className="border px-2 py-1">{emp.number}</td>
+                    <td className="border px-2 py-1">{emp.doj}</td>
+                    <td className="border px-2 py-1">{emp.location}</td>
+                    <td className="border px-2 py-1">{emp.email}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      )}
     </div>
   );
 }
