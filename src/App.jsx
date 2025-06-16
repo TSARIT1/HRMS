@@ -3,18 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Body from './assets/components/pages/body';
 import Header from './assets/components/header';
 import SettingsPage from './assets/components/SettingsPage';
-import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Nominee';
-import BankDetailsForm from './assets/components/pages/Myfav/Employee/bankdetails';
+
 import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
 import LopFormPage from './assets/components/pages/Myfav/Employee/Deduct LOP';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
-import ExcelImporter from './assets/components/pages/Myfav/Employee/Bulkdata';
 import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
-import CompanyPolicyForm from './assets/components/pages/Myfav/Employee/Policy';
-import CreateForm from './assets/components/pages/Myfav/Employee/Policy';
-import AssignManager from './assets/components/pages/Myfav/Employee/Assignmanager';
 import ActionPopup from './assets/components/pages/Myfav/popup';
-import ExitSettlement from './assets/components/pages/Myfav/Employee/payrollsettlement';
+import ExitSettlementForm from './assets/components/pages/Myfav/Employee/Employee/ExitSettlementForm';
+import SalaryRevisionPage from './assets/components/pages/Myfav/Employee/Employee/Revise Employee Salary';
 
 
 
@@ -26,7 +22,8 @@ function App() {
         <Body/>
      
       </div>
-      <EmployeeQuickAdd/>
+<ExitSettlementForm/>
+<SalaryRevisionPage/>
       <Routes>
         <Route path="/Actions" element={<ActionPopup/>} />
 
