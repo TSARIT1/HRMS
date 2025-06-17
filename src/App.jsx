@@ -5,12 +5,14 @@ import Header from './assets/components/header';
 import SettingsPage from './assets/components/SettingsPage';
 
 import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
-import LopFormPage from './assets/components/pages/Myfav/Employee/Deduct LOP';
+import LopFormPage from './assets/components/pages/Myfav/Employee/PAYROL/Deduct LOP';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
 import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Addemployee';
 import ActionPopup from './assets/components/pages/Myfav/popup';
-import ExitSettlementForm from './assets/components/pages/Myfav/Employee/Employee/ExitSettlementForm';
-import SalaryRevisionPage from './assets/components/pages/Myfav/Employee/Employee/Revise Employee Salary';
+import ExitSettlementForm from './assets/components/pages/Myfav/Employee/PAYROL/ExitSettlementForm';
+import SalaryRevisionPage from './assets/components/pages/Myfav/Employee/PAYROL/Revise Employee Salary';
+import SalaryRevisionForm from './assets/components/pages/Myfav/Employee/PAYROL/Revise Employee Salary';
+import EmployeeLockTable from './assets/components/pages/Myfav/Employee/PAYROL/Release  IT Declaration';
 
 
 
@@ -22,8 +24,10 @@ function App() {
         <Body/>
      
       </div>
+
 <ExitSettlementForm/>
 <SalaryRevisionPage/>
+<EmployeeLockTable/>
       <Routes>
         <Route path="/Actions" element={<ActionPopup/>} />
 
