@@ -38,7 +38,6 @@ export default function EmployeeITDeclaration() {
         <strong> Consider</strong> declarations from here.
       </div>
 
-      {/* Tabs */}
       <div className="tabs">
         <button
           className={activeTab === 'release' ? 'active' : ''}
@@ -53,7 +52,7 @@ export default function EmployeeITDeclaration() {
           Consider Declarations
         </button>
       </div>
-      {/* Filters */}
+
       <div className="filters">
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
           <option value="LOCKED">Status: LOCKED</option>
@@ -65,12 +64,11 @@ export default function EmployeeITDeclaration() {
         <select><option>Join Date: All</option></select>
       </div>
 
-      {/* Table */}
       <table className="employee-table">
         <thead>
           <tr>
             <th>
-              {activeTab === 'release' && (
+              {(activeTab === 'release' || activeTab === 'consider') && (
                 <input
                   type="checkbox"
                   checked={selected.length === employees.length}
@@ -85,8 +83,8 @@ export default function EmployeeITDeclaration() {
           </tr>
         </thead>
         <tbody>
-          {activeTab === 'release' ? (
-            employees.map(emp => (
+          {(activeTab === 'release' || activeTab === 'consider') && employees.length > 0 ? (
+            employees.map((emp) => (
               <tr key={emp.empNo}>
                 <td>
                   <input
@@ -104,14 +102,13 @@ export default function EmployeeITDeclaration() {
           ) : (
             <tr>
               <td colSpan="5" style={{ textAlign: 'center', color: '#888' }}>
-                No declarations to consider.
+                No declarations to display.
               </td>
             </tr>
           )}
         </tbody>
       </table>
 
-      {/* Action Buttons */}
       {activeTab === 'release' && (
         <div className="actions">
           <button disabled>Send Reminder</button>
@@ -123,9 +120,26 @@ export default function EmployeeITDeclaration() {
           >
             Release Selected
           </button>
-          <button onClick={() => alert('All Declarations Released')}>
-            Release All
+          <button onClick={() => alert('All Declarations Released')}>Release All</button>
+        </div>
+      )}
+
+      {activeTab === 'consider' && (
+        <div className="actions">
+          <button
+            disabled={selected.length === 0}
+            onClick={() => alert(`Considered Selected: ${selected.join(', ')}`)}
+          >
+            Consider Selected
           </button>
+          <button onClick={() => alert('All Considered')}>Consider All</button>
+          <button
+            disabled={selected.length === 0}
+            onClick={() => alert(`Download Selected: ${selected.join(', ')}`)}
+          >
+            Download Selected
+          </button>
+          <button onClick={() => alert('All Downloads Triggered')}>Download All</button>
         </div>
       )}
     </div>

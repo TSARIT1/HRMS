@@ -1,0 +1,84 @@
+.payroll-container {
+  padding: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Scroll wrapper for months and years */
+.scroll-wrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.scroll-list {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  width: max-content;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  flex: 0 0 auto;
+  min-width: 70px;
+  padding: 10px 14px;
+  background: #e9edf1;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.scroll-btn.active {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Title */
+.selected-period {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #2a2a2a;
+}
+
+/* Grid layout for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #222;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.no-records {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  padding: 24px;
+}
