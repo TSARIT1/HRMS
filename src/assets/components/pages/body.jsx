@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './body.css';
 import { Link } from 'react-router-dom';
+import { MdOutlineAdd } from "react-icons/md";
 
 function Body() {
   const [greeting, setGreeting] = useState('');
@@ -27,7 +28,7 @@ function Body() {
       <div className="top-section">
         <div className="text-content">
           <h1>{greeting},</h1>
-          <p>Let's do great things together. 🚀 🌞</p>
+          <p>Let's do great things together.</p>
         </div>
         <div className="skyline">
           <img src="/blue.png" alt="Skyline" className="skyline-img" />
@@ -40,7 +41,7 @@ function Body() {
         <div className="favourites-grid">
           <div className="favourite-card add-card">
             <button>
-              <Link to="/Actions"> ➕ </Link>
+              <Link to="/Actions"> <MdOutlineAdd /> </Link>
             </button>
           </div>
         </div>

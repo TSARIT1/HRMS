@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './popup.css';
-
+import { FcPlanner } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
+import { FcPrivacy } from "react-icons/fc";
+import { SlUmbrella } from "react-icons/sl";
 const actions = [
-  { title: 'Add Holidays', category: 'Leave', icon: '📅', path: '/add-holidays' },
-  { title: 'Prepare Letter', category: 'Employee', icon: '👤', path: '/preletter' },
+
+  { title: 'Add Holidays', category: 'Leave', icon:<FcPlanner />, path: '/add-holidays' },
+  { title: 'Prepare Letter', category: 'Employee', icon: <FcBusinessman />, path: '/preletter' },
   { title: 'Import Data From Excel', category: 'Employee', icon: '📄', path: '/import-excel' },
-  { title: 'Regenerate Employee Password', category: 'Employee', icon: '🔒', path: '/regenerate-password' },
+  { title: 'Regenerate Employee Password', category: 'Employee', icon: <FcPrivacy />, path: '/regenerate-password' },
   { title: 'Employee Separation', category: 'Employee', icon: '👤', path: '/employee-separation' },
   { title: 'Confirm Employee', category: 'Employee', icon: '✅', path: '/confirm-employee' },
   { title: 'Extend Probation Period', category: 'Employee', icon: '⏳', path: '/extend-probation' },
@@ -25,7 +29,7 @@ const actions = [
    { title: 'Settle Resigned Employee', category: 'Payroll', icon: '💰', path: '/exclude-payroll' },
    { title: 'Revise Employee Salary', category: 'Payroll', icon: '💰', path: '/exclude-payroll' },
    { title: 'Process Payroll', category: 'Payroll', icon: '💰', path: '/exclude-payroll' },
-   { title: 'Release IT Declaration', category: 'Payroll', icon: '💰', path: '/exclude-payroll' },
+   { title: 'Release IT Declaration', category: 'Payroll', icon: <SlUmbrella />, path: '/exclude-payroll' },
 
   { title: 'Shift Roster', category: 'Employee', icon: '❌', path: '/delete-employee' },
 ];
