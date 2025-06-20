@@ -12,6 +12,9 @@ import ActionPopup from './assets/components/pages/Myfav/popup';
 import QuickSalaryStatement from './assets/components/pages/Myfav/Employee/PAYROL/QuickSalaryStatement';
 import PayrollDashboard from './assets/components/pages/Myfav/Employee/PAYROL/Relese Pay Slip';
 import LeaveManagement from './assets/components/pages/Myfav/Employee/LEAVE/LeaveManagement';
+import LeaveGranter from './assets/components/pages/Myfav/Employee/LEAVE/Grant Leave';
+import LeavePeriodFinalization from './assets/components/pages/Myfav/Employee/LEAVE/Attendance Period';
+import AttendanceStatusOverride from './assets/components/pages/Myfav/Employee/LEAVE/Attendance Muster';
 
 
 
@@ -23,10 +26,9 @@ function App() {
         <Body/>
      
       </div>
-      
-      <LeaveManagement/>
-      <PayrollDashboard/>
-<QuickSalaryStatement/>
+      <AttendanceStatusOverride/>
+     <LeaveGranter/>
+     <LeavePeriodFinalization/>
       <Routes>
         <Route path="/Actions" element={<ActionPopup/>} />
 
