@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Attendance Muster.css";
 
-/** ---------- demo datasource ---------- */
 const employees = [
   {
     id: 6266,
@@ -9,7 +8,7 @@ const employees = [
     designation: "CEO, Bangalore",
     statusByDay: [
       "OFF",
-      ...Array(30).fill("A"),          // 2‑31 Jun
+      ...Array(30).fill("A"),         
     ],
   },
   {
@@ -25,17 +24,15 @@ const employees = [
     statusByDay: [
       "OFF",
       ...Array(11).fill("A"),
-      "-", "-", "-",              // 13‑15 Jun absent data
+      "-", "-", "-",              
       ...Array(4).fill("A"),
-      "-",                        // 20 Jun blank
+      "-",                        
       ...Array(10).fill("-"),
     ],
   },
-  /* --- add more rows as you like --- */
 ];
 
-/** ---------- helpers ---------- */
-const monthDays = [...Array(30)].map((_, i) => i + 1);        // June 2025 → 30 days
+const monthDays = [...Array(30)].map((_, i) => i + 1);       
 const dayOfWeekLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const statusColours = {
@@ -47,15 +44,12 @@ const statusColours = {
   OD: "var(--onduty)",
 };
 
-/** ---------- main component ---------- */
 export default function AttendanceStatusOverride() {
-  /* simple state for the dropdowns – you can wire them to real data later */
   const [month, setMonth] = useState("June 2025");
   const [cycle, setCycle] = useState("Default Attendance Cycle");
   const [employeeFilter, setEmployeeFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  /* compute row totals (P/L/H/A/OFF/R/OD/?) */
   const calcTotals = (statuses) => {
     const tally = { P: 0, L: 0, H: 0, A: 0, OFF: 0, R: 0, OD: 0, "?": 0 };
     statuses.forEach((s) => {
@@ -67,7 +61,6 @@ export default function AttendanceStatusOverride() {
 
   return (
     <div className="aso-container">
-      {/* ---------- top bar ---------- */}
       <div className="aso-toolbar">
         <div className="aso-filter-row">
           <label>
@@ -114,10 +107,8 @@ export default function AttendanceStatusOverride() {
         <button className="btn export">Export Excel</button>
       </div>
 
-      {/* ---------- grid wrapper (horizontal+vertical scroll) ---------- */}
       <div className="aso-grid-wrapper">
         <table className="aso-grid">
-          {/* ====== header row (days) ====== */}
           <thead>
             <tr>
               <th className="emp-col">Employee</th>
@@ -139,7 +130,6 @@ export default function AttendanceStatusOverride() {
             </tr>
           </thead>
 
-          {/* ====== body rows ====== */}
           <tbody>
             {employees.map((emp) => {
               const t = calcTotals(emp.statusByDay);
@@ -177,10 +167,9 @@ export default function AttendanceStatusOverride() {
         </table>
       </div>
 
-      {/* ---------- allow‑override + legend ---------- */}
       <div className="aso-legends">
         <div className="ao-section">
-          <h4>Allow Override Status</h4>
+          <h4>Allow Override Status </h4>
           <LegendItem label="Absent : A" className="A" />
           <LegendItem label="Off Day : O" className="OFF" />
           <LegendItem label="Present : P" className="P" />
@@ -203,7 +192,6 @@ export default function AttendanceStatusOverride() {
   );
 }
 
-/* ---------- small helper for legend cells ---------- */
 function LegendItem({ label, className }) {
   return (
     <span className="legend-item">

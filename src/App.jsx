@@ -15,6 +15,8 @@ import LeaveManagement from './assets/components/pages/Myfav/Employee/LEAVE/Leav
 import LeaveGranter from './assets/components/pages/Myfav/Employee/LEAVE/Grant Leave';
 import LeavePeriodFinalization from './assets/components/pages/Myfav/Employee/LEAVE/Attendance Period';
 import AttendanceStatusOverride from './assets/components/pages/Myfav/Employee/LEAVE/Attendance Muster';
+import ShiftRoster from './assets/components/pages/Myfav/Employee/LEAVE/ShiftRoster';
+import AttendanceStatus from './assets/components/pages/Myfav/Employee/LEAVE/AttendanceStatus';
 
 
 
@@ -26,17 +28,16 @@ function App() {
         <Body/>
      
       </div>
-      <AttendanceStatusOverride/>
-     <LeaveGranter/>
-     <LeavePeriodFinalization/>
+      <ShiftRoster/>
+      <AttendanceStatus/>
       <Routes>
         <Route path="/Actions" element={<ActionPopup/>} />
 
         <Route path="/Sit" element={<SettingsPage/>} />
         <Route path="/preletter" element={<GenerateLetter/>} />
         <Route path="/leavepage" element={<SettingsPage/>} />
-        <Route path="/" element={<LopFormPage/>} />
-        <Route path="/summary" element={<LopSummaryPage/>} />
+        <Route path="/a" element={<LopFormPage/>} />
+        <Route path="/s" element={<LopSummaryPage/>} />
       </Routes>
     </Router>
   );

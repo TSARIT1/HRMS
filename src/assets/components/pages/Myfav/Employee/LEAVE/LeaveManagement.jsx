@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LeaveManagement.css';
-
+import { FaArrowAltCircleDown } from "react-icons/fa";
 export default function LeaveManagement() {
   const [rows, setRows] = useState([]);
   const [showMasterModal, setShowMasterModal] = useState(false);
@@ -90,7 +90,7 @@ export default function LeaveManagement() {
         </tbody>
       </table>
 
-      <p className="note">Note: Edit or Copy/paste data from spreadsheet. Drag the mouse on the column header and click the "🔽" to filter data.</p>
+      <p className="note">Note: Edit or Copy/paste data from spreadsheet. Drag the mouse on the column header and click the <FaArrowAltCircleDown /> to filter data.</p>
 
       <div className="action-buttons">
         <button className="btn save" onClick={handleSave}>Save</button>

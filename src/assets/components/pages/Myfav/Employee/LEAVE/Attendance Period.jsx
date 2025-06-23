@@ -132,7 +132,7 @@ export default function LeavePeriodFinalization() {
 
       <div className="footer-note">
         <p>Total Items: {records.length}</p>
-        <p><small>Note: Drag the mouse pointer on the column header and click the “⇅” to filter data.</small></p>
+        <p><meta name="description" content="Note:Drag the mouse pointer on the column header and click the “⇅” to filter data." /></p>
       </div>
     </div>
   );
