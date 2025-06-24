@@ -1,0 +1,178 @@
+/* Container for modal overlay */
+.leave-details-container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main card */
+.leave-details-card {
+  width: 600px;
+  height: 80vh;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 24px 30px;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  color: #111827;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.header h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #111827;
+}
+
+.emp-id {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Sections and rows */
+.section {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 12px;
+}
+
+.row label {
+  width: 100px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.row span {
+  flex: 1;
+  min-width: 150px;
+  color: #111827;
+}
+
+/* Remarks section */
+.remarks-box {
+  background-color: #f3f4f6;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #374151;
+  word-wrap: break-word;
+}
+
+/* Inputs */
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button.accept,
+button.reject,
+button.back {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+button.accept {
+  background-color: #10b981;
+}
+
+button.reject {
+  background-color: #ef4444;
+}
+
+button.back {
+  background-color: #6b7280;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 640px) {
+  .leave-details-card {
+    width: 95%;
+    height: 85vh;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .row label,
+  .row span {
+    width: 100%;
+  }
+
+  .action-buttons {
+    justify-content: center;
+  }
+}
