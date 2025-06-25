@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LeaveManagement.css';
+import {Helmet} from 'react-helmet'
 import { FaArrowAltCircleDown } from "react-icons/fa";
 export default function LeaveManagement() {
   const [rows, setRows] = useState([]);
@@ -48,6 +49,33 @@ export default function LeaveManagement() {
 
   return (
     <div className="leave-container">
+      
+             <Helmet>
+        <title>React Helmet SEO Example</title>
+
+        {/* Meta Description for SEO */}
+        <meta name="description" content="Learn how to use react-helmet to manage SEO metadata in your React application." />
+
+        {/* Meta Keywords (less important for modern SEO but still used in some cases) */}
+        <meta
+          name="keywords"
+          content="React, React Helmet, SEO, React SEO, react-helmet tutorial, meta tags, dynamic title, Open Graph, Twitter cards"
+        />
+
+        {/* Open Graph Tags for Social Media Preview */}
+        <meta property="og:title" content="React Helmet SEO Example" />
+        <meta property="og:description" content="Manage page titles and meta tags dynamically in React using react-helmet." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourwebsite.com/page" />
+        <meta property="og:image" content="https://yourwebsite.com/image.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="React Helmet SEO Example" />
+        <meta name="twitter:description" content="Use react-helmet to optimize SEO in your React project." />
+        <meta name="twitter:image" content="https://yourwebsite.com/twitter-image.jpg" />
+      </Helmet>
+       
       <h3>Leave</h3>
 
       <a href="#" className="master-link" onClick={toggleMasterModal}>

@@ -14,6 +14,9 @@ import ShiftRoster from './assets/components/pages/Myfav/Employee/LEAVE/ShiftRos
 import AttendanceStatus from './assets/components/pages/Myfav/Employee/LEAVE/AttendanceStatus';
 
 import LeaveDetailsView from './assets/components/pages/Myfav/Employee/LEAVE/LeaveApproval';
+import CalendarPanel from './assets/components/pages/Myfav/Employee/LEAVE/Leave Calender';
+import LeaveCancelMonitor from './assets/components/pages/Myfav/Employee/LEAVE/Approve Leave Cancel';
+import DesignationManager from './assets/components/pages/Myfav/Employee/Other/Employee Position';
 
 
 
@@ -25,6 +28,9 @@ function App() {
         <Body/>
      
       </div>
+      <DesignationManager/>
+<LeaveCancelMonitor/>
+      <CalendarPanel/>
       <LeaveDetailsView/>
       <ShiftRoster/>
       <AttendanceStatus/>

@@ -1,0 +1,118 @@
+/* Container layout */
+.employee-container {
+  display: flex;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left sidebar menu */
+.sidebar {
+  width: 220px;
+  border-right: 1px solid #ccc;
+  padding-right: 1rem;
+}
+
+.sidebar .menu-item {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sidebar .menu-item:hover {
+  background-color: #f5f5ff;
+}
+
+.sidebar .menu-item.active {
+  background-color: #e0e0ff;
+  font-weight: bold;
+}
+
+/* Add category button */
+.add-category-btn {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #3344dd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Right content panel */
+.content {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+/* Input section */
+.input-section input[type="text"],
+.input-section input[type="number"] {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-section label {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+}
+
+.input-section .checkbox-label {
+  margin-top: 0.5rem;
+}
+
+.input-section .btn-group {
+  margin-top: 0.5rem;
+}
+
+.input-section .btn-group button {
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-section .btn-group .save-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.input-section .btn-group .cancel-btn {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Table styling */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f0f0f0;
+}
+
+/* Export button */
+.export-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #5555ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
