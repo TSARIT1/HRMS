@@ -12,7 +12,7 @@ const employeeList = [
 export default function AssignManager() {
   const [reportee, setReportee] = useState(null);
   const [manager, setManager] = useState(null);
-  const [isOpen, setIsOpen] = useState(true); // Controls modal visibility
+  const [isOpen, setIsOpen] = useState(true);  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,23 +22,21 @@ export default function AssignManager() {
       return;
     }
 
-    // Example: Log or send data to backend
-    console.log('Assigned:', {
+     console.log('Assigned:', {
       reportee: reportee.value,
       manager: manager.value,
     });
 
     alert(`Assigned!\nReportee: ${reportee.label}\nManager: ${manager.label}`);
 
-    // Close the modal
-    setIsOpen(false);
+     setIsOpen(false);
   };
 
   const handleCancel = () => {
     setIsOpen(false);
   };
 
-  if (!isOpen) return null; // Hide the modal if closed
+  if (!isOpen) return null;  
 
   return (
     <div className="assign-manager-backdrop">

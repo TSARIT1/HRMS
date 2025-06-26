@@ -17,6 +17,7 @@ import LeaveDetailsView from './assets/components/pages/Myfav/Employee/LEAVE/Lea
 import CalendarPanel from './assets/components/pages/Myfav/Employee/LEAVE/Leave Calender';
 import LeaveCancelMonitor from './assets/components/pages/Myfav/Employee/LEAVE/Approve Leave Cancel';
 import DesignationManager from './assets/components/pages/Myfav/Employee/Other/Employee Position';
+import CompanyInfoForm from './assets/components/pages/Myfav/Employee/Other/CompanyInfoForm';
 
 
 
@@ -28,9 +29,9 @@ function App() {
         <Body/>
      
       </div>
+      <CompanyInfoForm/>
       <DesignationManager/>
 <LeaveCancelMonitor/>
-      <CalendarPanel/>
       <LeaveDetailsView/>
       <ShiftRoster/>
       <AttendanceStatus/>
