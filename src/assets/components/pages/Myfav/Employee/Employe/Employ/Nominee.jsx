@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './NominationDetailsForm.css';
 const NominationDetailsForm = () => {
   const [nominationFor, setNominationFor] = useState('');
   const [familyMember, setFamilyMember] = useState('');

@@ -4,20 +4,19 @@ import Body from './assets/components/pages/body';
 import Header from './assets/components/header';
 import SettingsPage from './assets/components/SettingsPage';
 
-import GenerateLetter from './assets/components/pages/Myfav/Employee/preletter';
+import GenerateLetter from './assets/components/pages/Myfav/Employee/Employe/Employ/preletter';
 import LopFormPage from './assets/components/pages/Myfav/Employee/PAYROL/Deduct LOP';
-import LopSummaryPage from './assets/components/pages/Myfav/Employee/lopsummary';
-import ActionPopup from './assets/components/pages/Myfav/popup';
+import LopSummaryPage from './assets/components/pages/Myfav/Employee/LEAVE/lopsummary';
+import ActionPopup from './assets/components/pages/popup';
+import EmployeeQuickAdd from './assets/components/pages/Myfav/Employee/Employe/Employ/Addemployee';
+import AssignManager from './assets/components/pages/Myfav/Employee/Employe/Employ/Assignmanager';
+import BankDetailsForm from './assets/components/pages/Myfav/Employee/Employe/Employ/bankdetails';
+import ExcelImporterApp from './assets/components/pages/Myfav/Employee/Employe/Employ/Bulkdata';
+import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Employe/Employ/Nominee';
+import CreateForm from './assets/components/pages/Myfav/Employee/Employe/Employ/Policy';
+import EmployeeSearch from './assets/components/pages/Myfav/Employee/Employe/Employ/updateemp.no';
+import GenerateEmployeePassword from './assets/components/pages/Myfav/Employee/Employe/Employ/Regenerate password';
 
-
-import ShiftRoster from './assets/components/pages/Myfav/Employee/LEAVE/ShiftRoster';
-import AttendanceStatus from './assets/components/pages/Myfav/Employee/LEAVE/AttendanceStatus';
-
-import LeaveDetailsView from './assets/components/pages/Myfav/Employee/LEAVE/LeaveApproval';
-import CalendarPanel from './assets/components/pages/Myfav/Employee/LEAVE/Leave Calender';
-import LeaveCancelMonitor from './assets/components/pages/Myfav/Employee/LEAVE/Approve Leave Cancel';
-import DesignationManager from './assets/components/pages/Myfav/Employee/Other/Employee Position';
-import CompanyInfoForm from './assets/components/pages/Myfav/Employee/Other/CompanyInfoForm';
 
 
 
@@ -29,14 +28,22 @@ function App() {
         <Body/>
      
       </div>
-      <CompanyInfoForm/>
-      <DesignationManager/>
-<LeaveCancelMonitor/>
-      <LeaveDetailsView/>
-      <ShiftRoster/>
-      <AttendanceStatus/>
+   
        <Routes>
-        <Route path="/Actions" element={<ActionPopup/>} />
+              <Route path="/prepletter" element={<GenerateLetter/>} />
+              <Route path="/addemployee" element={<EmployeeQuickAdd/>} />
+<Route path="/assignmanager" element={<AssignManager/>} />
+<Route path="/bankdetails" element={<BankDetailsForm/>} />
+<Route path="/excel" element={<ExcelImporterApp/>} />
+<Route path="/Nomine" element={<NominationDetailsForm/>} />
+<Route path="/policy" element={<CreateForm/>} />
+<Route path="/update emp" element={<EmployeeSearch/>} />
+<Route path="/Repassword" element={<GenerateEmployeePassword/>} />
+
+
+
+
+        <Route path="/add fav" element={<ActionPopup/>} />
 
         <Route path="/Sit" element={<SettingsPage/>} />
         <Route path="/preletter" element={<GenerateLetter/>} />

@@ -26,8 +26,7 @@ const Header = () => {
   const fileInputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
+   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setSettingsOpen(false);
@@ -37,8 +36,7 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close dropdown on ESC key
-  useEffect(() => {
+   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setSettingsOpen(false);
@@ -48,8 +46,7 @@ const Header = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Add scroll effect on header
-  useEffect(() => {
+   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -75,8 +72,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Sidebar */}
-      <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <h3 className="sidebar-title">Your Apps</h3>
           <button className="close-btn" onClick={toggleSidebar} aria-label="Close menu">

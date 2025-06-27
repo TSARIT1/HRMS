@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './updateemp.no.css'
 const EmployeeSearch = () => {
   const mockEmployeeData = {
     id: 1,
@@ -42,7 +42,7 @@ const EmployeeSearch = () => {
     Series: ${newSeries}
     New Emp No: ${revisedEmpNo}
     Reason: ${reason}`);
-    
+
     setEmployee((prev) => ({
       ...prev,
       empNo: revisedEmpNo,
@@ -57,9 +57,43 @@ const EmployeeSearch = () => {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Segoe UI" }}>
+      <style>
+        {`
+          .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+          }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .slide-down {
+            animation: slideDown 0.6s ease-out;
+          }
+
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
+
       {!employee ? (
         <>
-          <h2>Search Employee Details</h2>
+          <h2 className="slide-down">Search Employee Details</h2>
           <input
             type="text"
             placeholder="Search by Emp No/ Name"
@@ -73,6 +107,7 @@ const EmployeeSearch = () => {
         </>
       ) : (
         <div
+          className="fade-in"
           style={{
             border: "1px solid #ddd",
             padding: "20px",
@@ -102,7 +137,6 @@ const EmployeeSearch = () => {
             >
               <option value="">Select Series</option>
               <option value="Manual Entry">Manual Entry</option>
-             
             </select>
           </div>
           <div style={{ marginBottom: "10px" }}>

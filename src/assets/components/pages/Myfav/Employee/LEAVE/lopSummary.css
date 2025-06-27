@@ -1,0 +1,55 @@
+.lop-summary-container {
+  padding: 30px;
+  font-family: sans-serif;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.lop-summary-container h2 {
+  margin-bottom: 20px;
+}
+
+.lop-summary-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.lop-summary-container button:hover {
+  background-color: #0056b3;
+}
+
+.lop-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lop-table th,
+.lop-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.lop-table thead {
+  background-color: #f9f9f9;
+}
+
+.lop-table button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: red;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
