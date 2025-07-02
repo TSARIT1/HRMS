@@ -74,12 +74,16 @@ const LeaveH = () => {
 
           <li className={`dropdown-group ${openDropdowns.employee ? 'open' : ''}`}>
             <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
-              <span className="sidebar-icon"><FcManager /></span>Employee
+              <span className="sidebar-icon"><FcManager /></span>PayRoll
             </div>
-             
+            <ul className="dropdown-menu">
+              <li><Link to="/employee/list" className="sidebar-sublink" onClick={toggleSidebar}>Information</Link></li>
+              <li><Link to="/employee/add" className="sidebar-sublink" onClick={toggleSidebar}>Add Employee</Link></li>
+              <li><Link to="/employee/attendance" className="sidebar-sublink" onClick={toggleSidebar}>Attendance</Link></li>
+            </ul>
           </li>
 
-          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
+          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Information</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
           <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
           <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
@@ -113,13 +117,13 @@ const LeaveH = () => {
            
             <ul className="nav-menu">
 <li className="nav-item">
-                <Link to="/main">Employee</Link>
+                <Link to="/main">Leave</Link>
                 </li>
                <li className="nav-item dropdown">
                 <Link to="#">Main</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Analytics Hub</Link></li>
-                  <li><Link to="/admin/roles">Organisation Chart </Link></li>
+                  <li><Link to="/admin/users">Leave Calender</Link></li>
+                  <li><Link to="/admin/roles">Who Is In </Link></li>
 
                 </ul>
               </li>
@@ -129,13 +133,12 @@ const LeaveH = () => {
 <li className="nav-item dropdown">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/bank">Bank/PF/ESI</Link></li>
-                  <li><Link to="/admin/roles">Family Details </Link></li>
-                <li><Link to="/admin/roles">Position History</Link></li>
-                <li><Link to="/admin/roles">Separation</Link></li>
-                <li><Link to="/nomine">Nomination Details</Link></li>
-                                <li><Link to="/admin/roles">Employee Documents</Link></li>
-                                <li><Link to="/spay">Employee Salary</Link></li>
+                  <li><Link to="/admin/users">Employee Leave</Link></li>
+                  <li><Link to="/admin/roles">Shift Roster </Link></li>
+                <li><Link to="/admin/roles">Employee Swips</Link></li>
+                <li><Link to="/admin/roles">Regulations and Permissions</Link></li>
+                <li><Link to="/amuster">Attendance Muster</Link></li>
+                                <li><Link to="/astatus">Attendance Info</Link></li>
 
 
                 </ul>
@@ -144,10 +147,11 @@ const LeaveH = () => {
 <li className="nav-item dropdown">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/gletter">Generate Letter</Link></li>
-                  <li><Link to="/eimport">Excel Import </Link></li>
-                <li><Link to="/admin/roles">Bulletin Board</Link></li>
-                                <li><Link to="/admin/roles">Mass Communication</Link></li>
+                  <li><Link to="/lapproval">Leave Granter</Link></li>
+                  <li><Link to="/admin/roles">Year End Process </Link></li>
+                <li><Link to="/admin/roles">Process Attendance</Link></li>
+                                <li><Link to="/aperiod">Attendance Period Finalisation</Link></li>
+                <li><Link to="/admin/roles">Manual Override</Link></li>
 
 
                 </ul>
@@ -155,8 +159,7 @@ const LeaveH = () => {
               <li className="nav-item dropdown">
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/policy">Company Policies</Link></li>
-                  <li><Link to="/admin/users">Employee Segment</Link></li>
+                  <li><Link to="/admin/users">Holiday List</Link></li>
 
                 </ul>
               </li>

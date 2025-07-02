@@ -2,13 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Mainpage.css';
 
-
 // Icons
+import { FcAdvance, FcHome, FcManager, FcLeave, FcWorkflow } from "react-icons/fc";
 import { FaSearch, FaRupeeSign } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { FaPersonCane } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { FcHome, FcManager, FcLeave, FcWorkflow } from "react-icons/fc";
 import { MdOutlineLocalOffer, MdReport, MdOutlineAdd } from "react-icons/md";
 import { LuMessageCircleOff } from "react-icons/lu";
 import { BsPersonFill } from "react-icons/bs";
@@ -25,7 +24,6 @@ const DashboardPage = () => {
   const fileInputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // Header: Settings dropdown and scroll listener
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -49,7 +47,6 @@ const DashboardPage = () => {
     };
   }, []);
 
-  // Body: Greeting based on time
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting('Good Morning');
@@ -73,12 +70,12 @@ const DashboardPage = () => {
   const sidebarItems = [
     { path: "/", name: "Homepage", icon: <FcHome /> },
     { path: "/EmployeeH", name: "Employee", icon: <FcManager /> },
-    { path: "/payroll", name: "Payroll", icon: <FaRupeeSign /> },
-    { path: "/leave", name: "Leave", icon: <FcLeave /> },
-    { path: "/expense-claims", name: "Expense Claims", icon: <MdOutlineLocalOffer /> },
-    { path: "/engage", name: "Engage", icon: <LuMessageCircleOff /> },
-    { path: "/workflow", name: "Workflow", icon: <FcWorkflow /> },
-    { path: "/reports", name: "Reports", icon: <MdReport /> },
+    { path: "/PayrollH", name: "Payroll", icon: <FaRupeeSign /> },
+    { path: "/LeaveH", name: "Leave", icon: <FcLeave /> },
+    { path: "/WorkflowH", name: "Workflow", icon: <FcWorkflow /> },
+    { path: "/EngageH", name: "Engage", icon: <LuMessageCircleOff /> },
+    { path: "/ReportH", name: "Reports", icon: <MdReport /> },
+    { path: "/expense-claims", name: "Unite Marketplace", icon: <MdOutlineLocalOffer /> },
   ];
 
   const settingsItems = [
@@ -129,7 +126,12 @@ const DashboardPage = () => {
             <span className="menu-line bottom"></span>
           </button>
 
-          <div className="logo-container" onClick={triggerFileInput} role="button" tabIndex={0}>
+          <div
+            className="logo-container"
+            onClick={triggerFileInput}
+            role="button"
+            tabIndex={0}
+          >
             <div className="logo-backdrop">
               {logo ? (
                 <img src={logo} alt="Company Logo" className="logo-image" />
@@ -173,7 +175,7 @@ const DashboardPage = () => {
                   <Link key={path} to={path} className="dropdown-item" role="menuitem">
                     <span className="item-icon">{icon}</span>
                     <span className="item-text">{name}</span>
-                    <span className="item-arrow">→</span>
+                    <span className="item-arrow"><FcAdvance /></span>
                   </Link>
                 ))}
               </div>
@@ -193,7 +195,7 @@ const DashboardPage = () => {
           <Link to="/" className="nav-btn">Welcome</Link>
           <Link to="/dashboard" className="nav-btn">Dashboard</Link>
         </div>
-
+<section>
         <div className="top-section">
           <div className="text-content">
             <h1>{greeting},</h1>
@@ -204,14 +206,16 @@ const DashboardPage = () => {
             <img src="/sun.webp" alt="Sun" className="sun" />
           </div>
         </div>
-
-        <h2>My Favourites</h2>
+</section>
+        <section>
+           <h2>My Favourites</h2>
         <div className="favourites-grid">
+         
           <Link to="/Actionpopup" className="favourite-card add-card">
             <MdOutlineAdd className="add-icon" />
           </Link>
         </div>
-
+</section>
         <h2>Help Links</h2>
         <div className="help-links">
           <Link to="/community" className="btn-link">TSar It Community</Link>

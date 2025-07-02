@@ -5,7 +5,7 @@ import { FcBusinessman, FcMoneyTransfer, FcCalendar } from "react-icons/fc";
 import { BsBookmarkPlus } from "react-icons/bs";
 
 const actions = [
-  { title: 'Prepare Letter', category: 'Employee', icon: <FcBusinessman />, path: '/prepletter' },
+  {title: 'Prepare Letter', category: 'Employee', icon: <FcBusinessman />, path: '/prepletter'},
   { title: 'Import Data From Excel', category: 'Employee', icon: <FcBusinessman />, path: '/excel' },
   { title: 'Regenerate Employee Password', category: 'Employee', icon: <FcBusinessman />, path: '/Repassword' },
   { title: 'Delete Employee', category: 'Employee', icon: <FcBusinessman />, path: '/deleteemp' },

@@ -330,7 +330,7 @@ body, html {
 
 .skyline-img {
   width: 100%;
-  height: auto;
+  height: 95%;
 }
 
 .sun {
@@ -338,7 +338,7 @@ body, html {
   top: 10px;
   right: 20px;
   width: 150px;
-  height: 150px;
+  height: 130px;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -355,14 +355,14 @@ body, html {
   justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
-  padding: 0 2rem;
+  padding-top: 8rem;
   animation: fadeInUp 0.6s ease forwards;
 }
 
 .nav-btn {
   background-color: #eef3ff;
   color: #333;
-  padding: 0.5rem 15rem;
+  padding: 0.6rem 15rem;
   text-decoration: none;
   border-radius: 8px;
   border: 1px solid #c9c9c9;

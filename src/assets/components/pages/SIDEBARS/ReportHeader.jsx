@@ -12,7 +12,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { GrUserAdmin, GrSystem } from "react-icons/gr";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
-const LeaveH = () => {
+const ReportH = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [logo, setLogo] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -76,7 +76,11 @@ const LeaveH = () => {
             <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
               <span className="sidebar-icon"><FcManager /></span>Employee
             </div>
-             
+            <ul className="dropdown-menu">
+              <li><Link to="/employee/list" className="sidebar-sublink" onClick={toggleSidebar}>Information</Link></li>
+              <li><Link to="/employee/add" className="sidebar-sublink" onClick={toggleSidebar}>Add Employee</Link></li>
+              <li><Link to="/employee/attendance" className="sidebar-sublink" onClick={toggleSidebar}>Attendance</Link></li>
+            </ul>
           </li>
 
           <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
@@ -113,54 +117,21 @@ const LeaveH = () => {
            
             <ul className="nav-menu">
 <li className="nav-item">
-                <Link to="/main">Employee</Link>
+                <Link to="/main">Report</Link>
                 </li>
                <li className="nav-item dropdown">
-                <Link to="#">Main</Link>
+                <Link to="#">Reports</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Analytics Hub</Link></li>
-                  <li><Link to="/admin/roles">Organisation Chart </Link></li>
-
+                  <li><Link to="/admin/users">Reports Gallery</Link></li>
+                  <li><Link to="/admin/roles">Query Builder</Link></li>
                 </ul>
               </li>
 
-
-
-<li className="nav-item dropdown">
-                <Link to="#">Information</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/bank">Bank/PF/ESI</Link></li>
-                  <li><Link to="/admin/roles">Family Details </Link></li>
-                <li><Link to="/admin/roles">Position History</Link></li>
-                <li><Link to="/admin/roles">Separation</Link></li>
-                <li><Link to="/nomine">Nomination Details</Link></li>
-                                <li><Link to="/admin/roles">Employee Documents</Link></li>
-                                <li><Link to="/spay">Employee Salary</Link></li>
-
-
-                </ul>
-              </li>
               
-<li className="nav-item dropdown">
-                <Link to="#">Admin</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/gletter">Generate Letter</Link></li>
-                  <li><Link to="/eimport">Excel Import </Link></li>
-                <li><Link to="/admin/roles">Bulletin Board</Link></li>
-                                <li><Link to="/admin/roles">Mass Communication</Link></li>
 
-
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <Link to="#">SetUp</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/policy">Company Policies</Link></li>
-                  <li><Link to="/admin/users">Employee Segment</Link></li>
-
-                </ul>
-              </li>
            
+
+
             </ul>
           </nav>
 
@@ -230,4 +201,4 @@ const LeaveH = () => {
   );
 };
 
-export default LeaveH;
+export default ReportH;

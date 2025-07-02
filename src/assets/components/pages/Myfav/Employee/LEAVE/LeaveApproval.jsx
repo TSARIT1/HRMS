@@ -55,7 +55,7 @@ const leaveData = [
   },
 ];
 
-export default function LeaveMonitor() {
+export default function LeaveApproval() {
   const [expandedId, setExpandedId] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [selectedLeave, setSelectedLeave] = useState(null);

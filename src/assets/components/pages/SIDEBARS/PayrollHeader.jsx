@@ -12,7 +12,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { GrUserAdmin, GrSystem } from "react-icons/gr";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
-const PayrollH = () => {
+const LeaveH = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [logo, setLogo] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -74,16 +74,12 @@ const PayrollH = () => {
 
           <li className={`dropdown-group ${openDropdowns.employee ? 'open' : ''}`}>
             <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
-              <span className="sidebar-icon"><FcManager /></span>PayRoll
+              <span className="sidebar-icon"><FcManager /></span>Employee
             </div>
-            <ul className="dropdown-menu">
-              <li><Link to="/employee/list" className="sidebar-sublink" onClick={toggleSidebar}>Information</Link></li>
-              <li><Link to="/employee/add" className="sidebar-sublink" onClick={toggleSidebar}>Add Employee</Link></li>
-              <li><Link to="/employee/attendance" className="sidebar-sublink" onClick={toggleSidebar}>Attendance</Link></li>
-            </ul>
+             
           </li>
 
-          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Information</Link></li>
+          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
           <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
           <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
@@ -116,80 +112,82 @@ const PayrollH = () => {
           <nav className="topnav">
            
             <ul className="nav-menu">
-
-              <li className="nav-item dropdown">
-                                   <Link to="#">Employee</Link>               
-              
-                
-                 <Link to="#">Information</Link>
-                 <li className="nav-item dropdown">
-                
-                <ul className="dropdown-menu">
-                  <li><Link to="/info/company">Company Info</Link></li>
-                  <li><Link to="/info/policies">Policies</Link></li>
-                </ul>
-              </li>
-                
-                <ul className="dropdown-menu">
-                  <li><Link to="/employee/add">Add Employee</Link></li>
-                  <li><Link to="/employee/view">View Employee</Link></li>
-                  <li><Link to="/employee/settings">Employee Settings</Link></li>
-                </ul>
-              </li>
-
-              <li className="nav-item">
-                <Link to="/main">Payroll Inputs</Link>
+<li className="nav-item">
+                <Link to="/main">Payroll</Link>
                 </li>
+               <li className="nav-item dropdown">
+                <Link to="#">Information</Link>
+                <ul className="dropdown-menu">
+                  <li><Link to="/admin/users">Salary Revision History</Link></li>
+                  <li><Link to="/admin/roles">Salary Revision Analatics </Link></li>
 
+                </ul>
+              </li>
 
-              <li className="nav-item dropdown">
+<li className="nav-item dropdown">
+                <Link to="#">Payroll Inputs</Link>
+                <ul className="dropdown-menu">
+                  <li><Link to="/admin/users">Salary</Link></li>
+                  <li><Link to="/admin/roles">Salary Revisions</Link></li>
+                  <li><Link to="/admin/roles">Income Tax</Link></li>
+                  <li><Link to="/lop">Employee LOP Deduction</Link></li>
+                  <li><Link to="/admin/roles">Stop Salary Processing</Link></li>
+                  <li><Link to="/admin/roles">Final Settlement</Link></li>
+
+                </ul>
+              </li>
+<li className="nav-item dropdown">
                 <Link to="#">Process</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/info/company">Company Info</Link></li>
-                  <li><Link to="/info/policies">Policies</Link></li>
+                  <li><Link to="/admin/users">Payroll Process</Link></li>
+
                 </ul>
               </li>
-
-
-              <li className="nav-item dropdown">
-                <Link to="#">verify</Link>
+<li className="nav-item dropdown">
+                <Link to="#">Verify</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">User Management</Link></li>
-                  <li><Link to="/admin/roles">Roles</Link></li>
-                  <li><Link to="/admin/permissions">Permissions</Link></li>
+                  <li><Link to="/sstatement">Quick Salary Statement</Link></li>
+                  <li><Link to="/proll">Payroll Statement </Link></li>
+
                 </ul>
               </li>
-
-
-                <li className="nav-item dropdown">
+<li className="nav-item dropdown">
                 <Link to="#">Payout</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">User Management</Link></li>
-                  <li><Link to="/admin/roles">Roles</Link></li>
-                  <li><Link to="/admin/permissions">Permissions</Link></li>
+                  <li><Link to="/admin/users">Bank Transfer</Link></li>
+                  <li><Link to="/pslip">Payslips </Link></li>
+
                 </ul>
               </li>
-                 <li className="nav-item dropdown">
-                <Link to="#">Published</Link>
+
+
+<li className="nav-item dropdown">
+                <Link to="#">Published Info</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/setup/config">Configuration</Link></li>
-                  <li><Link to="/setup/preferences">Preferences</Link></li>
+                  <li><Link to="/pslip">Payslip</Link></li>
+                  <li><Link to="/bank">IT Statement</Link></li>
+                  <li><Link to="/rit">IT Declaration</Link></li>
+
+
                 </ul>
               </li>
-                 <li className="nav-item dropdown">
+              
+<li className="nav-item dropdown">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/setup/config">Configuration</Link></li>
-                  <li><Link to="/setup/preferences">Preferences</Link></li>
+                  <li><Link to="/rit">Employee IT Declaration</Link></li>
+                  
+
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <Link to="#">SetUP</Link>
+                <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/setup/config">Configuration</Link></li>
-                  <li><Link to="/setup/preferences">Preferences</Link></li>
+                  <li><Link to="/policy">Pay Item Group</Link></li>
+
                 </ul>
               </li>
+           
             </ul>
           </nav>
 
@@ -259,4 +257,4 @@ const PayrollH = () => {
   );
 };
 
-export default PayrollH;
+export default LeaveH;
