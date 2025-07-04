@@ -9,7 +9,7 @@ const employees = [
     email: "Aadesh@fsd.com",
     department: "Core Department",
     location: "Bangalore",
-    leave: { granted: 4, lapsed: 1 },
+    leave: { granted: 4, lapsed: 1 }, 
     reports: 5,
   },
   {

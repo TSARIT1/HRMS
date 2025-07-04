@@ -1,53 +1,55 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './popup.css';
-import { FcBusinessman, FcMoneyTransfer, FcCalendar } from "react-icons/fc";
-import { BsBookmarkPlus } from "react-icons/bs";
+import { FcBusinessman, FcMoneyTransfer, FcCalendar } from 'react-icons/fc';
+import { BsBookmarkPlus } from 'react-icons/bs';
 
 const actions = [
-  {title: 'Prepare Letter', category: 'Employee', icon: <FcBusinessman />, path: '/prepletter'},
+  { title: 'Prepare Letter', category: 'Employee', icon: <FcBusinessman />, path: '/prepletter' },
   { title: 'Import Data From Excel', category: 'Employee', icon: <FcBusinessman />, path: '/excel' },
   { title: 'Regenerate Employee Password', category: 'Employee', icon: <FcBusinessman />, path: '/Repassword' },
-  { title: 'Delete Employee', category: 'Employee', icon: <FcBusinessman />, path: '/deleteemp' },
-  { title: 'Update Employee Data', category: 'Employee', icon: <FcBusinessman />, path: '/update-emp' },
-  { title: 'Update Bank Details', category: 'Employee', icon: <FcBusinessman />, path: '/bankdetails' },
-  { title: 'Add Nomination Details', category: 'Employee', icon: <FcBusinessman />, path: '/Nomine' },
   { title: 'Add Employee', category: 'Employee', icon: <FcBusinessman />, path: '/addemployee' },
-  { title: 'Upload Forms / Policies', category: 'Employee', icon: <FcBusinessman />, path: '/policy' },
   { title: 'Assign Manager', category: 'Employee', icon: <FcBusinessman />, path: '/assignmanager' },
-
-  { title: 'Deduct Loss Of Pay(LOP)', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Print / Email Payslips', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Settle Resigned Employee', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Revise Employee Salary', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Release IT Declaration Form', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Download IT Declaration For TDS', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Generate Payroll Data', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-  { title: 'Release Payslip To Employees', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/exclude-payroll' },
-
-  { title: 'Add Holiday', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Grant Leave', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Attendance Muster', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Shift Roster', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Attendance Period Finalization', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Who Is In ?', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'View Employee Attandance', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Approve Leave', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-  { title: 'Approve Leave Cancellation', category: 'Leave', icon: <FcCalendar />, path: '/exclude-payroll' },
-
-  { title: 'Employee Position', category: 'Other', icon: <BsBookmarkPlus />, path: '/exclude-payroll' },
-  { title: 'Update Company Details', category: 'Other', icon: <BsBookmarkPlus />, path: '/exclude-payroll' },
+  { title: 'Bank Details', category: 'Employee', icon: <FcBusinessman />, path: '/bankdetails' },
+  { title: 'Add Nomination Details', category: 'Employee', icon: <FcBusinessman />, path: '/Nomine' },
+  { title: 'Upload Forms / Policies', category: 'Employee', icon: <FcBusinessman />, path: '/policy' },
+  { title: 'Update Employee Data', category: 'Employee', icon: <FcBusinessman />, path: '/update-emp' },
+  { title: 'Deduct Loss Of Pay (LOP)', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/lop' },
+  { title: 'Print / Email Payslips', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/spay' },
+  { title: 'Settle Resigned Employee', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/proll' },
+  { title: 'Revise Employee Salary', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/sstatement' },
+  { title: 'Release IT Declaration Form', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/eit' },
+  { title: 'Grant Leave', category: 'Leave', icon: <FcCalendar />, path: '/leave' },
+  { title: 'Attendance Muster', category: 'Leave', icon: <FcCalendar />, path: '/amuster' },
+  { title: 'Shift Roster', category: 'Leave', icon: <FcCalendar />, path: '/sroster' },
+  { title: 'Attendance Period Finalization', category: 'Leave', icon: <FcCalendar />, path: '/aperiod' },
+  { title: 'Approve Leave', category: 'Leave', icon: <FcCalendar />, path: '/l1' },
+  { title: 'Update Company Details', category: 'Other', icon: <BsBookmarkPlus />, path: '/security' },
 ];
 
-const categories = ['All', 'My Favourites', 'Employee', 'Payroll', 'Other'];
+const categories = ['All', 'My Favourites', 'Employee', 'Payroll', 'Leave', 'Other'];
 
-export default function ActionPopup() {
+export default function ActionPopup({ onClose }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [search, setSearch] = useState('');
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
-  // Filter actions based on selected category and search term
+  // Warn if onClose not provided
+  useEffect(() => {
+    if (typeof onClose !== 'function') {
+      console.warn('ActionPopup: onClose prop is not a function or is missing.');
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && typeof onClose === 'function') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   const filtered = actions.filter((action) => {
     const matchesCategory =
       selectedCategory === 'All' ||
@@ -58,7 +60,6 @@ export default function ActionPopup() {
     return matchesCategory && matchesSearch;
   });
 
-  // Toggle favorite status for an action
   const toggleFavorite = (e, path) => {
     e.stopPropagation();
     e.preventDefault();
@@ -67,59 +68,75 @@ export default function ActionPopup() {
     );
   };
 
-  // Navigate to the selected form
- const handleClick = (path) => {
-  navigate(path);  // Correct usage
-};
+  const handleClick = (path) => {
+    navigate(path);
+    if (typeof onClose === 'function') onClose();
+  };
 
-
-  // Update selected category based on button click
-  const handleCategoryClick = (cat) => {
-    setSelectedCategory(cat);
+  const handleClose = () => {
+    console.log('Close button clicked');
+    if (typeof onClose === 'function') onClose();
   };
 
   return (
-    <div className="popup-overlay">
-      <div className="popup-container fade-in">
-        <button className="popup-close" onClick={() => navigate(-1)}>×</button>
-        <h2 className="popup-title">Search</h2>
-        <input
-          type="text"
-          placeholder="Search here"
-          className="popup-search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <div className="popup-categories">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleCategoryClick(cat)}
-              className={`popup-category ${selectedCategory === cat ? 'active' : ''}`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-        <div className="popup-grid">
-          {filtered.map((action, index) => (
+  <div
+    className="popup-overlay"
+    onClick={(e) => {
+      // Close only if the overlay itself is clicked, not inner elements
+      if (e.target.classList.contains('popup-overlay')) {
+        handleClose();
+      }
+    }}
+  >
+    <div className="popup-container" onClick={(e) => e.stopPropagation()}>
+      <button
+        className="popup-close"
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent bubbling
+          handleClose();       // Close popup
+        }}
+      >
+        ×
+      </button>
+
+      <h2 className="popup-title">Quick Actions</h2>
+      <input
+        type="text"
+        placeholder="Search here"
+        className="popup-search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <div className="popup-categories">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`popup-category ${selectedCategory === cat ? 'active' : ''}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+      <div className="popup-grid">
+        {filtered.map((action, index) => (
+          <div
+            key={index}
+            className="popup-tile"
+            onClick={() => handleClick(action.path)}
+          >
+            <div className="popup-icon">{action.icon}</div>
+            <div className="popup-label">{action.title}</div>
             <div
-              key={index}
-              className="popup-tile pop"
-              onClick={() => handleClick(action.path)}
+              className={`popup-star ${favorites.includes(action.path) ? 'filled' : ''}`}
+              onClick={(e) => toggleFavorite(e, action.path)}
             >
-              <div className="popup-icon">{action.icon}</div>
-              <div className="popup-label">{action.title}</div>
-              <div
-                className={`popup-star ${favorites.includes(action.path) ? 'filled' : ''}`}
-                onClick={(e) => toggleFavorite(e, action.path)}
-              >
-                {favorites.includes(action.path) ? '★' : '☆'}
-              </div>
+              {favorites.includes(action.path) ? '★' : '☆'}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
-  );
+  </div>
+);
 }

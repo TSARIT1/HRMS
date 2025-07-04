@@ -1,0 +1,36 @@
+.profile-card {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.profile-row label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.profile-row input,
+.profile-row select,
+.profile-row textarea {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}

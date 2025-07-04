@@ -74,16 +74,12 @@ const LeaveH = () => {
 
           <li className={`dropdown-group ${openDropdowns.employee ? 'open' : ''}`}>
             <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
-              <span className="sidebar-icon"><FcManager /></span>PayRoll
+              <span className="sidebar-icon"><FcManager /></span>Employee
             </div>
-            <ul className="dropdown-menu">
-              <li><Link to="/employee/list" className="sidebar-sublink" onClick={toggleSidebar}>Information</Link></li>
-              <li><Link to="/employee/add" className="sidebar-sublink" onClick={toggleSidebar}>Add Employee</Link></li>
-              <li><Link to="/employee/attendance" className="sidebar-sublink" onClick={toggleSidebar}>Attendance</Link></li>
-            </ul>
+        
           </li>
 
-          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Information</Link></li>
+          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
           <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
           <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
@@ -133,8 +129,8 @@ const LeaveH = () => {
 <li className="nav-item dropdown">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Employee Leave</Link></li>
-                  <li><Link to="/admin/roles">Shift Roster </Link></li>
+                  <li><Link to="/leave">Employee Leave</Link></li>
+                  <li><Link to="/sroster">Shift Roster </Link></li>
                 <li><Link to="/admin/roles">Employee Swips</Link></li>
                 <li><Link to="/admin/roles">Regulations and Permissions</Link></li>
                 <li><Link to="/amuster">Attendance Muster</Link></li>

@@ -146,8 +146,8 @@ const WorkflowH = () => {
                 <Link to="#">Track</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Regulations and Permisssions</Link></li>
-                  <li><Link to="/leave">Leave </Link></li>
-                <li><Link to="/leave">Leave Cancle</Link></li>
+                  <li><Link to="/l1">Leave </Link></li>
+                <li><Link to="/l1">Leave Cancle</Link></li>
 
                 </ul>
               </li>

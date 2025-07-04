@@ -12,7 +12,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { GrUserAdmin, GrSystem } from "react-icons/gr";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
-const LeaveH = () => {
+const PayrollH = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [logo, setLogo] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -257,4 +257,4 @@ const LeaveH = () => {
   );
 };
 
-export default LeaveH;
+export default PayrollH;
