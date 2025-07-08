@@ -12,7 +12,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { GrUserAdmin, GrSystem } from "react-icons/gr";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
-const LeaveH = () => {
+const LeaveHe = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [logo, setLogo] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -65,27 +65,27 @@ const LeaveH = () => {
           </button>
         </div>
 
-        <ul className="sidebar-menu">
-          <li>
-            <Link to="/" className="sidebar-link" onClick={toggleSidebar}>
-              <span className="sidebar-icon"><FcHome /></span>Homepage
-            </Link>
-          </li>
-
-          <li className={`dropdown-group ${openDropdowns.employee ? 'open' : ''}`}>
-            <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
-              <span className="sidebar-icon"><FcManager /></span>Employee
-            </div>
-        
-          </li>
-
-          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
-          <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-          <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
-          <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
-          <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-          <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
-        </ul>
+         <ul className="sidebar-menu">
+                 <li>
+                   <Link to="/" className="sidebar-link" onClick={toggleSidebar}>
+                     <span className="sidebar-icon"><FcHome /></span>Homepage
+                   </Link>
+                 </li>
+       
+                 <li className={`dropdown-group ${openDropdowns.employee ? 'open' : ''}`}>
+                   <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
+                     <span className="sidebar-icon"><FcManager /></span>Employee
+                   </div>
+                 
+                 </li>
+       
+                 <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
+                 <li><Link to="/leavehe" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
+                 <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
+                 <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
+                 <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
+                 <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
+               </ul>
 
         <div className="sidebar-footer">
           <div className="user-profile">
@@ -115,7 +115,7 @@ const LeaveH = () => {
 <li className="nav-item">
                 <Link to="/main">Leave</Link>
                 </li>
-               <li className="nav-item dropdown">
+               <li className="nav-item">
                 <Link to="#">Main</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Leave Calender</Link></li>
@@ -126,7 +126,7 @@ const LeaveH = () => {
 
 
 
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/leave">Employee Leave</Link></li>
@@ -140,7 +140,7 @@ const LeaveH = () => {
                 </ul>
               </li>
               
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/lapproval">Leave Granter</Link></li>
@@ -152,7 +152,7 @@ const LeaveH = () => {
 
                 </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Holiday List</Link></li>
@@ -229,4 +229,4 @@ const LeaveH = () => {
   );
 };
 
-export default LeaveH;
+export default LeaveHe;

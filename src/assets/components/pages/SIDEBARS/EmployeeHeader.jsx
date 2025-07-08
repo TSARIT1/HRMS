@@ -1,16 +1,37 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './EmployeeHeader.css';
-import { FaSearch, FaRupeeSign, FaUserCircle } from "react-icons/fa";
-import { CiSettings } from "react-icons/ci";
-import { CgProfile } from "react-icons/cg";
-import { FcHome, FcManager, FcLeave, FcWorkflow } from "react-icons/fc";
-import { MdOutlineLocalOffer, MdReport } from "react-icons/md";
-import { LuMessageCircleOff } from "react-icons/lu";
-import { BsPersonFill } from "react-icons/bs";
-import { IoSettingsOutline } from "react-icons/io5";
-import { GrUserAdmin, GrSystem } from "react-icons/gr";
-import { RiLogoutCircleLine } from "react-icons/ri";
+
+import {
+  FaSearch, FaRupeeSign, FaUserCircle
+} from 'react-icons/fa';
+import {
+  CiSettings
+} from 'react-icons/ci';
+import {
+  CgProfile
+} from 'react-icons/cg';
+import {
+  FcHome, FcManager, FcLeave, FcWorkflow
+} from 'react-icons/fc';
+import {
+  MdOutlineLocalOffer, MdReport
+} from 'react-icons/md';
+import {
+  LuMessageCircleOff
+} from 'react-icons/lu';
+import {
+  BsPersonFill
+} from 'react-icons/bs';
+import {
+  IoSettingsOutline
+} from 'react-icons/io5';
+import {
+  GrUserAdmin, GrSystem
+} from 'react-icons/gr';
+import {
+  RiLogoutCircleLine
+} from 'react-icons/ri';
 
 const EmployeeH = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -24,8 +45,12 @@ const EmployeeH = () => {
 
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
   const toggleSettings = () => setSettingsOpen(prev => !prev);
+
   const toggleDropdown = (key) => {
-    setOpenDropdowns(prev => ({ ...prev, [key]: !prev[key] }));
+    setOpenDropdowns(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
   };
 
   useEffect(() => {
@@ -76,7 +101,7 @@ const EmployeeH = () => {
             <div className="sidebar-link dropdown-toggle" onClick={() => toggleDropdown("employee")}>
               <span className="sidebar-icon"><FcManager /></span>Employee
             </div>
-             
+          
           </li>
 
           <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
@@ -108,59 +133,48 @@ const EmployeeH = () => {
             <span className="menu-line bottom"></span>
           </button>
 
-          {/* TOPNAV BAR MENU */}
           <nav className="topnav">
-           
             <ul className="nav-menu">
-<li className="nav-item">
-                <Link to="/main">Employee</Link>
-                </li>
-               <li className="nav-item dropdown">
+              <li className="nav-item"><Link to="/main">Employee</Link></li>
+
+              <li className="nav-item">
                 <Link to="#">Main</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Analytics Hub</Link></li>
-                  <li><Link to="/admin/roles">Organisation Chart </Link></li>
-
+                  <li><Link to="/admin/roles">Organisation Chart</Link></li>
                 </ul>
               </li>
 
-
-
-<li className="nav-item dropdown">
+              <li className="nav-item">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/bank">Bank/PF/ESI</Link></li>
-                  <li><Link to="/admin/roles">Family Details </Link></li>
-                <li><Link to="/admin/roles">Position History</Link></li>
-                <li><Link to="/admin/roles">Separation</Link></li>
-                <li><Link to="/nomine">Nomination Details</Link></li>
-                                <li><Link to="/admin/roles">Employee Documents</Link></li>
-                                <li><Link to="/spay">Employee Salary</Link></li>
-
-
+                  <li><Link to="/admin/roles">Family Details</Link></li>
+                  <li><Link to="/admin/roles">Position History</Link></li>
+                  <li><Link to="/admin/roles">Separation</Link></li>
+                  <li><Link to="/nomine">Nomination Details</Link></li>
+                  <li><Link to="/admin/roles">Employee Documents</Link></li>
+                  <li><Link to="/spay">Employee Salary</Link></li>
                 </ul>
               </li>
-              
-<li className="nav-item dropdown">
+
+              <li className="nav-item">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/gletter">Generate Letter</Link></li>
-                  <li><Link to="/eimport">Excel Import </Link></li>
-                <li><Link to="/admin/roles">Bulletin Board</Link></li>
-                                <li><Link to="/admin/roles">Mass Communication</Link></li>
-
-
+                  <li><Link to="/eimport">Excel Import</Link></li>
+                  <li><Link to="/admin/roles">Bulletin Board</Link></li>
+                  <li><Link to="/admin/roles">Mass Communication</Link></li>
                 </ul>
               </li>
-              <li className="nav-item dropdown">
+
+              <li className="nav-item">
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/policy">Company Policies</Link></li>
                   <li><Link to="/admin/users">Employee Segment</Link></li>
-
                 </ul>
               </li>
-           
             </ul>
           </nav>
 
@@ -199,6 +213,7 @@ const EmployeeH = () => {
                 <span className="icon-emoji"><CiSettings /></span>
                 <span className="tooltip">Settings</span>
               </button>
+
               <div className={`dropdown-menu ${settingsOpen ? 'open' : ''}`}>
                 <div className="dropdown-header">
                   <span className="settings-icon"><CiSettings /></span>

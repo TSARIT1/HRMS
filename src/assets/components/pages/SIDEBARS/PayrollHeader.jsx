@@ -115,7 +115,7 @@ const PayrollH = () => {
 <li className="nav-item">
                 <Link to="/main">Payroll</Link>
                 </li>
-               <li className="nav-item dropdown">
+               <li className="nav-item">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Salary Revision History</Link></li>
@@ -124,7 +124,7 @@ const PayrollH = () => {
                 </ul>
               </li>
 
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Payroll Inputs</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Salary</Link></li>
@@ -136,14 +136,14 @@ const PayrollH = () => {
 
                 </ul>
               </li>
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Process</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Payroll Process</Link></li>
 
                 </ul>
               </li>
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Verify</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/sstatement">Quick Salary Statement</Link></li>
@@ -151,7 +151,7 @@ const PayrollH = () => {
 
                 </ul>
               </li>
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Payout</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Bank Transfer</Link></li>
@@ -161,7 +161,7 @@ const PayrollH = () => {
               </li>
 
 
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Published Info</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/pslip">Payslip</Link></li>
@@ -172,7 +172,7 @@ const PayrollH = () => {
                 </ul>
               </li>
               
-<li className="nav-item dropdown">
+<li className="nav-item">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/rit">Employee IT Declaration</Link></li>
@@ -180,7 +180,7 @@ const PayrollH = () => {
 
                 </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/policy">Pay Item Group</Link></li>

@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Mainpage.css';
 
-// Icons (organized alphabetically)
 import { BsPersonFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
@@ -68,13 +67,12 @@ const DashboardPage = () => {
 
   const sidebarItems = [
     { path: "/", name: "Homepage", icon: <FcHome /> },
-    { path: "/EH", name: "Employee", icon: <FcManager /> },
-    { path: "/PH", name: "Payroll", icon: <FaRupeeSign /> },
-    { path: "/LH", name: "Leave", icon: <FcLeave /> },
-    { path: "/WH", name: "Workflow", icon: <FcWorkflow /> },
-    { path: "/EH", name: "Engage", icon: <LuMessageCircleOff /> },
-    { path: "/RH", name: "Reports", icon: <MdReport /> },
-    { path: "/expense-claims", name: "Unite Marketplace", icon: <MdOutlineLocalOffer /> },
+    { path: "/employe", name: "Employee", icon: <FcManager /> },
+    { path: "/payroll", name: "Payroll", icon: <FaRupeeSign /> },
+    { path: "/leavehe", name: "Leave", icon: <FcLeave /> },
+    { path: "/engage", name: "Engage", icon: <LuMessageCircleOff /> },
+    { path: "/workflow", name: "Workflow", icon: <FcWorkflow /> },
+    { path: "/reports", name: "Reports", icon: <MdReport /> },
   ];
 
   const settingsItems = [

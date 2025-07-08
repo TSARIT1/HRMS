@@ -197,3 +197,12 @@ footer {
 .footer-link:hover {
   background-color: #f3f4f6;
 }
+/* Optional styles */
+.table th, .table td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+select:invalid {
+  color: gray;
+}

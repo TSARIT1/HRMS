@@ -34,6 +34,11 @@ import Password from './assets/PROFILE/password';
 import LoginHistory from './assets/PROFILE/login history';
 import CompanyInfoForm from './assets/components/pages/Myfav/Employee/Other/CompanyInfoForm';
 import System from './assets/PROFILE/systemsettings';
+import LeaveHe from './assets/components/pages/SIDEBARS/LeaveHeader';
+import AnalyticsHub from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/AnalyticsHub';
+import Family from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/FAMILY DETAILS';
+import EmployeeManager from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/FAMILY DETAILS';
+import PositionHistory from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/Position History';
 
 
 function App() {
@@ -42,6 +47,8 @@ function App() {
     <Router>
 
       <Routes>
+     
+
 
                   <Route path="/popup" element={<ActionPopup/>} />
 
@@ -79,11 +86,11 @@ function App() {
           <Route path="/aperiod" element={<LeavePeriodFinalization/>} />
 
           {/* Sidebars */}
-          <Route path="/EH" element={<EmployeeH/>} />
-          <Route path="/PH" element={<PayrollH/>} />
-          <Route path="/WH" element={<WorkflowH/>} />
-          <Route path="/LH" element={<LeaveH/>} />
-          <Route path="/RH" element={<ReportH/>} />
+          <Route path="/employe" element={<EmployeeH/>} />
+          <Route path="/payroll" element={<PayrollH/>} />
+          <Route path="/workflow" element={<WorkflowH/>} />
+          <Route path="/leavehe" element={<LeaveHe/>} />
+          <Route path="/report" element={<ReportH/>} />
 
           {/* Settings & Popups */}
           <Route path="/Sit" element={<SettingsPage />} />
@@ -98,7 +105,8 @@ function App() {
 
 
       </Routes>
-    </Router>
+     
+</Router>
   );
 }
 
