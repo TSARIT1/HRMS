@@ -39,6 +39,8 @@ import AnalyticsHub from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/AnalyticsHub
 import Family from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/FAMILY DETAILS';
 import EmployeeManager from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/FAMILY DETAILS';
 import PositionHistory from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/Position History';
+import Employee_Seperation from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/Seperation';
+import EmployeeDocuments from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP DOCUMENTS';
 
 
 function App() {
@@ -105,7 +107,7 @@ function App() {
 
 
       </Routes>
-     
+     <EmployeeDocuments/>
 </Router>
   );
 }

@@ -15,6 +15,70 @@
   display: flex;
   flex-direction: column;
 }
+/* General Button Style */
+button,
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4f46e5; /* Indigo */
+  color: white;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover,
+.button:hover {
+  background-color: #4338ca; /* Darker Indigo */
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+}
+
+button:active,
+.button:active {
+  background-color: #3730a3;
+  transform: translateY(1px);
+}
+
+/* Disabled state */
+button:disabled,
+.button:disabled {
+  background-color: #c7d2fe;
+  color: #e5e7eb;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Register Button (override specific style if needed) */
+.webinar-card .register {
+  background: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.webinar-card .register:hover {
+  background-color: #4338ca;
+}
+
+/* Tabs Button (Refined style) */
+.tabs button {
+  background: transparent;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4f46e5;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.tabs .active {
+  background: #c7d2fe;
+  color: #1e1e2f;
+}
 
 .sidebar h3 {
   font-size: 14px;
@@ -85,13 +149,13 @@
   padding: 8px 20px;
   cursor: pointer;
   font-size: 14px;
-  color: #4f46e5;
+  color: #e8e7f5;
   transition: background 0.3s, color 0.3s;
 }
 
 .tabs .active {
-  background: #4f46e5;
-  color: #fff;
+  background: #d4d3ed;
+  color: #212121;
 }
 
 /* Icons */
