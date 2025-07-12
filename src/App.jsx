@@ -41,6 +41,15 @@ import EmployeeManager from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/FAMILY DE
 import PositionHistory from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/Position History';
 import Employee_Seperation from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/Seperation';
 import EmployeeDocuments from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP DOCUMENTS';
+import EmpSal from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP Bulletin';
+import SalaryRevision from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP Bulletin';
+import Bulletin from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP Bulletin';
+import MassCommunication from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP MassCommunication';
+import PayrollSAL from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY  Salary';
+import SalaryRevisionDashboard from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY SalaryRevisionDashboard';
+import SalaryRevisionTable from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Salary Revision';
+import IncomeTaxSummary from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
+import EmployeeTaxInfo from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
 
 
 function App() {
@@ -107,7 +116,7 @@ function App() {
 
 
       </Routes>
-     <EmployeeDocuments/>
+<EmployeeTaxInfo/>
 </Router>
   );
 }

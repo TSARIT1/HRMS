@@ -1,0 +1,40 @@
+.status-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.status-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.table-header-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-header {
+  padding: 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #444;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.status-footer {
+  font-size: 14px;
+  color: #666;
+}

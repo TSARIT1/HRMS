@@ -1,0 +1,143 @@
+/* PayrollSAL.css */
+
+.payroll-container {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.payroll-main {
+  flex: 3;
+}
+
+.payroll-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.blue-text {
+  color: #1e90ff;
+  font-weight: 500;
+}
+
+.employee-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.avatar {
+  background-color: #e0e0e0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.muted {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.timestamp {
+  background-color: #e6f0ff;
+  color: #1a73e8;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.button-group button {
+  margin-left: 0.5rem;
+}
+
+.primary-btn {
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.outline-btn {
+  border: 1px solid #1e90ff;
+  background: white;
+  color: #1e90ff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary-btn:hover, .outline-btn:hover {
+  opacity: 0.9;
+}
+
+.component-list {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.component-item {
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+.component-item summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #f5f5f5;
+}
+
+.component-value {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.payroll-details {
+  flex: 1;
+  background-color: #f0f6ff;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.payroll-details h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.employee-search-list {
+  margin-top: 0.5rem;
+  padding-left: 0;
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.employee-search-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.employee-search-list li:hover {
+  background-color: #f1f1f1;
+}

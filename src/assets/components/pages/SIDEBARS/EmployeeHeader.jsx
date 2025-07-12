@@ -172,7 +172,6 @@ const EmployeeH = () => {
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/policy">Company Policies</Link></li>
-                  <li><Link to="/admin/users">Employee Segment</Link></li>
                 </ul>
               </li>
             </ul>
