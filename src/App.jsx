@@ -50,6 +50,8 @@ import SalaryRevisionDashboard from './assets/SIDEBAR EXTRA Forms/PAY payrool/PA
 import SalaryRevisionTable from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Salary Revision';
 import IncomeTaxSummary from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
 import EmployeeTaxInfo from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
+import EmployeeLOPTracker from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Employee LOP Days';
+import PAYEmployeeLOPDays from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Employee LOP Days';
 
 
 function App() {
@@ -116,7 +118,7 @@ function App() {
 
 
       </Routes>
-<EmployeeTaxInfo/>
+<PAYEmployeeLOPDays/>
 </Router>
   );
 }

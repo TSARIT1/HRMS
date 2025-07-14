@@ -22,7 +22,7 @@ const LopSummaryPage = () => {
   return (
     <div className="lop-summary-container">
       <h2>LOP Summary</h2>
-      <button onClick={() => navigate("/")}>Add New LOP</button>
+      <button onClick={() => navigate("/lop")}>Add New LOP</button>
 
       <table className="lop-table">
         <thead>
@@ -61,11 +61,7 @@ const LopSummaryPage = () => {
                 </motion.tr>
               ))
             ) : (
-              <motion.tr
-                key="empty"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
+              <motion.tr key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <td colSpan="8" className="no-data">
                   No LOP data available
                 </td>
