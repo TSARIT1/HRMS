@@ -1,0 +1,33 @@
+/* Existing styles remain the same */
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-results {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background: white;
+}
+
+.search-result-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.search-result-item:hover {
+  background-color: #f0f8ff;
+}
+
+.search-result-item.selected {
+  background-color: #cce0ff;
+  font-weight: bold;
+}

@@ -254,7 +254,7 @@ const EmployeeTaxInfo = () => {
             </div>
           </>
         ) : (
-          <p className="text-gray-600">You are viewing: <strong>{activeTab}</strong></p>
+          <p className="text-gray-600">You are viewing <strong>{activeTab}</strong></p>
         )}
       </div>
     </div>

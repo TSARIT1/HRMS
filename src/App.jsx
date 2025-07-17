@@ -52,13 +52,20 @@ import IncomeTaxSummary from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incom
 import EmployeeTaxInfo from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
 import EmployeeLOPTracker from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Employee LOP Days';
 import PAYEmployeeLOPDays from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Employee LOP Days';
+import StopSalaryProcessing from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY StopSalaryProcessing';
+import FinalSettlement from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY FinalSettlement';
+import PayrollProcess from './assets/SIDEBAR EXTRA Forms/PAY payrool/PayrollProcess';
+import ITStatement from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY ITStatement';
 
 
 function App() {
+  
+
   return (
+   
+  
 
     <Router>
-
       <Routes>
      
 
@@ -85,7 +92,7 @@ function App() {
           {/* Payroll */}
           <Route path="/lop" element={<LopFormPage/>} />
           <Route path="/s" element={<LopSummaryPage/>} />
-          <Route path="/eit" element={<EmployeeITDeclaration />} />
+          <Route path="/Eit" element={<EmployeeITDeclaration />} />
           <Route path="/sstatement" element={<SalaryStatement/>} />
           <Route path="/proll" element={<ExitSettlementForm/>} />
 
@@ -118,9 +125,10 @@ function App() {
 
 
       </Routes>
-<PAYEmployeeLOPDays/>
+<ITStatement/>
 </Router>
   );
+
 }
 
 export default App;

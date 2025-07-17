@@ -155,7 +155,7 @@ const PayrollH = () => {
                 <Link to="#">Payout</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/admin/users">Bank Transfer</Link></li>
-                  <li><Link to="/pslip">Payslips </Link></li>
+                  <li><Link to="/spay">Payslips </Link></li>
 
                 </ul>
               </li>
@@ -164,9 +164,9 @@ const PayrollH = () => {
 <li className="nav-item">
                 <Link to="#">Published Info</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/pslip">Payslip</Link></li>
+                  <li><Link to="/spay">Payslip</Link></li>
                   <li><Link to="/bank">IT Statement</Link></li>
-                  <li><Link to="/rit">IT Declaration</Link></li>
+                  <li><Link to="/Eit">IT Declaration</Link></li>
 
 
                 </ul>
@@ -175,7 +175,7 @@ const PayrollH = () => {
 <li className="nav-item">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/rit">Employee IT Declaration</Link></li>
+                  <li><Link to="/Eit">Employee IT Declaration</Link></li>
                   
 
                 </ul>

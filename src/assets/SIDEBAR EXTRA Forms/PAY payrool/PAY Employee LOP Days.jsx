@@ -153,12 +153,10 @@ const PAYEmployeeLOPDays = () => {
         </table>
       </div>
 
-      {/* Footer */}
       <div className="lop-footer">
         <span>Total Items: {filteredEmployees.length}</span>
       </div>
 
-      {/* Pagination Controls (Optional Placeholder) */}
       <div className="lop-pagination">
         <button>{'|<'}</button>
         <button>{'<'}</button>

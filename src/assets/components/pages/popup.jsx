@@ -18,7 +18,8 @@ const actions = [
   { title: 'Print / Email Payslips', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/spay' },
   { title: 'Settle Resigned Employee', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/proll' },
   { title: 'Revise Employee Salary', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/sstatement' },
-  { title: 'Release IT Declaration Form', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/eit' },
+
+  { title: 'Release IT Declaration Form', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/Eit' },
   { title: 'Grant Leave', category: 'Leave', icon: <FcCalendar />, path: '/leave' },
   { title: 'Attendance Muster', category: 'Leave', icon: <FcCalendar />, path: '/amuster' },
   { title: 'Shift Roster', category: 'Leave', icon: <FcCalendar />, path: '/sroster' },
@@ -35,20 +36,13 @@ export default function ActionPopup({ onClose }) {
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
-  // Warn if onClose not provided
-  useEffect(() => {
-    if (typeof onClose !== 'function') {
-      console.warn('ActionPopup: onClose prop is not a function or is missing.');
-    }
-  }, [onClose]);
-
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && typeof onClose === 'function') onClose();
+      if (e.key === 'Escape') handleClose();
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, []);
 
   const filtered = actions.filter((action) => {
     const matchesCategory =
@@ -70,73 +64,69 @@ export default function ActionPopup({ onClose }) {
 
   const handleClick = (path) => {
     navigate(path);
-    if (typeof onClose === 'function') onClose();
+    handleClose();
   };
 
   const handleClose = () => {
-    console.log('Close button clicked');
-    if (typeof onClose === 'function') onClose();
+    if (typeof onClose === 'function') {
+      onClose();  // This will notify the parent to hide the popup
+    }
   };
 
   return (
-  <div
-    className="popup-overlay"
-    onClick={(e) => {
-      // Close only if the overlay itself is clicked, not inner elements
-      if (e.target.classList.contains('popup-overlay')) {
-        handleClose();
-      }
-    }}
-  >
-    <div className="popup-container" onClick={(e) => e.stopPropagation()}>
-      <button
-        className="popup-close"
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent bubbling
-          handleClose();       // Close popup
-        }}
-      >
-        ×
-      </button>
+    <div
+      className="popup-overlay"
+      onClick={(e) => {
+        if (e.target.classList.contains('popup-overlay')) {
+          handleClose();
+        }
+      }}
+    >
+      <div className="popup-container" onClick={(e) => e.stopPropagation()}>
+        <button className="popup-close" onClick={handleClose}>
+          ×
+        </button>
 
-      <h2 className="popup-title">Quick Actions</h2>
-      <input
-        type="text"
-        placeholder="Search here"
-        className="popup-search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className="popup-categories">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`popup-category ${selectedCategory === cat ? 'active' : ''}`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-      <div className="popup-grid">
-        {filtered.map((action, index) => (
-          <div
-            key={index}
-            className="popup-tile"
-            onClick={() => handleClick(action.path)}
-          >
-            <div className="popup-icon">{action.icon}</div>
-            <div className="popup-label">{action.title}</div>
-            <div
-              className={`popup-star ${favorites.includes(action.path) ? 'filled' : ''}`}
-              onClick={(e) => toggleFavorite(e, action.path)}
+        <h2 className="popup-title">Quick Actions</h2>
+        <input
+          type="text"
+          placeholder="Search here"
+          className="popup-search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <div className="popup-categories">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`popup-category ${selectedCategory === cat ? 'active' : ''}`}
             >
-              {favorites.includes(action.path) ? '★' : '☆'}
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="popup-grid">
+          {filtered.map((action, index) => (
+            <div
+              key={index}
+              className="popup-tile"
+              onClick={() => handleClick(action.path)}
+            >
+              <div className="popup-icon">{action.icon}</div>
+              <div className="popup-label">{action.title}</div>
+              <div
+                className={`popup-star ${favorites.includes(action.path) ? 'filled' : ''}`}
+                onClick={(e) => toggleFavorite(e, action.path)}
+              >
+                {favorites.includes(action.path) ? '★' : '☆'}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 }
