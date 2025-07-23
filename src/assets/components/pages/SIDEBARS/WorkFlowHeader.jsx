@@ -85,9 +85,7 @@ const WorkflowH = () => {
 
           <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-          <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
           <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-          <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
         </ul>
 
         <div className="sidebar-footer">
@@ -118,43 +116,24 @@ const WorkflowH = () => {
 <li className="nav-item">
                 <Link to="/main">WorkFlow</Link>
                 </li>
-               <li className="nav-item">
-                <Link to="#">Monitor</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Regulations and Permisssions</Link></li>
-                  <li><Link to="/admin/roles">Leave </Link></li>
-                <li><Link to="/admin/roles">Leave Cancle</Link></li>
-
-                </ul>
-              </li>
-
+      
 
 
 <li className="nav-item">
                 <Link to="#">Review</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Regulations and Permisssions</Link></li>
-                  <li><Link to="/admin/roles">Leave </Link></li>
-                <li><Link to="/admin/roles">Leave Cancle</Link></li>
-                <li><Link to="/admin/roles">Employee Onboarding</Link></li>
+                
+                <li><Link to="/W Onboard">Employee Onboarding</Link></li>
 
                 </ul>
               </li>
               
-<li className="nav-item">
-                <Link to="#">Track</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Regulations and Permisssions</Link></li>
-                  <li><Link to="/l1">Leave </Link></li>
-                <li><Link to="/l1">Leave Cancle</Link></li>
 
-                </ul>
-              </li>
               <li className="nav-item">
                 <Link to="#">SetUp</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">WorkFlow Leavels</Link></li>
-                  <li><Link to="/admin/roles">WorkFlow Reviewers Types </Link></li>
+                  <li><Link to="/W leavels">WorkFlow Leavels</Link></li>
+                  <li><Link to="/W reviewers">WorkFlow Reviewers Types </Link></li>
 
                 </ul>
               </li>

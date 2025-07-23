@@ -85,10 +85,8 @@ const ReportH = () => {
 
           <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-          <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
           <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
           <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-          <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
         </ul>
 
         <div className="sidebar-footer">

@@ -1,4 +1,3 @@
-// LeaveDetailsView.js
 import React from "react";
 import "./LeaveDetailsView.css";
 

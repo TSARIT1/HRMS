@@ -81,10 +81,7 @@ const LeaveHe = () => {
        
                  <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
                  <li><Link to="/leavehe" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-                 <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
-                 <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
                  <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-                 <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
                </ul>
 
         <div className="sidebar-footer">
@@ -115,14 +112,7 @@ const LeaveHe = () => {
 <li className="nav-item">
                 <Link to="/main">Leave</Link>
                 </li>
-               <li className="nav-item">
-                <Link to="#">Main</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Leave Calender</Link></li>
-                  <li><Link to="/admin/roles">Who Is In </Link></li>
-
-                </ul>
-              </li>
+           
 
 
 
@@ -131,8 +121,6 @@ const LeaveHe = () => {
                 <ul className="dropdown-menu">
                   <li><Link to="/leave">Employee Leave</Link></li>
                   <li><Link to="/sroster">Shift Roster </Link></li>
-                <li><Link to="/admin/roles">Employee Swips</Link></li>
-                <li><Link to="/admin/roles">Regulations and Permissions</Link></li>
                 <li><Link to="/amuster">Attendance Muster</Link></li>
                                 <li><Link to="/astatus">Attendance Info</Link></li>
 
@@ -144,21 +132,13 @@ const LeaveHe = () => {
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/lapproval">Leave Granter</Link></li>
-                  <li><Link to="/admin/roles">Year End Process </Link></li>
-                <li><Link to="/admin/roles">Process Attendance</Link></li>
+                <li><Link to="/PA">Process Attendance</Link></li>
                                 <li><Link to="/aperiod">Attendance Period Finalisation</Link></li>
-                <li><Link to="/admin/roles">Manual Override</Link></li>
 
 
                 </ul>
               </li>
-              <li className="nav-item">
-                <Link to="#">SetUp</Link>
-                <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Holiday List</Link></li>
-
-                </ul>
-              </li>
+              
            
             </ul>
           </nav>

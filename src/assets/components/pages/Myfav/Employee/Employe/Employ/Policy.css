@@ -1,62 +1,197 @@
+/* Container */
 .create-form-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 1.5rem;
+  max-width: 700px;
+  margin: 30px auto;
   background: #fff;
+  padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
 .create-form-container h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 1rem;
+  font-size: 22px;
   font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-input[type='text'],
-textarea,
-select,
-input[type='file'] {
+/* Form Elements */
+.create-form-container label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.create-form-container input,
+.create-form-container textarea,
+.create-form-container select {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
+  margin-top: 5px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.create-form-container textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
 .checkbox-label {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+/* Form Buttons Section */
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 25px;
+}
+
+.form-buttons button {
+  flex: 1 1 30%;
+  min-width: 100px;
+  padding: 10px 14px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.form-buttons button[type="button"] {
+  background-color: #6b7280;
+}
+
+.form-buttons button[type="button"]:hover {
+  background-color: #4b5563;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #2563eb;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background-color: #1e40af;
+}
+
+.manage-category-btn {
+  background-color: #10b981 !important;
+}
+
+.manage-category-btn:hover {
+  background-color: #059669 !important;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 90%;
+}
+
+.modal-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-content input {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.modal-content button:hover {
+  background-color: #1e40af;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.modal-content li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f4f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.modal-content li button {
+  background-color: #ef4444;
+  font-size: 12px;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+.modal-content li button:hover {
+  background-color: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-buttons button {
+    flex: 1 1 45%;
+  }
+
+  .create-form-container {
+    padding: 18px;
+  }
+}
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
 }
 
 .form-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-}
-
-
-
-
-.edit-btn {
-  margin-left: 10px;
-  background-color: #28a745;
-}
-
-.edit-btn:hover {
-  background-color: #218838;
-}
-
-.category-select-container {
-  display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .modal {
@@ -72,9 +207,8 @@ input[type='file'] {
 }
 
 .modal-content {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
 }

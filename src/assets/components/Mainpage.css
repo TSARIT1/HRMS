@@ -237,12 +237,14 @@ a:focus {
 
 .profile-name {
   font-size: var(--font-md);
+color: #1a1a2e;
   font-weight: 500;
 }
 
 .profile-role {
   font-size: var(--font-sm);
   opacity: 0.7;
+  color: #1a1a2e;
 }
 
 /* === Overlay === */

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Addemployee.css'
 export default function EmployeeQuickAdd() {
   const [formData, setFormData] = useState({
     name: '',
@@ -24,31 +24,43 @@ export default function EmployeeQuickAdd() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Employee saved!');
-    handleCancel();
+
+    try {
+      const response = await fetch('link', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Failed to save employee.');
+
+      alert('Employee saved successfully!');
+      console.log('Saved data:', formData);
+      handleCancel();
+    } catch (error) {
+      alert('Error saving employee.');
+      console.error(error);
+    }
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg border">
-      <h2 className="text-2xl font-semibold mb-6">Add New Employee</h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InputField label="Name *" name="name" value={formData.name} onChange={handleChange} />
-          <InputField label="Number *" name="number" value={formData.number} onChange={handleChange} />
-          <InputField label="Date of Joining *" name="doj" type="date" value={formData.doj} onChange={handleChange} />
-          <InputField label="Email *" name="email" type="email" value={formData.email} onChange={handleChange} />
-        </div>
+    <div className="employee-form">
+      <h2>Add New Employee</h2>
+      <form onSubmit={handleSubmit} className="form-grid">
+        <InputField label="Name *" name="name" value={formData.name} onChange={handleChange} />
+        <InputField label="Number *" name="number" value={formData.number} onChange={handleChange} />
+        <InputField label="Date of Joining *" name="doj" type="date" value={formData.doj} onChange={handleChange} />
+        <InputField label="Email *" name="email" type="email" value={formData.email} onChange={handleChange} />
 
-        <div>
-          <label className="block font-medium">Location</label>
+        <div className="form-field-full">
+          <label>Location</label>
           <select
             name="location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full mt-1 border border-gray-300 rounded p-2"
+            required
           >
             <option value="">Select</option>
             <option value="Hyderabad">Hyderabad</option>
@@ -57,20 +69,9 @@ export default function EmployeeQuickAdd() {
           </select>
         </div>
 
-        <div className="flex justify-end gap-4 pt-4">
-          <button
-            type="button"
-            onClick={handleCancel}
-            className="px-4 py-2 border border-gray-400 rounded hover:bg-gray-100"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Save
-          </button>
+        <div className="form-buttons">
+          <button type="button" onClick={handleCancel} className="btn btn-secondary">Cancel</button>
+          <button type="submit" className="btn btn-primary">Save</button>
         </div>
       </form>
     </div>
@@ -78,15 +79,14 @@ export default function EmployeeQuickAdd() {
 }
 
 const InputField = ({ label, name, value, onChange, type = 'text' }) => (
-  <div>
-    <label className="block font-medium">{label}</label>
+  <div className="form-field">
+    <label>{label}</label>
     <input
       name={name}
       type={type}
       value={value}
       onChange={onChange}
       required
-      className="w-full mt-1 border border-gray-300 rounded p-2"
     />
   </div>
 );

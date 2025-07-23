@@ -1,76 +1,88 @@
-/* lopSummary.css */
-
+/* Container to center entire content */
 .lop-summary-container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  overflow-x: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 20px;
 }
 
-/* General Form Styling */
-.lop-summary-container h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
 }
 
-.lop-summary-container button {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
+.header-row h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.add-btn {
+  background-color: #2563eb;
   color: white;
+  padding: 8px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
 }
 
-.lop-summary-container button:hover {
-  background-color: #0056b3;
+.add-btn:hover {
+  background-color: #1e40af;
 }
 
-/* Table Styling */
+.table-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  overflow-x: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
 .lop-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
 .lop-table th,
 .lop-table td {
   border: 1px solid #ddd;
-  padding: 0.75rem;
-  text-align: left;
-  white-space: nowrap;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .lop-table th {
-  background-color: #f1f1f1;
+  background-color: #f1f5f9;
   font-weight: 600;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
 }
 
 .no-data {
   text-align: center;
-  padding: 1rem;
   font-style: italic;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .lop-summary-container {
-    padding: 1rem;
-    width: 95%;
-  }
-
-  .lop-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .lop-summary-container button {
-    width: 100%;
-  }
+  color: #6b7280;
+  font-size: 15px;
+  padding: 20px 0;
 }

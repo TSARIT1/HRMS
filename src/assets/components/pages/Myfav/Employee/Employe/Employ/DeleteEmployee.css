@@ -1,126 +1,145 @@
 .delete-employee-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fdfdfd;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", sans-serif;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
-h2 {
+.delete-employee-container h2 {
   text-align: center;
-  color: #c0392b;
-  margin-bottom: 0.5rem;
+  margin-bottom: 5px;
 }
 
 .sub-text {
   text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 1.5rem;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .search-bar {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
   flex: 1;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
 .search-bar button {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  padding: 10px 16px;
+  font-size: 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
 }
 
-.search-bar button:first-of-type {
-  background: #2ecc71;
-  color: white;
+.search-btn {
+  background-color: #2563eb;
+  color: #fff;
 }
 
-.search-bar button:last-of-type {
-  background: #e0e0e0;
+.search-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.clear-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.clear-btn:hover {
+  background-color: #e5e7eb;
 }
 
 .emp-card {
-  border: 1px solid #eee;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: #fff;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  margin-top: 20px;
 }
 
 .emp-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .emp-avatar {
-  font-size: 3rem;
+  font-size: 40px;
+  background: #e0e7ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .emp-name {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .emp-id {
-  color: gray;
-  font-size: 0.9rem;
+  font-size: 12px;
+  color: #555;
 }
 
 .emp-details p {
-  margin: 0.4rem 0;
-  line-height: 1.4;
-}
-
-.emp-warning {
-  background: #ffe6e6;
-  padding: 0.7rem;
-  color: #a94442;
-  border-left: 4px solid #e74c3c;
-  margin-top: 1rem;
-  border-radius: 8px;
+  margin: 5px 0;
+  font-size: 14px;
 }
 
 .btn-group {
-  margin-top: 1.5rem;
   display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.btn-group button {
-  padding: 0.5rem 1rem;
+.delete-btn {
+  background-color: #dc2626;
+  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.btn-group button:first-of-type {
-  background: #e74c3c;
-  color: #fff;
+.delete-btn:hover {
+  background-color: #b91c1c;
 }
 
-.btn-group button:last-of-type {
-  background: #bdc3c7;
-  color: #333;
+.cancel-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #e5e7eb;
 }
 
 .no-selection {
   text-align: center;
-  color: #999;
-  margin-top: 2rem;
+  color: #666;
+  margin-top: 40px;
 }

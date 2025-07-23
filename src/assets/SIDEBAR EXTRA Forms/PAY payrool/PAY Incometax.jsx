@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RefreshCcw, Trash2 } from 'lucide-react';
+import './PAY Incometax.css';
 
 const EmployeeTaxInfo = () => {
   const [search, setSearch] = useState('');
@@ -10,20 +11,61 @@ const EmployeeTaxInfo = () => {
   const [surcharge, setSurcharge] = useState(0);
   const [eduCess, setEduCess] = useState(0);
 
-  const [employee, setEmployee] = useState({
-    name: 'Aadesh Hiralal Sonar',
-    id: '6266',
-    joinDate: '01 Apr 2021',
-    dob: '02 Sep 1990',
-    gender: 'Male',
-    location: 'Bangalore',
-    taxRegime: 'NEW TAX REGIME',
-    processedTime: 'Today at 4:09 PM',
-    totalIncome: '₹2,29,250.00',
-  });
+  const employeeList = [
+    {
+      name: 'Aadesh Hiralal Sonar',
+      id: '6266',
+      joinDate: '01 Apr 2021',
+      dob: '02 Sep 1990',
+      gender: 'Male',
+      location: 'Bangalore',
+      taxRegime: 'NEW TAX REGIME',
+      processedTime: 'Today at 4:09 PM',
+      totalIncome: '₹2,29,250.00',
+    },
+    {
+      name: 'Neha Sharma',
+      id: '6272',
+      joinDate: '12 Jun 2020',
+      dob: '14 Mar 1988',
+      gender: 'Female',
+      location: 'Mumbai',
+      taxRegime: 'OLD TAX REGIME',
+      processedTime: 'Today at 3:45 PM',
+      totalIncome: '₹3,50,000.00',
+    },
+    {
+      name: 'Ravi Kumar',
+      id: '6291',
+      joinDate: '05 Jan 2022',
+      dob: '09 Nov 1992',
+      gender: 'Male',
+      location: 'Hyderabad',
+      taxRegime: 'NEW TAX REGIME',
+      processedTime: 'Today at 11:20 AM',
+      totalIncome: '₹2,80,000.00',
+    },
+  ];
 
-  const handleSearch = () => alert(`Searching for: ${search}`);
-  const handleEditToggle = () => setEditing(!editing);
+  const [employee, setEmployee] = useState(employeeList[0]);
+
+  const handleSearch = () => {
+    const match = employeeList.find(
+      (emp) =>
+        emp.name.toLowerCase().includes(search.toLowerCase()) ||
+        emp.id === search
+    );
+
+    if (match) {
+      setEmployee(match);
+    } else {
+      alert('No employee found.');
+    }
+  };
+
+  const handleEditToggle = () => {
+    setEditing(!editing);
+  };
 
   const tabs = [
     'Income',
@@ -40,221 +82,173 @@ const EmployeeTaxInfo = () => {
   const incomeFromPreviousEmployer = [
     {
       month: 'Aug',
-      incomeAfterExemptions: 12,
+      incomeAfterExemptions: 12000,
       professionalTax: 233,
-      pf: 33,
-      nps: 44,
-      totalTax: 112,
-      incomeTax: 55,
-      surcharge: 55,
-      cess: 2,
+      pf: 330,
+      nps: 440,
+      totalTax: 1120,
+      incomeTax: 550,
+      surcharge: 550,
+      cess: 20,
     },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white shadow rounded">
-      {/* Search */}
-      <div className="flex items-center mb-6 gap-2">
+    <div className="tax-container">
+      <div className="top-controls">
         <input
           type="text"
-          className="border border-gray-300 rounded px-3 py-2 w-64"
+          className="input"
           placeholder="Search employee..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-          Search
-        </button>
-        <button onClick={handleEditToggle} className="ml-auto bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
-          {editing ? 'Save' : 'Edit Info'}
-        </button>
+        <button onClick={handleSearch} className="btn blue">Search</button>
+        <button onClick={handleEditToggle} className="btn yellow">{editing ? 'Save' : 'Edit Info'}</button>
       </div>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap gap-4 border-b mb-4">
+      <div className="tabs">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`py-2 px-3 text-blue-500 hover:text-blue-700 border-b-2 ${
-              activeTab === tab ? 'border-blue-500 font-semibold' : 'border-transparent'
-            }`}
+            className={`tab ${activeTab === tab ? 'active-tab' : ''}`}
           >
             {tab}
           </button>
         ))}
       </div>
 
-      {/* Info Card */}
-      <div className="bg-blue-100 p-4 rounded mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-white text-lg">
-              👤
-            </div>
-            <div>
-              <div className="text-lg font-bold text-blue-900">{employee.name}</div>
-              <div className="text-sm text-blue-700">#{employee.id}</div>
-            </div>
+      <div className="employee-card">
+        <div className="employee-header">
+          <div className="avatar">👤</div>
+          <div>
+            <div className="name">{employee.name}</div>
+            <div className="id">#{employee.id}</div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mt-4 sm:mt-0 text-sm text-blue-900">
-            <div><strong>Join Date:</strong><br />{employee.joinDate}</div>
-            <div><strong>DOB:</strong><br />{editing ? <input className="border rounded px-1" value={employee.dob} onChange={(e) => setEmployee({ ...employee, dob: e.target.value })} /> : employee.dob}</div>
-            <div><strong>Gender:</strong><br />{employee.gender}</div>
-            <div><strong>Location:</strong><br />{editing ? <input className="border rounded px-1" value={employee.location} onChange={(e) => setEmployee({ ...employee, location: e.target.value })} /> : employee.location}</div>
-            <div><strong>Processed:</strong><br />{employee.processedTime}</div>
-            <div><strong>Tax Regime:</strong><br /><span className="text-green-600">{employee.taxRegime}</span></div>
+        </div>
+        <div className="employee-info">
+          <div><strong>Join Date:</strong><br />{employee.joinDate}</div>
+          <div>
+            <strong>DOB:</strong><br />
+            {editing ? (
+              <input
+                className="info-input"
+                value={employee.dob}
+                onChange={(e) => setEmployee({ ...employee, dob: e.target.value })}
+              />
+            ) : (
+              employee.dob
+            )}
           </div>
+          <div><strong>Gender:</strong><br />{employee.gender}</div>
+          <div>
+            <strong>Location:</strong><br />
+            {editing ? (
+              <input
+                className="info-input"
+                value={employee.location}
+                onChange={(e) => setEmployee({ ...employee, location: e.target.value })}
+              />
+            ) : (
+              employee.location
+            )}
+          </div>
+          <div><strong>Processed:</strong><br />{employee.processedTime}</div>
+          <div><strong>Tax Regime:</strong><br /><span className="green">{employee.taxRegime}</span></div>
         </div>
       </div>
 
-      {/* Income Summary */}
-      <div className="text-xl font-semibold mb-4">
-        Total Income : <span className="text-gray-800">{employee.totalIncome}</span>
+      <div className="total-income">
+        Total Income: <span>{employee.totalIncome}</span>
       </div>
 
-      {/* Tab Contents */}
-      <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <div className="tab-content">
         {activeTab === 'Income From Previous Employer' ? (
-          <>
-            <div className="overflow-x-auto">
-              <table className="min-w-full text-left text-sm border border-gray-300">
-                <thead className="bg-blue-100 text-gray-700 font-semibold">
-                  <tr>
-                    <th className="px-3 py-2">Month</th>
-                    <th className="px-3 py-2">Income After Exemptions</th>
-                    <th className="px-3 py-2">Professional Tax</th>
-                    <th className="px-3 py-2">PF</th>
-                    <th className="px-3 py-2">Employer NPS</th>
-                    <th className="px-3 py-2">Total Tax</th>
-                    <th className="px-3 py-2">Income Tax</th>
-                    <th className="px-3 py-2">Surcharge</th>
-                    <th className="px-3 py-2">Cess</th>
-                    <th className="px-3 py-2">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {incomeFromPreviousEmployer.map((row, idx) => (
-                    <tr key={idx} className="bg-white border-t">
-                      <td className="px-3 py-2">{row.month}</td>
-                      <td className="px-3 py-2">₹{row.incomeAfterExemptions.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.professionalTax.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.pf.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.nps.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.totalTax.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.incomeTax.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.surcharge.toFixed(2)}</td>
-                      <td className="px-3 py-2">₹{row.cess.toFixed(2)}</td>
-                      <td className="px-3 py-2 flex gap-2">
-                        <button className="text-red-600 hover:text-red-800"><Trash2 size={16} /></button>
-                        <button className="text-blue-600 hover:text-blue-800"><RefreshCcw size={16} /></button>
-                      </td>
-                    </tr>
+          <div className="table-wrapper">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  {['Month', 'Income After Exemptions', 'Professional Tax', 'PF', 'Employer NPS', 'Total Tax', 'Income Tax', 'Surcharge', 'Cess', 'Actions'].map(header => (
+                    <th key={header}>{header}</th>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                {incomeFromPreviousEmployer.map((row, i) => (
+                  <tr key={i}>
+                    <td>{row.month}</td>
+                    <td>₹{row.incomeAfterExemptions}</td>
+                    <td>₹{row.professionalTax}</td>
+                    <td>₹{row.pf}</td>
+                    <td>₹{row.nps}</td>
+                    <td>₹{row.totalTax}</td>
+                    <td>₹{row.incomeTax}</td>
+                    <td>₹{row.surcharge}</td>
+                    <td>₹{row.cess}</td>
+                    <td className="action-buttons">
+                      <button className="icon-btn red"><Trash2 size={16} /></button>
+                      <button className="icon-btn blue"><RefreshCcw size={16} /></button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-            {/* Footer Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center mt-6">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded">Back To Salary</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Save</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Preview</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Download</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Recalculate</button>
+            <div className="footer-buttons">
+              {["Back To Salary", "Save", "Preview", "Download", "Recalculate"].map((label, i) => (
+                <button key={i} className="btn border-blue">{label}</button>
+              ))}
             </div>
-          </>
+          </div>
         ) : activeTab === 'Result' ? (
           <>
-            {/* Tax Inputs */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-              <label className="flex flex-col text-sm font-medium">
-                Income Tax
-                <input
-                  type="number"
-                  className="border px-2 py-1 rounded"
-                  value={incomeTax}
-                  onChange={(e) => setIncomeTax(Number(e.target.value))}
-                />
+            <div className="result-inputs">
+              <label>Income Tax
+                <input type="number" value={incomeTax} onChange={(e) => setIncomeTax(Number(e.target.value))} />
               </label>
-              <label className="flex flex-col text-sm font-medium">
-                Surcharge
-                <input
-                  type="number"
-                  className="border px-2 py-1 rounded"
-                  value={surcharge}
-                  onChange={(e) => setSurcharge(Number(e.target.value))}
-                />
+              <label>Surcharge
+                <input type="number" value={surcharge} onChange={(e) => setSurcharge(Number(e.target.value))} />
               </label>
-              <label className="flex flex-col text-sm font-medium">
-                Education Cess
-                <input
-                  type="number"
-                  className="border px-2 py-1 rounded"
-                  value={eduCess}
-                  onChange={(e) => setEduCess(Number(e.target.value))}
-                />
+              <label>Education Cess
+                <input type="number" value={eduCess} onChange={(e) => setEduCess(Number(e.target.value))} />
               </label>
-              <label className="flex flex-col text-sm font-medium">
-                Total
-                <input
-                  type="number"
-                  className="border px-2 py-1 rounded bg-gray-100"
-                  value={incomeTax + surcharge + eduCess}
-                  readOnly
-                />
+              <label>Total
+                <input type="number" readOnly value={incomeTax + surcharge + eduCess} />
               </label>
             </div>
 
-            {/* Tax Summary Table */}
-            <div className="overflow-auto border border-gray-300 mb-4">
-              <table className="w-full text-sm">
-                <thead className="bg-blue-100">
-                  <tr>
-                    <th className="px-4 py-2">Description</th>
-                    <th className="px-4 py-2 text-right">Income Tax</th>
-                    <th className="px-4 py-2 text-right">Surcharge</th>
-                    <th className="px-4 py-2 text-right">Edu. Cess</th>
-                    <th className="px-4 py-2 text-right">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    'Paid Till Date',
-                    'Deduction Through Payroll',
-                    'Direct TDS',
-                    'Previous Employment',
-                    'Total',
-                    'Annual Tax Balance',
-                    'Monthly Tax to be Paid',
-                  ].map((label, idx) => (
-                    <tr key={label} className="border-t">
-                      <td className="px-4 py-2 font-medium">{label}</td>
-                      <td className="px-4 py-2 text-right">₹0.00</td>
-                      <td className="px-4 py-2 text-right">₹0.00</td>
-                      <td className="px-4 py-2 text-right">₹0.00</td>
-                      <td className="px-4 py-2 text-right">
-                        ₹{idx === 4 ? (incomeTax + surcharge + eduCess).toLocaleString() : '0.00'}
-                      </td>
-                    </tr>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  {['Description', 'Income Tax', 'Surcharge', 'Edu. Cess', 'Total'].map(header => (
+                    <th key={header}>{header}</th>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                {["Paid Till Date", "Deduction Through Payroll", "Direct TDS", "Previous Employment", "Total", "Annual Tax Balance", "Monthly Tax to be Paid"].map((label, idx) => (
+                  <tr key={label}>
+                    <td>{label}</td>
+                    <td>₹0.00</td>
+                    <td>₹0.00</td>
+                    <td>₹0.00</td>
+                    <td>₹{idx === 4 ? (incomeTax + surcharge + eduCess).toLocaleString() : '0.00'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-            <div className="pt-2 font-semibold">Remaining Months: 4</div>
+            <div className="remaining">Remaining Months: 4</div>
 
-            {/* Footer Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center mt-6">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded">Back To Salary</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Save</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Preview</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Download</button>
-              <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Recalculate</button>
+            <div className="footer-buttons">
+              {["Back To Salary", "Save", "Preview", "Download", "Recalculate"].map((label, i) => (
+                <button key={i} className="btn border-blue">{label}</button>
+              ))}
             </div>
           </>
         ) : (
-          <p className="text-gray-600">You are viewing <strong>{activeTab}</strong></p>
+          <p>You are viewing <strong>{activeTab}</strong></p>
         )}
       </div>
     </div>

@@ -10,7 +10,7 @@ import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Empl
 import CreateForm from './assets/components/pages/Myfav/Employee/Employe/Employ/Policy';
 import EmployeeSearch from './assets/components/pages/Myfav/Employee/Employe/Employ/updateemp.no';
 import GenerateEmployeePassword from './assets/components/pages/Myfav/Employee/Employe/Employ/Regenerate password';
-import PayslipMailer from './assets/components/pages/Myfav/Employee/Employe/Employ/slippay';
+import PayslipMailer from './assets/components/pages/Myfav/Employee/LEAVE/slippay';
 import LopFormPage from './assets/components/pages/Myfav/Employee/PAYROL/Deduct LOP';
 import LopSummaryPage from './assets/components/pages/Myfav/Employee/LEAVE/lopsummary';
 import EmployeeITDeclaration from './assets/components/pages/Myfav/Employee/PAYROL/Release  IT Declaration';
@@ -46,7 +46,6 @@ import SalaryRevision from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP Bullet
 import Bulletin from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP Bulletin';
 import MassCommunication from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP MassCommunication';
 import PayrollSAL from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY  Salary';
-import SalaryRevisionDashboard from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY SalaryRevisionDashboard';
 import SalaryRevisionTable from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Salary Revision';
 import IncomeTaxSummary from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
 import EmployeeTaxInfo from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY Incometax';
@@ -56,6 +55,15 @@ import StopSalaryProcessing from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY S
 import FinalSettlement from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY FinalSettlement';
 import PayrollProcess from './assets/SIDEBAR EXTRA Forms/PAY payrool/PayrollProcess';
 import ITStatement from './assets/SIDEBAR EXTRA Forms/PAY payrool/PAY ITStatement';
+import EmployeeOnboarding from './assets/SIDEBAR EXTRA Forms/WORKFLOW/W EmployeeOnboarding';
+import WorkflowReviewerTypes from './assets/SIDEBAR EXTRA Forms/WORKFLOW/W Workflow Reviewers Types';
+import WorkflowLevels from './assets/SIDEBAR EXTRA Forms/WORKFLOW/W WorkflowLevels';
+import EmployeeDetails from './assets/SIDEBAR EXTRA Forms/EMPLOYEE HEA/EMP DOCUMENTS';
+import DeleteEmployee from './assets/components/pages/Myfav/Employee/Employe/Employ/DeleteEmployee';
+import Bulkdata from './assets/components/pages/Myfav/Employee/Employe/Employ/Bulkdata';
+import AttendanceInfo from './assets/components/pages/Myfav/Employee/LEAVE/View Employee Attendance.';
+import SalaryRevisionAnalytics from './assets/SIDEBAR EXTRA Forms/PAY payrool/Salary Revision Analytics ';
+import ProcessAttendance from './assets/components/pages/Myfav/Employee/LEAVE/ProcessAttendance';
 
 
 function App() {
@@ -88,6 +96,13 @@ function App() {
           <Route path="/spay" element={<PayslipMailer/>} />
           <Route path="/eimport" element={<ExcelImporterApp/>} />
           <Route path="/gletter" element={<GenerateLetter />} />
+          <Route path="/bankdetails" element={<BankDetailsForm/>} />
+          <Route path="/deleteemp" element={<DeleteEmployee/>} />
+          <Route path="/slip" element={<PayslipMailer/>} />
+          <Route path="/bulk" element={<Bulkdata/>} />
+
+
+
 
           {/* Payroll */}
           <Route path="/lop" element={<LopFormPage/>} />
@@ -109,7 +124,7 @@ function App() {
           <Route path="/employe" element={<EmployeeH/>} />
           <Route path="/payroll" element={<PayrollH/>} />
           <Route path="/workflow" element={<WorkflowH/>} />
-          <Route path="/leavehe" element={<LeaveHe/>} />
+          <Route path="/leaveH" element={<LeaveHe/>} />
           <Route path="/report" element={<ReportH/>} />
 
           {/* Settings & Popups */}
@@ -122,10 +137,41 @@ function App() {
           <Route path="/password" element={<Password/>} />
           <Route path="/login" element={<LoginHistory/>} />
           <Route path="/security" element={<System/>} />
+          {/* Side emp*/}
+          <Route path="/AH" element={<AnalyticsHub/>} />
+          <Route path="/FD" element={<EmployeeManager/>} />
+          <Route path="/PH" element={<PositionHistory/>} />
+          <Route path="/PH" element={<PositionHistory/>} />
+          <Route path="/ED" element={<EmployeeDocuments/>} />
 
+          <Route path="/Seperation" element={<ExitSettlementForm/>} />
+          <Route path="/BB" element={<Bulletin/>} />
+          <Route path="/MC" element={<MassCommunication/>} />
+
+          {/* Side PAYROLL*/}
+          <Route path="/SR" element={<SalaryRevisionTable/>} />
+          <Route path="/PS" element={<PayrollSAL/>} />
+          <Route path="/MC" element={<MassCommunication/>} />
+          <Route path="/SRD" element={<SalaryRevisionAnalytics/>} />
+
+          <Route path="/PSR" element={<SalaryRevision/>} />
+          <Route path="/ITS" element={<IncomeTaxSummary/>} />
+          <Route path="/SS" element={<StopSalaryProcessing/>} />
+          <Route path="/FS" element={<FinalSettlement/>} />
+          <Route path="/PP" element={<PayrollProcess/>} />
+          <Route path="/IT" element={<ITStatement/>} />
+
+
+          <Route path="/PA" element={<ProcessAttendance/>} />
+
+
+          {/* Workflow*/}
+
+          <Route path="/W Onboard" element={<EmployeeOnboarding/>} />
+          <Route path="/W leavels" element={<WorkflowLevels/>} />
+          <Route path="/W reviewers" element={<WorkflowReviewerTypes/>} />
 
       </Routes>
-<ITStatement/>
 </Router>
   );
 

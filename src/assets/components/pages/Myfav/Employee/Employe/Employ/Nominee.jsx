@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NominationDetailsForm.css';
+
 const NominationDetailsForm = () => {
   const [nominationFor, setNominationFor] = useState('');
   const [familyMember, setFamilyMember] = useState('');
@@ -8,22 +9,25 @@ const NominationDetailsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      nominationFor,
-      familyMember,
-      mentalIllness,
-      isMinor
-    };
+    const formData = { nominationFor, familyMember, mentalIllness, isMinor };
     console.log('Form Data:', formData);
+    alert('Nomination details saved successfully!');
+  };
+
+  const handleCancel = () => {
+    setNominationFor('');
+    setFamilyMember('');
+    setMentalIllness(false);
+    setIsMinor(false);
   };
 
   return (
-    <div style={styles.container}>
+    <div className="nomination-container">
       <h2>Nomination Details</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.field}>
+      <form onSubmit={handleSubmit} className="nomination-form">
+        <div className="form-group">
           <label>Nomination For:</label>
-          <select value={nominationFor} onChange={(e) => setNominationFor(e.target.value)}>
+          <select value={nominationFor} onChange={(e) => setNominationFor(e.target.value)} required>
             <option value="">Select</option>
             <option value="EPF">EPF</option>
             <option value="EPS">EPS</option>
@@ -32,9 +36,9 @@ const NominationDetailsForm = () => {
           </select>
         </div>
 
-        <div style={styles.field}>
+        <div className="form-group">
           <label>Family Member:</label>
-          <select value={familyMember} onChange={(e) => setFamilyMember(e.target.value)}>
+          <select value={familyMember} onChange={(e) => setFamilyMember(e.target.value)} required>
             <option value="">Select</option>
             <option value="Spouse">Spouse</option>
             <option value="Child">Child</option>
@@ -43,7 +47,7 @@ const NominationDetailsForm = () => {
           </select>
         </div>
 
-        <div style={styles.checkbox}>
+        <div className="checkbox-group">
           <label>
             <input
               type="checkbox"
@@ -54,7 +58,7 @@ const NominationDetailsForm = () => {
           </label>
         </div>
 
-        <div style={styles.checkbox}>
+        <div className="checkbox-group">
           <label>
             <input
               type="checkbox"
@@ -65,41 +69,13 @@ const NominationDetailsForm = () => {
           </label>
         </div>
 
-        <div style={styles.buttons}>
-          <button type="submit">Save</button>
-          <button type="button" onClick={() => window.location.reload()}>Cancel</button>
+        <div className="form-buttons">
+          <button type="submit" className="btn primary">Save</button>
+          <button type="button" className="btn secondary" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    width: '400px',
-    margin: '0 auto',
-    fontFamily: 'Arial, sans-serif'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '15px',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '10px'
-  },
-  field: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  checkbox: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'space-between'
-  }
 };
 
 export default NominationDetailsForm;

@@ -1,4 +1,119 @@
- @keyframes fadeIn {
+/* Container */
+.emp-container {
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Section */
+.search-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-row button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-row button:hover {
+  background-color: #1e40af;
+}
+
+/* Result Section */
+.result-section {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.result-section h3,
+.result-section h4 {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.emp-details > div {
+  margin-bottom: 6px;
+}
+
+.result-section select,
+.result-section input,
+.result-section textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.button-row button {
+  flex: 1 1 45%;
+  min-width: 100px;
+  padding: 10px 0;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #22c55e;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #16a34a;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -7,6 +122,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.slide-down {
+  animation: slideDown 0.6s ease-out;
 }
 
 @keyframes slideDown {
@@ -20,10 +139,13 @@
   }
 }
 
- .fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
+/* Responsive */
+@media (max-width: 500px) {
+  .search-row {
+    flex-direction: column;
+  }
 
-.slide-down {
-  animation: slideDown 0.6s ease-out;
+  .button-row {
+    flex-direction: column;
+  }
 }

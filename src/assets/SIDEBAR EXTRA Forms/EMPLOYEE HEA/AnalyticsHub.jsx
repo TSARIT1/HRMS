@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AnalyticsHub.css';
 import { Link } from "react-router-dom";
+
 const employeeData = [
   {
     id: '1002',
@@ -24,35 +25,40 @@ const AnalyticsHub = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredEmployees = employeeData.filter(emp =>
-    emp.name.toLowerCase().includes(searchTerm.toLowerCase())
+    emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    emp.id.includes(searchTerm)
   );
 
+  const handleRestore = () => {
+    setSearchTerm('');
+  };
+
   return (
-  
-      <div>
+    <div className="analytics-hub">
       <div className="employee-section">
         <div className="section-header">
           <h2>All Employee Info</h2>
           <Link to="/addemployee">
-               <button className="add-btn">Add Employee</button>
-        </Link>
+            <button className="btn primary-btn">+ Add Employee</button>
+          </Link>
         </div>
 
-        <div className="search-restore">
+        <div className="toolbar">
           <div className="search-box">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search by name, ID, or email"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button>🔍</button>
+            <span className="search-icon"></span>
           </div>
-          <button className="restore-btn">⟳ Restore</button>
+
+          <button className="restore-btn" onClick={handleRestore}>⟳ Restore</button>
         </div>
 
-        <div className="employee-table">
-          <table>
+        <div className="employee-table-wrapper">
+          <table className="employee-table">
             <thead>
               <tr>
                 <th>Emp ID</th>
@@ -67,13 +73,18 @@ const AnalyticsHub = () => {
               {filteredEmployees.map(emp => (
                 <tr key={emp.id}>
                   <td>{emp.id}</td>
-                  <td className="link">{emp.name}</td>
+                  <td className="emp-name">{emp.name}</td>
                   <td>{emp.doj}</td>
                   <td>{emp.gender}</td>
                   <td>{emp.dob}</td>
                   <td>{emp.email}</td>
                 </tr>
               ))}
+              {filteredEmployees.length === 0 && (
+                <tr>
+                  <td colSpan="6" className="no-data">No matching employees found.</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

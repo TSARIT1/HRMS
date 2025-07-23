@@ -106,10 +106,7 @@ const EmployeeH = () => {
 
           <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
           <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-          <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
-          <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
           <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-          <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
         </ul>
 
         <div className="sidebar-footer">
@@ -140,31 +137,31 @@ const EmployeeH = () => {
               <li className="nav-item">
                 <Link to="#">Main</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Analytics Hub</Link></li>
-                  <li><Link to="/admin/roles">Organisation Chart</Link></li>
+                  <li><Link to="/AH">Analytics Hub</Link></li>
+                  <li><Link to="/OC">Organisation Chart</Link></li>
                 </ul>
               </li>
 
               <li className="nav-item">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/bank">Bank/PF/ESI</Link></li>
-                  <li><Link to="/admin/roles">Family Details</Link></li>
-                  <li><Link to="/admin/roles">Position History</Link></li>
-                  <li><Link to="/admin/roles">Separation</Link></li>
-                  <li><Link to="/nomine">Nomination Details</Link></li>
-                  <li><Link to="/admin/roles">Employee Documents</Link></li>
-                  <li><Link to="/spay">Employee Salary</Link></li>
+                  <li><Link to="/bankdetails">Bank/PF/ESI</Link></li>
+                  <li><Link to="/FD">Family Details</Link></li>
+                  <li><Link to="/PH">Position History</Link></li>
+                  <li><Link to="/Seperation">Separation</Link></li>
+                  <li><Link to="/Nomine">Nomination Details</Link></li>
+                  <li><Link to="/ED">Employee Documents</Link></li>
+                  <li><Link to="/ES">Employee Salary</Link></li>
                 </ul>
               </li>
 
               <li className="nav-item">
                 <Link to="#">Admin</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/gletter">Generate Letter</Link></li>
+                  <li><Link to="/prepletter">Generate Letter</Link></li>
                   <li><Link to="/eimport">Excel Import</Link></li>
-                  <li><Link to="/admin/roles">Bulletin Board</Link></li>
-                  <li><Link to="/admin/roles">Mass Communication</Link></li>
+                  <li><Link to="/BB">Bulletin Board</Link></li>
+                  <li><Link to="/MC">Mass Communication</Link></li>
                 </ul>
               </li>
 

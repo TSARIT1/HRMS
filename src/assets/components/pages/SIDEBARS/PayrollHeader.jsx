@@ -79,12 +79,9 @@ const PayrollH = () => {
              
           </li>
 
-          <li><Link to="/payroll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
-          <li><Link to="/leave" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
-          <li><Link to="/expense-claims" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdOutlineLocalOffer /></span>Expense Claims</Link></li>
-          <li><Link to="/engage" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><LuMessageCircleOff /></span>Engage</Link></li>
+          <li><Link to="/proll" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FaRupeeSign /></span>Payroll</Link></li>
+          <li><Link to="/leaveH" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcLeave /></span>Leave</Link></li>
           <li><Link to="/workflow" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><FcWorkflow /></span>Workflow</Link></li>
-          <li><Link to="/reports" className="sidebar-link" onClick={toggleSidebar}><span className="sidebar-icon"><MdReport /></span>Reports</Link></li>
         </ul>
 
         <div className="sidebar-footer">
@@ -118,8 +115,8 @@ const PayrollH = () => {
                <li className="nav-item">
                 <Link to="#">Information</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Salary Revision History</Link></li>
-                  <li><Link to="/admin/roles">Salary Revision Analatics </Link></li>
+                  <li><Link to="/SR">Salary Revision History</Link></li>
+                  <li><Link to="/SRD">Salary Revision Analatics </Link></li>
 
                 </ul>
               </li>
@@ -127,19 +124,19 @@ const PayrollH = () => {
 <li className="nav-item">
                 <Link to="#">Payroll Inputs</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Salary</Link></li>
-                  <li><Link to="/admin/roles">Salary Revisions</Link></li>
-                  <li><Link to="/admin/roles">Income Tax</Link></li>
+                  <li><Link to="/PS">Salary</Link></li>
+                  <li><Link to="/PSR">Salary Revisions</Link></li>
+                  <li><Link to="/ITS">Income Tax</Link></li>
                   <li><Link to="/lop">Employee LOP Deduction</Link></li>
-                  <li><Link to="/admin/roles">Stop Salary Processing</Link></li>
-                  <li><Link to="/admin/roles">Final Settlement</Link></li>
+                  <li><Link to="/SS">Stop Salary Processing</Link></li>
+                  <li><Link to="/FS">Final Settlement</Link></li>
 
                 </ul>
               </li>
 <li className="nav-item">
                 <Link to="#">Process</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Payroll Process</Link></li>
+                  <li><Link to="/PP">Payroll Process</Link></li>
 
                 </ul>
               </li>
@@ -154,7 +151,7 @@ const PayrollH = () => {
 <li className="nav-item">
                 <Link to="#">Payout</Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="/admin/users">Bank Transfer</Link></li>
+                  <li><Link to="/bankdetails">Bank Transfer</Link></li>
                   <li><Link to="/spay">Payslips </Link></li>
 
                 </ul>
@@ -165,7 +162,7 @@ const PayrollH = () => {
                 <Link to="#">Published Info</Link>
                 <ul className="dropdown-menu">
                   <li><Link to="/spay">Payslip</Link></li>
-                  <li><Link to="/bank">IT Statement</Link></li>
+                  <li><Link to="/IT">IT Statement</Link></li>
                   <li><Link to="/Eit">IT Declaration</Link></li>
 
 

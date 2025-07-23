@@ -8,20 +8,20 @@ export default function PayrollProcess() {
       payroll: 'Nov 2027',
       description: 'Took 19.239 seconds for 13 employees.',
       processedOn: 'Processed on Today at 11:48 AM by info@tsaritservices.com',
-      status: 'COMPLETED'
+      status: 'COMPLETED',
     },
     {
       payroll: 'Nov 2027',
       description: 'Took 16.294 seconds for 13 employees.',
       processedOn: 'Processed on Today at 11:48 AM by info@tsaritservices.com',
-      status: 'COMPLETED'
+      status: 'COMPLETED',
     },
     {
       payroll: 'Nov 2027',
       description: 'Took 4.463 seconds for Aadesh Hiralal Sonar [6266].',
       processedOn: 'Processed on Last Tuesday at 12:13 PM by info@tsaritservices.com',
-      status: 'COMPLETED'
-    }
+      status: 'COMPLETED',
+    },
   ]);
 
   const [showPopup, setShowPopup] = useState(false);
@@ -30,7 +30,7 @@ export default function PayrollProcess() {
   const handleQuickProcess = () => {
     setTimeout(() => {
       setShowPopup(true);
-    }, 300); // Optional processing simulation
+    }, 300);
   };
 
   const handleViewSalaryStatement = () => {
@@ -40,15 +40,19 @@ export default function PayrollProcess() {
 
   return (
     <div className="payroll-process-container">
+      <h2>Payroll Process</h2>
+
       <div className="button-group">
-        <button className="process-btn">⚙️ Process Payroll</button>
+        <button className="process-btn">
+          ⚙️ Process Payroll
+        </button>
         <button className="quick-process-btn" onClick={handleQuickProcess}>
           ⚡ Quick Process
         </button>
       </div>
 
       <div className="process-log">
-        <h4>Last {logs.length} process log</h4>
+        <h4>Last {logs.length} Process Log</h4>
         <table className="process-table">
           <thead>
             <tr>

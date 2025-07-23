@@ -1,33 +1,154 @@
-/* Existing styles remain the same */
+.stop-salary-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
 
-.search-input {
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
+.stop-salary-container h2 {
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2a2a2a;
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px 14px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
 }
 
-.search-results {
-  max-height: 150px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  background: white;
+.search-bar input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
-.search-result-item {
-  padding: 8px 10px;
+.search-bar button {
+  padding: 12px 20px;
+  background: #007bff;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s;
 }
 
-.search-result-item:hover {
-  background-color: #f0f8ff;
+.search-bar button:hover {
+  background: #0056b3;
 }
 
-.search-result-item.selected {
-  background-color: #cce0ff;
-  font-weight: bold;
+.employee-details-card {
+  background: #f7f9fc;
+  border: 1px solid #dce3ea;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.employee-details-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.employee-details-card th,
+.employee-details-card td {
+  text-align: left;
+  padding: 12px;
+  font-size: 14.5px;
+  border-bottom: 1px solid #e6ebf1;
+  color: #333;
+}
+
+.employee-details-card th {
+  font-weight: 600;
+  color: #555;
+  background-color: #f0f4f8;
+}
+
+.reason-section {
+  margin-bottom: 22px;
+}
+
+.reason-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.reason-section textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #c8ced7;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.reason-section textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 12px 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.2);
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

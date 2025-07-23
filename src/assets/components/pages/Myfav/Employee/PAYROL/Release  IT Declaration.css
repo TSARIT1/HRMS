@@ -1,70 +1,50 @@
-/* Container styling */
 .declaration-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-/* Heading */
-.declaration-container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #2c3e50;
-}
-
-/* Help message */
 .help-box {
-  background-color: #f0f8ff;
-  padding: 14px 18px;
-  border-left: 4px solid #007bff;
-  margin-bottom: 24px;
-  color: #333;
+  background: #f0f4f8;
+  border-left: 5px solid #4e89ff;
+  padding: 12px;
+  margin-bottom: 16px;
   font-size: 14px;
-  border-radius: 4px;
 }
 
-/* Tabs */
 .tabs {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .tabs button {
-  padding: 10px 20px;
+  padding: 8px 16px;
   margin-right: 10px;
+  background: #f3f3f3;
   border: none;
-  background-color: #e4e9f0;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
-  color: #333;
-  transition: background-color 0.3s ease;
 }
 
-.tabs button.active {
-  background-color: #007bff;
+.tabs .active {
+  background: #4e89ff;
   color: #fff;
 }
 
-/* Filters */
 .filters {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .filters select {
-  padding: 6px 10px;
-  border-radius: 5px;
+  padding: 6px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  font-size: 13px;
 }
 
-/* Table */
+.table-wrapper {
+  overflow-x: auto;
+}
+
 .employee-table {
   width: 100%;
   border-collapse: collapse;
@@ -73,41 +53,34 @@
 
 .employee-table th,
 .employee-table td {
-  border: 1px solid #ddd;
-  padding: 10px 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
   text-align: left;
-  font-size: 14px;
 }
 
-.employee-table thead {
-  background-color: #f5f7fa;
+.employee-table input[type='checkbox'] {
+  cursor: pointer;
 }
 
-.employee-table tbody tr:hover {
-  background-color: #f0f4ff;
+.no-data {
+  text-align: center;
+  color: #999;
+  font-style: italic;
 }
 
-/* Action buttons */
 .actions {
   display: flex;
-  justify-content: flex-end;
   gap: 10px;
   flex-wrap: wrap;
 }
 
 .actions button {
-  padding: 8px 16px;
-  border-radius: 5px;
-  border: none;
-  background-color: #007bff;
+  padding: 8px 14px;
+  background-color: #4e89ff;
   color: white;
-  font-size: 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.25s ease;
-}
-
-.actions button:hover:not(:disabled) {
-  background-color: #0056b3;
 }
 
 .actions button:disabled {

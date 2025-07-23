@@ -1,0 +1,115 @@
+.payslip-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
+}
+
+.tab-buttons button {
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+}
+
+.tab-buttons .tab-active {
+  border-bottom: 2px solid #2563eb;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.filter-options {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.dropdown-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dropdown-row select {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.remarks-btn {
+  margin-left: auto;
+  padding: 8px 14px;
+  background: #077bef;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #f9fafb;
+  font-weight: bold;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-buttons button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.action-buttons .send-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.action-buttons .send-btn:hover {
+  background: #1e40af;
+}
+
+.action-buttons button:hover {
+  background: #e5e7eb;
+}

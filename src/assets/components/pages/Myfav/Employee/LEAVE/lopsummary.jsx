@@ -21,55 +21,67 @@ const LopSummaryPage = () => {
 
   return (
     <div className="lop-summary-container">
-      <h2>LOP Summary</h2>
-      <button onClick={() => navigate("/lop")}>Add New LOP</button>
+      <div className="header-row">
+        <h2>LOP Summary</h2>
+        <button className="add-btn" onClick={() => navigate("/lop")}>
+          + Add New LOP
+        </button>
+      </div>
 
-      <table className="lop-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Employee No</th>
-            <th>Name</th>
-            <th>Join Date</th>
-            <th>Work Days</th>
-            <th>LOP</th>
-            <th>Remarks</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <AnimatePresence>
-            {entries.length > 0 ? (
-              entries.map((entry, i) => (
+      <div className="table-wrapper">
+        <table className="lop-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Employee No</th>
+              <th>Name</th>
+              <th>Join Date</th>
+              <th>Work Days</th>
+              <th>LOP</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <AnimatePresence>
+              {entries.length > 0 ? (
+                entries.map((entry, i) => (
+                  <motion.tr
+                    key={entry.empNo + i}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <td>{i + 1}</td>
+                    <td>{entry.empNo}</td>
+                    <td>{entry.name}</td>
+                    <td>{entry.joinDate}</td>
+                    <td>{entry.workDays}</td>
+                    <td>{entry.lop}</td>
+                    <td>{entry.remarks}</td>
+                    <td>
+                      <button className="delete-btn" onClick={() => handleDelete(i)}>
+                        🗑
+                      </button>
+                    </td>
+                  </motion.tr>
+                ))
+              ) : (
                 <motion.tr
-                  key={entry.empNo + i}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
+                  key="empty"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                 >
-                  <td>{i + 1}</td>
-                  <td>{entry.empNo}</td>
-                  <td>{entry.name}</td>
-                  <td>{entry.joinDate}</td>
-                  <td>{entry.workDays}</td>
-                  <td>{entry.lop}</td>
-                  <td>{entry.remarks}</td>
-                  <td>
-                    <button onClick={() => handleDelete(i)}>🗑</button>
+                  <td colSpan="8" className="no-data">
+                    No LOP data available
                   </td>
                 </motion.tr>
-              ))
-            ) : (
-              <motion.tr key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <td colSpan="8" className="no-data">
-                  No LOP data available
-                </td>
-              </motion.tr>
-            )}
-          </AnimatePresence>
-        </tbody>
-      </table>
+              )}
+            </AnimatePresence>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

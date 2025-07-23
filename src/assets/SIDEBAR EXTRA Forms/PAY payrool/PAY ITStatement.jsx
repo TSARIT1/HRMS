@@ -5,7 +5,7 @@ const ITStatement = () => {
   const [employeeData, setEmployeeData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Replace this with your actual API endpoint
+  // Replace API
   const apiUrl = 'https://api.example.com/employee/it-statement/6266';
 
   useEffect(() => {

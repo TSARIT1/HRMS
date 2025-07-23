@@ -26,7 +26,7 @@ const mappingOptions = [
   'PAN Number',
 ];
 
-export default function ExcelImporterApp() {
+export default function Bulkdata() {
   const [step, setStep] = useState(1);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);

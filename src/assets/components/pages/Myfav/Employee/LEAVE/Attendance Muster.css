@@ -1,71 +1,94 @@
-/* Wrap container fully */
 .aso-container {
-  font-family: "Segoe UI", sans-serif;
+  font-family: Arial, sans-serif;
   padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-/* Responsive grid wrapper */
-.aso-grid-wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  border: 1px solid #ccc;
+.aso-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.aso-toolbar select {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.export-btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 8px 14px;
   border-radius: 4px;
-  max-height: 500px;
+  cursor: pointer;
 }
 
-/* Table fits screen */
+.aso-grid-wrapper {
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
 .aso-grid {
   border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
+  min-width: 100%;
 }
 
-/* Sticky header row */
-.aso-grid thead th {
-  position: sticky;
-  top: 0;
-  background: #f9f9f9;
-  font-weight: 600;
+.aso-grid th,
+.aso-grid td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: center;
   font-size: 13px;
-  border-bottom: 1px solid #d9d9d9;
   white-space: nowrap;
 }
 
-/* Fixed width for employee column */
+.aso-grid th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.aso-grid .dow {
+  font-size: 11px;
+  color: #666;
+}
+
 .emp-col {
-  width: 220px;
-  background: #f0f0f0;
+  min-width: 200px;
+  text-align: left;
+  background: #f8f9fa;
+}
+
+.emp-name {
+  font-weight: bold;
+}
+
+.emp-desg {
+  font-size: 12px;
+  color: #666;
+}
+
+.summary-col {
+  font-weight: bold;
+  background-color: #edf2f7;
+}
+
+.sticky-col {
   position: sticky;
   left: 0;
-  z-index: 2;
+  z-index: 1;
+  background: #f8f9fa;
+}
+
+.aso-grid td.sticky-col {
   border-right: 1px solid #ccc;
 }
 
-/* Adjust day and summary columns */
-.day-col,
-.summary-col {
-  width: 24px;
-  max-width: 24px;
-  text-align: center;
-  font-size: 11px;
-  padding: 4px;
-  border-right: 1px solid #e4e4e4;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media(max-width: 768px) {
+  .aso-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-
-/* Table cells */
-.aso-grid td {
-  font-size: 11px;
-  text-align: center;
-  padding: 4px;
-  border-bottom: 1px solid #eee;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-

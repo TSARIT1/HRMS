@@ -1,65 +1,90 @@
 .salary-container {
-  max-width: 95%;
-  margin: 30px auto;
-  padding: 20px;
+  max-width: 1100px;
+  margin: 40px auto;
   background: #fff;
-  border-radius: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
 }
 
 .salary-header {
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.salary-header h2 {
+  font-size: 24px;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.salary-header p {
+  font-size: 14px;
+  color: #718096;
 }
 
 .salary-filters {
   display: flex;
-  gap: 10px;
-  margin-bottom: 16px;
   flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .salary-filters select {
-  padding: 6px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 180px;
+}
+
+.salary-table-wrapper {
+  overflow-x: auto;
 }
 
 .salary-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.salary-table th,
-.salary-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
   font-size: 14px;
 }
 
+.salary-table th, 
+.salary-table td {
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: center;
+}
+
 .salary-table th {
-  background-color: #f2f4f8;
+  background-color: #f7fafc;
   font-weight: bold;
+}
+
+.salary-table .no-data {
+  text-align: center;
+  color: #a0aec0;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+.export-btn-wrapper {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .export-button {
   padding: 10px 20px;
-  background-color: #1976d2;
-  color: white;
+  background-color: #3182ce;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
-  float: right;
+  transition: background-color 0.2s ease;
 }
 
 .export-button:hover {
-  background-color: #155aaf;
-}
-
-.no-data {
-  text-align: center;
-  padding: 20px;
-  color: #999;
+  background-color: #2b6cb0;
 }

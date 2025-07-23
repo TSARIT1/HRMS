@@ -70,9 +70,7 @@ const DashboardPage = () => {
     { path: "/employe", name: "Employee", icon: <FcManager /> },
     { path: "/payroll", name: "Payroll", icon: <FaRupeeSign /> },
     { path: "/leavehe", name: "Leave", icon: <FcLeave /> },
-    { path: "/engage", name: "Engage", icon: <LuMessageCircleOff /> },
     { path: "/workflow", name: "Workflow", icon: <FcWorkflow /> },
-    { path: "/reports", name: "Reports", icon: <MdReport /> },
   ];
 
   const settingsItems = [

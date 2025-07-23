@@ -12,7 +12,7 @@ const employeeList = [
 export default function AssignManager() {
   const [reportee, setReportee] = useState(null);
   const [manager, setManager] = useState(null);
-  const [isOpen, setIsOpen] = useState(true);  
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,21 +22,20 @@ export default function AssignManager() {
       return;
     }
 
-     console.log('Assigned:', {
+    console.log('Assigned:', {
       reportee: reportee.value,
       manager: manager.value,
     });
 
     alert(`Assigned!\nReportee: ${reportee.label}\nManager: ${manager.label}`);
-
-     setIsOpen(false);
+    setIsOpen(false);
   };
 
   const handleCancel = () => {
     setIsOpen(false);
   };
 
-  if (!isOpen) return null;  
+  if (!isOpen) return null;
 
   return (
     <div className="assign-manager-backdrop">

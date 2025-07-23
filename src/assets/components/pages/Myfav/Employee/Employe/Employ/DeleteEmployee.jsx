@@ -9,7 +9,7 @@ const employees = [
     email: "Aadesh@fsd.com",
     department: "Core Department",
     location: "Bangalore",
-    leave: { granted: 4, lapsed: 1 }, 
+    leave: { granted: 4, lapsed: 1 },
     reports: 5,
   },
   {
@@ -84,8 +84,8 @@ const DeleteEmployee = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={handleSearch}>🔍 Search</button>
-        <button onClick={handleCancel}>❌ Clear</button>
+        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <button className="clear-btn" onClick={handleCancel}>Clear</button>
       </div>
 
       {selectedEmployee ? (
@@ -103,16 +103,12 @@ const DeleteEmployee = () => {
             <p><strong>Email:</strong> {selectedEmployee.email}</p>
             <p><strong>Department:</strong> {selectedEmployee.department}</p>
             <p><strong>Location:</strong> {selectedEmployee.location}</p>
-            <p>
-              <strong>Leave:</strong> Granted - {selectedEmployee.leave.granted}, Lapsed -{" "}
-              {selectedEmployee.leave.lapsed}
-            </p>
+            <p><strong>Leave:</strong> Granted - {selectedEmployee.leave.granted}, Lapsed - {selectedEmployee.leave.lapsed}</p>
           </div>
 
-
           <div className="btn-group">
-            <button onClick={handleDelete}>🗑 Delete</button>
-            <button onClick={handleCancel}>❌ Cancel</button>
+            <button className="delete-btn" onClick={handleDelete}>🗑 Delete</button>
+            <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       ) : (

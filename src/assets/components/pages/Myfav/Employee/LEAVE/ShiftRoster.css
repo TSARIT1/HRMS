@@ -1,83 +1,110 @@
-/* Make the outer container flexible and prevent overflow */
 .shift-roster-container {
-  padding: 20px;
   font-family: Arial, sans-serif;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: auto;
+  padding: 20px;
 }
 
-/* Header controls aligned and responsive */
+h2 {
+  margin-bottom: 16px;
+}
+
 .header-controls {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
   margin-bottom: 15px;
 }
 
 .header-controls select,
-.header-controls button {
-  padding: 5px 10px;
+.header-controls input {
+  padding: 6px 10px;
   font-size: 14px;
-  flex: 1 1 180px;
-  min-width: 150px;
 }
 
-/* Table container enables scroll only if needed */
+.export-btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.search-input {
+  min-width: 180px;
+}
+
 .table-wrapper {
-  width: 100%;
   overflow-x: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-/* Table fits to the width of content, and doesn't break layout */
 .roster-table {
-  width: 100%;
+  width: max-content;
   border-collapse: collapse;
-  font-size: 13px;
-  text-align: center;
-  table-layout: fixed;
 }
 
-/* Fixed cell sizing */
 .roster-table th,
 .roster-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  min-width: 40px;
-  max-width: 80px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  text-align: center;
+  padding: 6px 8px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  background-color: white;
 }
 
-/* Sticky top header */
 .roster-table th {
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
   font-weight: bold;
 }
 
-/* Align name and role vertically */
-.roster-table td:nth-child(2) {
-  text-align: left;
-  padding-left: 8px;
-}
-
-.designation {
+.roster-table .designation {
   font-size: 11px;
-  color: #777;
+  color: #666;
 }
 
-/* Summary footer styling */
-.footer-info {
-  margin-top: 10px;
+.roster-table td.OFF {
+  background-color: #cbd5e0;
   font-weight: bold;
-  display: flex;
-  gap: 20px;
 }
-.search-input {
-  padding: 5px 10px;
+
+.roster-table td.GEN {
+  background-color: #e2e8f0;
+}
+
+.footer-info {
+  margin-top: 12px;
   font-size: 14px;
-  min-width: 220px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+}
+
+.sticky-col {
+  position: sticky;
+  background: #f8f9fa;
+  z-index: 1;
+}
+
+.sticky-col.first {
+  left: 0;
+}
+
+.sticky-col.second {
+  left: 80px;
+}
+
+.roster-table td.sticky-col,
+.roster-table th.sticky-col {
+  border-right: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .header-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

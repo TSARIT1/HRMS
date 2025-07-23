@@ -23,10 +23,35 @@ export default function CreateForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    alert('Form submitted successfully!');
+    const payload = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      payload.append(key, key === 'file' ? value : String(value));
+    });
+
+    try {
+      const res = await fetch('/api/forms/create', {
+        method: 'POST',
+        body: payload,
+      });
+
+      if (res.ok) {
+        alert('Form submitted successfully!');
+        setFormData({
+          formName: '',
+          description: '',
+          serialNo: '',
+          category: '',
+          isPrefilled: false,
+          file: null,
+        });
+      } else {
+        alert('Failed to submit form.');
+      }
+    } catch (error) {
+      alert('Submission error.');
+    }
   };
 
   const handleAddCategory = () => {
@@ -34,6 +59,10 @@ export default function CreateForm() {
       setCategories([...categories, newCategory]);
       setNewCategory({ name: '', code: '' });
     }
+  };
+
+  const handleRemoveCategory = (index) => {
+    setCategories(categories.filter((_, i) => i !== index));
   };
 
   return (
@@ -74,34 +103,29 @@ export default function CreateForm() {
 
         <label>
           Form Category *
-          <div className="category-select-container">
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select</option>
-              {categories.map((cat, index) => (
-                <option key={index} value={cat.name}>
-                  {cat.name}
-                </option>
-              ))}
-            </select>
-            <button type="button" className="edit-btn" onClick={() => setShowCategoryModal(true)}>
-              Edit Category
-            </button>
-          </div>
+          <select
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            {categories.map((cat, idx) => (
+              <option key={idx} value={cat.name}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
         </label>
 
-        <label className="checkbox-label">
+        <label className="checkbox-group">
           <input
             type="checkbox"
             name="isPrefilled"
             checked={formData.isPrefilled}
             onChange={handleChange}
           />
-          Create Prefilled Form Template
+          <span>Create Prefilled Form Template</span>
         </label>
 
         <label>
@@ -116,9 +140,18 @@ export default function CreateForm() {
         </label>
 
         <div className="form-buttons">
+          <button
+            type="button"
+            className="manage-category-btn"
+            onClick={() => setShowCategoryModal(true)}
+          >
+            Manage Categories
+          </button>
+
           <button type="button" onClick={() => window.location.reload()}>
             Cancel
           </button>
+
           <button type="submit">Submit</button>
         </div>
       </form>
@@ -126,31 +159,35 @@ export default function CreateForm() {
       {showCategoryModal && (
         <div className="modal">
           <div className="modal-content">
-            <h3>Company Policy Category</h3>
+            <h3>Manage Categories</h3>
             <input
               type="text"
-              placeholder="Enter Category Name"
+              placeholder="Category Name"
               value={newCategory.name}
-              onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
+              onChange={(e) =>
+                setNewCategory({ ...newCategory, name: e.target.value })
+              }
             />
             <input
               type="text"
-              placeholder="Enter Code"
+              placeholder="Category Code"
               value={newCategory.code}
-              onChange={(e) => setNewCategory({ ...newCategory, code: e.target.value })}
+              onChange={(e) =>
+                setNewCategory({ ...newCategory, code: e.target.value })
+              }
             />
             <button onClick={handleAddCategory}>+ Add Category</button>
+
             <ul>
               {categories.map((cat, i) => (
                 <li key={i}>
                   {cat.name} ({cat.code}){' '}
-                  <button onClick={() => setCategories(categories.filter((_, idx) => idx !== i))}>
-                    Remove
-                  </button>
+                  <button onClick={() => handleRemoveCategory(i)}>Remove</button>
                 </li>
               ))}
             </ul>
-            <button onClick={() => setShowCategoryModal(false)}>Save</button>
+
+            <button onClick={() => setShowCategoryModal(false)}>Close</button>
           </div>
         </div>
       )}

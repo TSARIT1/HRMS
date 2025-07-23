@@ -1,70 +1,139 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUserCircle, FaPen } from "react-icons/fa";
+import './Position History.css';
 
 const PositionHistory = () => {
-  return (
-    <div className="p-6 bg-white rounded shadow">
-      {/* Header */}
-      <div className="flex justify-between items-start flex-wrap">
-        <div className="space-y-2 max-w-xl">
-          <h2 className="text-xl font-semibold">
-            Start searching to see specific employee details here
-          </h2>
+  const [searchValue, setSearchValue] = useState("");
+  const [cards, setCards] = useState([
+    { label: "Designation", value: "Junior Associate" },
+    { label: "Location", value: "Bangalore" },
+    { label: "Department", value: "Product Department" }
+  ]);
 
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600 font-medium">Employee Type:</span>
-            <select className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+  const [editIndex, setEditIndex] = useState(null);
+  const [newValue, setNewValue] = useState("");
+  const [addMode, setAddMode] = useState(false);
+  const [newCard, setNewCard] = useState({ label: "", value: "" });
+
+  const handleClearSearch = () => {
+    setSearchValue("");
+  };
+
+  const handleEdit = (index) => {
+    setEditIndex(index);
+    setNewValue(cards[index].value);
+  };
+
+  const handleSaveEdit = (index) => {
+    const updatedCards = [...cards];
+    updatedCards[index].value = newValue;
+    setCards(updatedCards);
+    setEditIndex(null);
+  };
+
+  const handleAddCard = () => {
+    if (newCard.label && newCard.value) {
+      setCards([...cards, { label: newCard.label, value: newCard.value }]);
+      setNewCard({ label: "", value: "" });
+      setAddMode(false);
+    }
+  };
+
+  return (
+    <div className="position-history-container">
+      {/* Header */}
+      <div className="position-header">
+        <div className="position-header-text">
+          <h2>Start searching to see specific employee details here</h2>
+
+          <div className="employee-type">
+            <span>Employee Type:</span>
+            <select>
               <option>Current Employees</option>
               <option>Former Employees</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-1">Search Employee</label>
-            <div className="flex items-center border border-gray-300 rounded-full px-3 py-2 w-full max-w-md bg-gray-100">
-              <FaUserCircle className="text-gray-500 mr-2" />
+            <label className="search-label">Search Employee</label>
+            <div className="search-box">
+              <FaUserCircle className="search-icon" />
               <input
                 type="text"
-                placeholder="Search by Emp No/ Name"
-                className="bg-transparent outline-none flex-grow text-sm text-gray-700"
+                placeholder="Search by Emp No / Name"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
               />
-              <button className="text-gray-400 hover:text-gray-600">&times;</button>
+              {searchValue && (
+                <button className="clear-btn" onClick={handleClearSearch}>
+                  &times;
+                </button>
+              )}
             </div>
           </div>
-        </div>
-
-        {/* Illustration placeholder */}
-        <div className="mt-4 md:mt-0 md:ml-4">
-          <img
-            src="https://via.placeholder.com/200x150.png?text=Illustration"
-            alt="Illustration"
-            className="w-48 h-auto"
-          />
         </div>
       </div>
 
-      {/* Info Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        {/* Card Template */}
-        {[
-          { label: "Designation", value: "Junior Associate" },
-          { label: "Location", value: "Bangalore" },
-          { label: "Department", value: "Product Department" },
-        ].map((item, index) => (
-          <div key={index} className="bg-gray-50 border rounded-lg p-4 relative shadow-sm">
-            <div className="flex justify-between items-center mb-2">
-              <h4 className="text-gray-700 font-semibold">{item.label}</h4>
-              <button className="text-blue-600 border border-blue-600 px-2 py-1 text-sm rounded hover:bg-blue-50">
-                Add
-              </button>
+      {/* Cards */}
+      <div className="cards-grid">
+        {cards
+          .filter((item) =>
+            item.label.toLowerCase().includes(searchValue.toLowerCase()) ||
+            item.value.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .map((item, index) => (
+            <div key={index} className="card">
+              <div className="card-header">
+                <h4>{item.label}</h4>
+                <button className="add-btn" onClick={() => setAddMode(true)}>
+                  + Add
+                </button>
+              </div>
+
+              {editIndex === index ? (
+                <>
+                  <input
+                    type="text"
+                    value={newValue}
+                    onChange={(e) => setNewValue(e.target.value)}
+                    className="card-edit-input"
+                  />
+                  <button className="save-btn" onClick={() => handleSaveEdit(index)}>
+                    Save
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="card-value">{item.value}</p>
+                  <button className="edit-btn" onClick={() => handleEdit(index)}>
+                    <FaPen size={12} />
+                  </button>
+                </>
+              )}
+
+              <div className="card-date">08 Oct 2020</div>
             </div>
-            <p className="text-green-600 font-medium">{item.value}</p>
-            <div className="text-sm text-gray-400 mt-1">08 Oct 2020</div>
-            <button className="absolute bottom-3 right-3 text-blue-600 hover:text-blue-800">
-              <FaPen size={12} />
-            </button>
+          ))}
+
+        {/* Add Card Mode */}
+        {addMode && (
+          <div className="card add-card-form">
+            <input
+              type="text"
+              placeholder="Enter Label"
+              value={newCard.label}
+              onChange={(e) => setNewCard({ ...newCard, label: e.target.value })}
+            />
+            <input
+              type="text"
+              placeholder="Enter Value"
+              value={newCard.value}
+              onChange={(e) => setNewCard({ ...newCard, value: e.target.value })}
+            />
+            <button className="save-btn" onClick={handleAddCard}>Save</button>
+            <button className="cancel-btn" onClick={() => setAddMode(false)}>Cancel</button>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

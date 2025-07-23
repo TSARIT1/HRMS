@@ -1,8 +1,6 @@
-// LeaveMonitor.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LeaveDetailsView from "./LeaveDetailsView";
 import "./LeaveApproval.css";
-import "./LeaveMonitorAnimations.css";
 
 const leaveData = [
   {
@@ -66,6 +64,22 @@ export default function LeaveApproval() {
     setExpandedId(expandedId === id ? null : id);
   };
 
+  useEffect(() => {
+    if (showDetails) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setShowDetails(false);
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [showDetails]);
+
   return (
     <div className="leave-monitor-container fade-in">
       <h2>Leave Monitor</h2>
@@ -74,7 +88,7 @@ export default function LeaveApproval() {
         <input
           type="text"
           className="search-input"
-          placeholder="type employee name or number"
+          placeholder="Type employee name or number"
         />
         <select>
           <option>Employee: All</option>
@@ -83,6 +97,7 @@ export default function LeaveApproval() {
           <option>List: Active</option>
           <option>List: Completed</option>
         </select>
+
         <div className="date-range">
           <label>Between:</label>
           <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
@@ -90,6 +105,7 @@ export default function LeaveApproval() {
           <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
           <button className="ok-btn">OK</button>
         </div>
+
         <button className="export-btn">Export Excel</button>
       </div>
 
@@ -106,7 +122,7 @@ export default function LeaveApproval() {
           </div>
 
           {expandedId === item.id && (
-            <div className="details slide-down">
+            <div className="details">
               <div className="row">
                 <label>Leave Type:</label> <span>{item.leaveType}</span>
                 <label>Days:</label> <span>{item.days}</span>
@@ -147,11 +163,13 @@ export default function LeaveApproval() {
       </div>
 
       {showDetails && selectedLeave && (
-        <div className="modal fade-in">
-          <LeaveDetailsView
-            data={selectedLeave}
-            onClose={() => setShowDetails(false)}
-          />
+        <div className="modal-overlay" onClick={() => setShowDetails(false)}>
+          <div className="modal fade-in-slide" onClick={(e) => e.stopPropagation()}>
+            <LeaveDetailsView
+              data={selectedLeave}
+              onClose={() => setShowDetails(false)}
+            />
+          </div>
         </div>
       )}
     </div>
