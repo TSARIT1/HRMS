@@ -74,45 +74,45 @@ const DeleteEmployee = () => {
 
   return (
     <div className="delete-employee-container">
-      <h2>🗑 Delete Employee</h2>
-      <p className="sub-text">Search by ID, Name, or Email</p>
+      <h2>Delete Employee</h2>
 
-      <div className="search-bar">
+      <div className="search-section">
         <input
           type="text"
           placeholder="Enter ID, name, or email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
-        <button className="clear-btn" onClick={handleCancel}>Clear</button>
+        <button className="btn search-btn" onClick={handleSearch}>Search</button>
+        <button className="btn clear-btn" onClick={handleCancel}>Clear</button>
       </div>
 
       {selectedEmployee ? (
-        <div className="emp-card">
-          <div className="emp-header">
-            <div className="emp-avatar">👤</div>
+        <div className="employee-card">
+          <div className="employee-header">
+            <div className="avatar">👤</div>
             <div>
-              <div className="emp-name">{selectedEmployee.name}</div>
-              <div className="emp-id">#{selectedEmployee.id}</div>
+              <h3>{selectedEmployee.name}</h3>
+              <span className="emp-id">#{selectedEmployee.id}</span>
             </div>
           </div>
 
-          <div className="emp-details">
-            <p><strong>Joined On:</strong> {selectedEmployee.joinDate}</p>
+          <div className="employee-info">
+            <p><strong>Join Date:</strong> {selectedEmployee.joinDate}</p>
             <p><strong>Email:</strong> {selectedEmployee.email}</p>
             <p><strong>Department:</strong> {selectedEmployee.department}</p>
             <p><strong>Location:</strong> {selectedEmployee.location}</p>
-            <p><strong>Leave:</strong> Granted - {selectedEmployee.leave.granted}, Lapsed - {selectedEmployee.leave.lapsed}</p>
+            <p><strong>Leave:</strong> Granted: {selectedEmployee.leave.granted}, Lapsed: {selectedEmployee.leave.lapsed}</p>
+            <p><strong>Direct Reports:</strong> {selectedEmployee.reports}</p>
           </div>
 
-          <div className="btn-group">
-            <button className="delete-btn" onClick={handleDelete}>🗑 Delete</button>
-            <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
+          <div className="action-buttons">
+            <button className="btn delete-btn" onClick={handleDelete}>Delete</button>
+            <button className="btn cancel-btn" onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       ) : (
-        <p className="no-selection">No employee selected.</p>
+        <p className="no-result">No employee selected.</p>
       )}
     </div>
   );

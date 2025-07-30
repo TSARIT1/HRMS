@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 import "./Attendance Muster.css";
 
 const employees = [
@@ -53,6 +55,24 @@ export default function AttendanceStatusOverride() {
     return tally;
   };
 
+  const handleExportExcel = () => {
+    const wb = XLSX.utils.book_new();
+
+    const headers = ["Employee ID", "Name", "Designation", ...monthDays.map(d => `Day ${d}`)];
+    const data = employees.map((emp) => [
+      emp.id,
+      emp.name,
+      emp.designation,
+      ...emp.statusByDay.slice(1) // skip the first OFF
+    ]);
+
+    const ws = XLSX.utils.aoa_to_sheet([headers, ...data]);
+    XLSX.utils.book_append_sheet(wb, ws, "Attendance");
+
+    const wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+    saveAs(new Blob([wbout], { type: "application/octet-stream" }), `Attendance_Muster_${month.replace(" ", "_")}.xlsx`);
+  };
+
   return (
     <div className="aso-container">
       <div className="aso-toolbar">
@@ -61,7 +81,7 @@ export default function AttendanceStatusOverride() {
             <option key={m}>{m}</option>
           ))}
         </select>
-        <button className="export-btn">Export Excel</button>
+        <button className="export-btn" onClick={handleExportExcel}>Export Excel</button>
       </div>
 
       <div className="aso-grid-wrapper">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Deduct LOP.css";
 
 const employeesList = [
   "1007 - Praveen Kumar",
@@ -17,7 +18,6 @@ const LopFormPage = () => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setEmployee(value);
-
     const filtered = employeesList.filter((emp) =>
       emp.toLowerCase().includes(value.toLowerCase())
     );
@@ -31,7 +31,6 @@ const LopFormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!employee || !lopDays) {
       alert("Fill all fields");
       return;
@@ -54,72 +53,53 @@ const LopFormPage = () => {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h2>Enter LOP Details</h2>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <div style={{ position: "relative" }}>
-          <label>Employee</label><br />
-          <input
-            type="text"
-            value={employee}
-            onChange={handleSearchChange}
-            placeholder="Search by Emp No or Name"
-            style={{ width: "300px", padding: "10px" }}
-          />
-          {employee && filteredEmployees.length > 0 && (
-            <ul
-              style={{
-                position: "absolute",
-                backgroundColor: "white",
-                border: "1px solid #ccc",
-                width: "300px",
-                listStyle: "none",
-                padding: "0",
-                marginTop: "2px",
-                zIndex: 1,
-              }}
-            >
-              {filteredEmployees.map((emp, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectSuggestion(emp)}
-                  style={{
-                    padding: "8px",
-                    cursor: "pointer",
-                    borderBottom: "1px solid #eee",
-                  }}
-                >
-                  {emp}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+    <div className="lop-form-wrapper">
+      <div className="lop-form-container">
+        <h2>Enter LOP Details</h2>
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <div className="form-group" style={{ position: "relative" }}>
+            <label>Employee</label>
+            <input
+              type="text"
+              value={employee}
+              onChange={handleSearchChange}
+              placeholder="Search by Emp No or Name"
+            />
+            {employee && filteredEmployees.length > 0 && (
+              <ul className="autocomplete-list">
+                {filteredEmployees.map((emp, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleSelectSuggestion(emp)}
+                  >
+                    {emp}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-        <div>
-          <label>LOP Days</label><br />
-          <input
-            type="number"
-            value={lopDays}
-            onChange={(e) => setLopDays(e.target.value)}
-            style={{ padding: "10px", width: "300px" }}
-          />
-        </div>
+          <div className="form-group">
+            <label>LOP Days</label>
+            <input
+              type="number"
+              value={lopDays}
+              onChange={(e) => setLopDays(e.target.value)}
+            />
+          </div>
 
-        <div>
-          <label>Remarks</label><br />
-          <textarea
-            rows={3}
-            value={remarks}
-            onChange={(e) => setRemarks(e.target.value)}
-            style={{ padding: "10px", width: "300px" }}
-          />
-        </div>
+          <div className="form-group">
+            <label>Remarks</label>
+            <textarea
+              rows={3}
+              value={remarks}
+              onChange={(e) => setRemarks(e.target.value)}
+            />
+          </div>
 
-        <button type="submit" style={{ padding: "10px 20px", marginTop: "10px" }}>
-          Save
-        </button>
-      </form>
+          <button type="submit">Save</button>
+        </form>
+      </div>
     </div>
   );
 };

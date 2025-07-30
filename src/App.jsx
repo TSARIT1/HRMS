@@ -8,7 +8,6 @@ import BankDetailsForm from './assets/components/pages/Myfav/Employee/Employe/Em
 import ExcelImporterApp from './assets/components/pages/Myfav/Employee/Employe/Employ/Bulkdata';
 import NominationDetailsForm from './assets/components/pages/Myfav/Employee/Employe/Employ/Nominee';
 import CreateForm from './assets/components/pages/Myfav/Employee/Employe/Employ/Policy';
-import EmployeeSearch from './assets/components/pages/Myfav/Employee/Employe/Employ/updateemp.no';
 import GenerateEmployeePassword from './assets/components/pages/Myfav/Employee/Employe/Employ/Regenerate password';
 import PayslipMailer from './assets/components/pages/Myfav/Employee/LEAVE/slippay';
 import LopFormPage from './assets/components/pages/Myfav/Employee/PAYROL/Deduct LOP';
@@ -64,6 +63,8 @@ import Bulkdata from './assets/components/pages/Myfav/Employee/Employe/Employ/Bu
 import AttendanceInfo from './assets/components/pages/Myfav/Employee/LEAVE/View Employee Attendance.';
 import SalaryRevisionAnalytics from './assets/SIDEBAR EXTRA Forms/PAY payrool/Salary Revision Analytics ';
 import ProcessAttendance from './assets/components/pages/Myfav/Employee/LEAVE/ProcessAttendance';
+import EmployeSearch from './assets/components/pages/Myfav/Employee/Employe/Employ/updateemp.no';
+import EmployeeCategories from './assets/components/pages/Myfav/Employee/Other/Employee Position';
 
 
 function App() {
@@ -91,7 +92,10 @@ function App() {
           <Route path="/excel" element={<ExcelImporterApp />} />
           <Route path="/Nomine" element={<NominationDetailsForm/>} />
           <Route path="/policy" element={<CreateForm />} />
-          <Route path="/update-emp" element={<EmployeeSearch />} />
+          <Route path="/updateemp" element={<EmployeSearch/>} />
+
+
+
           <Route path="/Repassword" element={<GenerateEmployeePassword/>} />
           <Route path="/spay" element={<PayslipMailer/>} />
           <Route path="/eimport" element={<ExcelImporterApp/>} />
@@ -128,11 +132,11 @@ function App() {
           <Route path="/report" element={<ReportH/>} />
 
           {/* Settings & Popups */}
-          <Route path="/Sit" element={<SettingsPage />} />
-          <Route path="/leavepage" element={<SettingsPage />} />
-
+          <Route path="/Sit" element={<SettingsPage/>} />
+          <Route path="/leavepage" element={<SettingsPage/>} />
+          <Route path="/EMPCategory" element={<EmployeeCategories/>} />
           {/* Profile */}
-          <Route path="/profilesetting" element={<ProfileSettings />} />
+          <Route path="/profilesetting" element={<ProfileSettings/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/password" element={<Password/>} />
           <Route path="/login" element={<LoginHistory/>} />
@@ -172,6 +176,7 @@ function App() {
           <Route path="/W reviewers" element={<WorkflowReviewerTypes/>} />
 
       </Routes>
+    
 </Router>
   );
 

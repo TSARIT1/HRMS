@@ -2,20 +2,35 @@ import React, { useState } from 'react';
 import './Salary Revision Analytics.css';
 
 export default function SalaryRevisionAnalytics() {
-  const [revisionRange] = useState({ min: 1, max: 19 });
+  const [revisionRange, setRevisionRange] = useState({ min: 1, max: 19 });
+
+  const handleRangeChange = (e) => {
+    const value = parseInt(e.target.value);
+    setRevisionRange(prev => ({
+      ...prev,
+      max: value > prev.min ? value : prev.min + 1
+    }));
+  };
 
   return (
     <div className="revision-monitor-container">
       <div className="revision-header">
-        <span>
-          <strong>Revision not done between</strong>{' '}
+        <div className="revision-title">
+          <strong>Revision not done between </strong>
           <span className="highlighted">{revisionRange.min} to {revisionRange.max} months</span>
-        </span>
+        </div>
 
         <div className="slider-wrapper">
           <div className="slider-track">
             <div className="slider-circle left" />
-            <input type="range" min="1" max="24" className="slider-bar-range" />
+            <input
+              type="range"
+              min="1"
+              max="24"
+              value={revisionRange.max}
+              onChange={handleRangeChange}
+              className="slider-bar-range"
+            />
             <div className="slider-circle right" />
           </div>
           <div className="slider-controls">
@@ -53,13 +68,15 @@ export default function SalaryRevisionAnalytics() {
             </tr>
           </thead>
           <tbody>
-            {/* Empty - can be dynamically populated */}
+            {/* Dynamic data to be inserted here */}
           </tbody>
         </table>
+
         <div className="table-footer">
           <span>Total Items: 0</span>
           <button className="export-btn">Export Excel</button>
         </div>
+
         <div className="pagination-controls">
           <button className="pagination-btn">{'|<'}</button>
           <button className="pagination-btn">{'<'}</button>

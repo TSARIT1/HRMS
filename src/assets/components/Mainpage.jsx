@@ -170,7 +170,7 @@ const DashboardPage = () => {
                 <CiSettings aria-hidden="true" />
                 <span className="tooltip">Settings</span>
               </button>
-                            <div className={`dropdown-menu ${settingsOpen ? 'open' : ''}`} role="menu">
+                <div className={`dropdown-menu ${settingsOpen ? 'open' : ''}`} role="menu">
 
                   <div className="dropdown-header">
                     <CiSettings aria-hidden="true" />
@@ -205,7 +205,8 @@ const DashboardPage = () => {
       <main className="dashboard-wrapper">
         <div className="navigation-buttons">
           <Link to="/" className="nav-btn">Welcome</Link>
-          <Link to="/dashboard" className="nav-btn">Dashboard</Link>
+                    <Link to="/" className="nav-btn">Dashboard</Link>
+
         </div>
 
         <section>

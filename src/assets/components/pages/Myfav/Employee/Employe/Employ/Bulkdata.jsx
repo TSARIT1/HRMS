@@ -4,26 +4,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import './Bulkdata.css';
 
 const mappingOptions = [
-  'Employee No',
-  'Contact name',
-  'Date of Joining',
-  'Department',
-  'Designation',
-  'Email',
-  'Phone Number',
-  'Address',
-  'City',
-  'State',
-  'Pincode',
-  'Country',
-  'Gender',
-  'Date of Birth',
-  'Marital Status',
-  'Nationality',
-  'Emergency Contact',
-  'Blood Group',
-  'Aadhaar Number',
-  'PAN Number',
+  'Employee No', 'Contact name', 'Date of Joining', 'Department', 'Designation',
+  'Email', 'Phone Number', 'Address', 'City', 'State', 'Pincode', 'Country',
+  'Gender', 'Date of Birth', 'Marital Status', 'Nationality', 'Emergency Contact',
+  'Blood Group', 'Aadhaar Number', 'PAN Number',
 ];
 
 export default function Bulkdata() {
@@ -96,7 +80,6 @@ export default function Bulkdata() {
     <div className="importer-container">
       <h2>Excel Importer</h2>
 
-      {/* Step Indicator */}
       <div className="steps">
         <div className={step === 1 ? 'step active' : 'step'}>EXCEL IMPORTER</div>
         <div className={step === 2 ? 'step active' : 'step'}>MAPPING</div>
@@ -106,19 +89,9 @@ export default function Bulkdata() {
 
       <AnimatePresence mode="wait">
         {step === 1 && (
-          <motion.div
-            key="step1"
-            variants={stepVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.4 }}
-          >
+          <motion.div key="step1" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.4 }}>
             <label>Importer Type</label>
-            <select
-              value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
-            >
+            <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
               <option value="">Please Select</option>
               <optgroup label="Address">
                 <option value="permanent">Employee Permanent Address</option>
@@ -132,108 +105,90 @@ export default function Bulkdata() {
             {selectedFile && <p>Selected File: {selectedFile.name}</p>}
 
             <div className="button-group">
-              <button className="btn btn-cancel" onClick={() => window.location.reload()}>
-                Cancel
-              </button>
-              <button className="btn btn-next" onClick={handleNext}>
-                Next →
-              </button>
+              <div className="left"></div>
+              <div className="center">
+                <button className="btn btn-cancel" onClick={() => window.location.reload()}>Cancel</button>
+              </div>
+              <div className="right">
+                <button className="btn btn-next" onClick={handleNext}>Next →</button>
+              </div>
             </div>
           </motion.div>
         )}
 
         {step === 2 && (
-          <motion.div
-            key="step2"
-            variants={stepVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.4 }}
-          >
+          <motion.div key="step2" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.4 }}>
             <h3>Step 2: Excel Importer Mapping</h3>
-            <p>Map your Excel columns to database fields. First record is shown for reference.</p>
+            <p className="mapping-instruction">Map the fields from your uploaded Excel sheet to the corresponding system fields below.</p>
 
-            <table>
-              <thead>
-                <tr>
-                  <th>Fields From Excel</th>
-                  <th>Mapped To</th>
-                  <th>First Record</th>
-                </tr>
-              </thead>
-              <tbody>
-                {excelData.map((row, idx) => (
-                  <tr key={idx}>
-                    <td>{row.field}</td>
-                    <td>
-                      <select
-                        value={mappings[row.field] || ''}
-                        onChange={(e) => handleMappingChange(row.field, e.target.value)}
-                      >
-                        <option value="">-- Select Field --</option>
-                        {mappingOptions.map((option, i) => (
-                          <option
-                            key={i}
-                            value={option}
-                            disabled={Object.values(mappings).includes(option)}
-                          >
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </td>
-                    <td>{row.value}</td>
+            <div className="mapping-table-wrapper">
+              <table className="mapping-table">
+                <thead>
+                  <tr>
+                    <th>Fields From Excel</th>
+                    <th>Mapped To</th>
+                    <th>First Record</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {excelData.map((row, idx) => (
+                    <tr key={idx}>
+                      <td>{row.field}</td>
+                      <td>
+                        <select
+                          value={mappings[row.field] || ''}
+                          onChange={(e) => handleMappingChange(row.field, e.target.value)}
+                        >
+                          <option value="">-- Select Field --</option>
+                          {mappingOptions.map((option, i) => (
+                            <option key={i} value={option} disabled={Object.values(mappings).includes(option)}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td>{row.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <div className="button-group">
-              <button className="btn btn-prev" onClick={() => setStep(1)}>← Previous</button>
-              <button className="btn btn-cancel" onClick={() => window.location.reload()}>
-                Cancel
-              </button>
-              <button className="btn btn-next" onClick={handleNext}>
-                Next →
-              </button>
+              <div className="left">
+                <button className="btn btn-prev" onClick={() => setStep(1)}>← Previous</button>
+              </div>
+              <div className="center">
+                <button className="btn btn-cancel" onClick={() => window.location.reload()}>Cancel</button>
+              </div>
+              <div className="right">
+                <button className="btn btn-next" onClick={handleNext}>Next →</button>
+              </div>
             </div>
           </motion.div>
         )}
 
         {step === 3 && (
-          <motion.div
-            key="step3"
-            variants={stepVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.4 }}
-          >
+          <motion.div key="step3" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.4 }}>
             <h3>Step 3: Excel Importer Validate</h3>
             <p className="validation-result">{validationResult}</p>
 
             <div className="button-group">
-              <button className="btn btn-prev" onClick={() => setStep(2)}>← Previous</button>
-              <button className="btn btn-cancel" onClick={() => window.location.reload()}>
-                Cancel
-              </button>
-              <button className="btn btn-next" onClick={handleNext}>
-                Next →
-              </button>
+              <div className="left">
+                <button className="btn btn-prev" onClick={() => setStep(2)}>← Previous</button>
+              </div>
+              <div className="center">
+                <button className="btn btn-cancel" onClick={() => window.location.reload()}>Cancel</button>
+              </div>
+              <div className="right">
+                <button className="btn btn-next" onClick={handleNext}>Next →</button>
+              </div>
             </div>
           </motion.div>
         )}
 
         {step === 4 && (
-          <motion.div
-            key="step4"
-            variants={stepVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.4 }}
-          >
+          <motion.div key="step4" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.4 }}>
             <h3>Step 4: Summary</h3>
             <p>All data has been validated and is ready for import.</p>
             <ul>
@@ -243,10 +198,13 @@ export default function Bulkdata() {
             </ul>
 
             <div className="button-group">
-              <button className="btn btn-prev" onClick={() => setStep(3)}>← Previous</button>
-              <button className="btn btn-cancel" onClick={() => window.location.reload()}>
-                Done
-              </button>
+              <div className="left">
+                <button className="btn btn-prev" onClick={() => setStep(3)}>← Previous</button>
+              </div>
+              <div className="center">
+                <button className="btn btn-cancel" onClick={() => window.location.reload()}>Done</button>
+              </div>
+              <div className="right"></div>
             </div>
           </motion.div>
         )}

@@ -110,6 +110,9 @@ export default function CreateForm() {
             required
           >
             <option value="">Select</option>
+              <option value="">General</option>
+            <option value="">Other</option>
+          
             {categories.map((cat, idx) => (
               <option key={idx} value={cat.name}>
                 {cat.name}

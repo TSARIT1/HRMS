@@ -1,71 +1,111 @@
 .importer-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
 }
 
 .steps {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
 .step {
   flex: 1;
   text-align: center;
-  padding: 0.5rem;
+  padding: 10px;
   border-bottom: 2px solid #ccc;
-  color: #999;
+  color: #777;
 }
 
 .step.active {
   color: #007bff;
-  border-color: #007bff;
-  font-weight: bold;
+  border-bottom: 3px solid #007bff;
 }
 
-.button-group {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+.mapping-table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
 }
 
-button {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.btn-cancel {
-  background-color: #f44336;
-  color: white;
-}
-
-.btn-next {
-  background-color: #4caf50;
-  color: white;
-}
-
-.btn-prev {
-  background-color: #2196f3;
-  color: white;
-}
-
-table {
+.mapping-table {
   width: 100%;
-  margin-top: 1rem;
   border-collapse: collapse;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.75rem;
+.mapping-table th,
+.mapping-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: left;
+}
+
+.mapping-table select {
+  width: 100%;
+  padding: 6px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.button-group .left,
+.button-group .center,
+.button-group .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.button-group .left {
+  justify-content: flex-start;
+}
+
+.button-group .right {
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-prev {
+  background-color: #ff8400;
+  color: #333;
+}
+
+.btn-cancel {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btn-next {
+  background-color: #32f800;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.validation-result {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+.mapping-instruction {
+  font-size: 14px;
+  color: #666;
 }

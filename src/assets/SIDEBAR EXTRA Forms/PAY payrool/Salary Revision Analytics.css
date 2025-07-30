@@ -1,170 +1,171 @@
 .revision-monitor-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
 }
 
 .revision-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
-.revision-header span {
-  font-size: 16px;
-  color: #333;
+.revision-title {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .highlighted {
-  color: #f59e0b; /* amber-500 */
+  color: #ffffff;
   font-weight: bold;
 }
 
 .slider-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  margin: 12px 0 24px;
 }
 
 .slider-track {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
+  background-color: #0d315f;
+  border-radius: 10px;
+  height: 10px;
+  position: relative;
+  margin-right: 16px;
+  padding: 0 10px;
+}
+
+.slider-bar-range {
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  position: absolute;
+  top: -4px;
+  left: 0;
 }
 
 .slider-circle {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
+  background-color: #3b82f6;
   border-radius: 50%;
-  background-color: #fff;
-  border: 2px solid #4f46e5; /* indigo-600 */
+  z-index: 1;
 }
 
-.slider-bar {
-  width: 120px;
-  height: 4px;
-  background-color: #3b82f6; /* blue-500 */
+.slider-circle.right {
+  background-color: rgb(0, 103, 2);
+  position: absolute;
+  right: 0;
 }
 
-.slider-controls .slider-btn {
-  background-color: #4f46e5;
-  color: #fff;
+.slider-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slider-btn {
+  background: #004f9d;
   border: none;
-  padding: 4px 8px;
   border-radius: 4px;
+  padding: 4px 6px;
   cursor: pointer;
 }
 
 .revision-metrics {
   display: flex;
-  gap: 20px;
+  gap: 16px;
+  margin-top: 12px;
 }
 
 .metric-box {
-  background: #fff;
-  padding: 10px 16px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  min-width: 140px;
-  text-align: center;
-}
-
-.metric-box span {
-  font-size: 14px;
-  color: #4b5563;
+  background: rgb(255, 255, 255);
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  border-radius: 6px;
+  width: 180px;
 }
 
 .metric-box strong {
   display: block;
-  font-size: 16px;
-  color: #111827;
-  margin-top: 4px;
+  font-size: 18px;
+  margin-top: 6px;
 }
 
 .tooltip {
+  font-size: 12px;
   margin-left: 4px;
-  color: #9ca3af;
-  cursor: help;
+  cursor: pointer;
 }
 
 .revision-table {
-  background-color: #fff;
-  border: 1px solid #e5e7eb;
+  background: white;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  overflow: hidden;
+  padding: 16px;
 }
 
-.revision-table table {
+table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  margin-bottom: 16px;
 }
 
-.revision-table th,
-.revision-table td {
-  padding: 12px 10px;
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #edf2f7;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
 }
 
-.revision-table th {
-  background-color: #f3f4f6;
+th {
+  background: #f7fafc;
   font-weight: 600;
-  color: #374151;
-}
-
-.revision-table tbody tr:hover {
-  background-color: #f9fafb;
 }
 
 .table-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
-  background-color: #f3f4f6;
-  border-top: 1px solid #e5e7eb;
+  padding: 8px 0;
 }
 
 .export-btn {
-  background-color: #3b82f6;
-  color: #fff;
+  background-color: #6366f1;
+  color: white;
   border: none;
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: 10px 18px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
 }
 
-.export-btn:hover {
-  background-color: #2563eb;
-}
-
 .pagination-controls {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  gap: 6px;
-  padding: 10px 12px;
-  background-color: #f3f4f6;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.pagination-controls button {
-  background-color: #e5e7eb;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 4px;
+.pagination-btn {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  background: #0c7ff2;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-.pagination-controls input {
+.pagination-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+input[type="text"] {
   width: 40px;
   text-align: center;
   padding: 4px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #cbd5e0;
   border-radius: 4px;
-  background: #fff;
-  font-size: 14px;
 }

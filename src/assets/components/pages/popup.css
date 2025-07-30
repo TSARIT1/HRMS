@@ -1,118 +1,180 @@
+/* Overall Overlay Background */
 .popup-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Popup Container */
 .popup-container {
   background: #fff;
-  width: 750px;
+  width: 90%;
+  max-width: 900px;
   max-height: 90vh;
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;
   border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   padding: 20px;
-  overflow: hidden;
+  animation: slideUp 0.4s ease-in-out;
   position: relative;
 }
 
+/* Popup Header */
 .popup-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 15px;
 }
 
+/* Close Button */
 .popup-close-btn {
-  font-size: 24px;
   background: none;
   border: none;
-  color: #444;
+  font-size: 24px;
   cursor: pointer;
+  background-color: blueviolet;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.popup-close-btn:hover {
+  transform: scale(1.2);
+
+  color: red;
 }
 
 .popup-search {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
   width: 100%;
-  margin-bottom: 15px;
+  max-width: 600px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.popup-search::placeholder {
+  color: #888;
+}
+
+.popup-search:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+
+/* Categories Section */
 .popup-categories {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .popup-category {
-  padding: 6px 14px;
-  font-size: 14px;
-  background: #3817f4;
-  border: 1px solid #1e10ed;
+  padding: 8px 14px;
+  border: 1px solid #007bff;
   border-radius: 20px;
+  background-color: white;
+  color: #007bff;
   cursor: pointer;
-  white-space: nowrap;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-.popup-category.active {
-  background: #2563eb;
-  color: #fff;
-  border: 1px solid #2563eb;
+.popup-category.active,
+.popup-category:hover {
+  background-color: #007bff;
+  color: white;
 }
 
+/* Grid of Tiles */
 .popup-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 15px;
-  overflow-y: auto;
-  padding-right: 5px;
-  flex-grow: 1;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
 }
 
+/* Individual Tile */
 .popup-tile {
-  background: #f1f5f9;
-  border-radius: 10px;
-  padding: 10px 8px;
-  font-size: 13px;
-  position: relative;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  position: relative;
   text-align: center;
-  min-height: 110px;
-  justify-content: center;
 }
 
+.popup-tile:hover {
+  background-color: #e9ecef;
+  transform: translateY(-4px);
+}
+
+/* Icon */
 .popup-icon {
-  font-size: 28px;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* Label */
+.popup-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
   margin-bottom: 5px;
 }
 
-.popup-label {
-  font-weight: 500;
-  color: #374151;
-  font-size: 12px;
-  min-height: 32px;
-}
-
+/* Star (favorite) */
 .popup-star {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 12px;
   font-size: 18px;
   cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
 }
 
 .popup-star.filled {
-  color: #facc15;
+  color: gold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

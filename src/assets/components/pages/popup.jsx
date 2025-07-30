@@ -17,7 +17,7 @@ const actions = [
   { title: 'Pay slip Mailer', category: 'Employee', icon: <FcBusinessman />, path: '/slip' },
   { title: 'Add Nomination Details', category: 'Employee', icon: <FcBusinessman />, path: '/Nomine' },
   { title: 'Upload Forms / Policies', category: 'Employee', icon: <FcBusinessman />, path: '/policy' },
-  { title: 'Update Employee Data', category: 'Employee', icon: <FcBusinessman />, path: '/update-emp' },
+  { title: 'Update Employee Data', category: 'Employee', icon: <FcBusinessman />, path: '/updateemp' },
   { title: 'Deduct Loss Of Pay (LOP)', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/lop' },
   { title: 'Print / Email Payslips', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/spay' },
   { title: 'Settle Resigned Employee', category: 'Payroll', icon: <FcMoneyTransfer />, path: '/proll' },
@@ -29,6 +29,8 @@ const actions = [
   { title: 'Attendance Period Finalization', category: 'Leave', icon: <FcCalendar />, path: '/aperiod' },
   { title: 'Approve Leave', category: 'Leave', icon: <FcCalendar />, path: '/l1' },
   { title: 'Update Company Details', category: 'Other', icon: <BsBookmarkPlus />, path: '/security' },
+    { title: 'Employee Category', category: 'Other', icon: <BsBookmarkPlus />, path: '/EMPCategory' },
+
 ];
 
 const categories = ['All', 'My Favourites', 'Employee', 'Payroll', 'Leave', 'Other'];
@@ -81,13 +83,17 @@ export default function ActionPopup() {
           <button className="popup-close-btn" onClick={handleClose}>×</button>
         </div>
 
-        <input
-          type="text"
-          placeholder="Search here"
-          className="popup-search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+<input
+  type="text"
+  placeholder="Search here..."
+  className="popup-search"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{ width: '100%' }} 
+/>
+
+
+
 
         <div className="popup-categories">
           {categories.map((cat) => (

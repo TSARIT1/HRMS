@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./updateemp.no.css";
 
-const EmployeeSearch = () => {
+const EmployeSearch= () => {
   const mockEmployeeData = {
     id: 1,
     name: "Aadesh Verma",
@@ -128,4 +128,4 @@ const EmployeeSearch = () => {
   );
 };
 
-export default EmployeeSearch;
+export default EmployeSearch;

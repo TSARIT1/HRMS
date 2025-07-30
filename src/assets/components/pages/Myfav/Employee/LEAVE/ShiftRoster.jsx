@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx";
 import "./ShiftRoster.css";
 
 const years = [2025, 2024, 2023, 2022, 2021];
@@ -35,6 +36,28 @@ export default function ShiftRoster() {
     emp.empNo.includes(searchTerm)
   );
 
+  const handleExport = () => {
+    const headers = ["Emp No", "Employee Name", "WD", "OFF", ...monthDays.map(day => `${day.date}-${day.day}`)];
+
+    const data = filteredEmployees.map((emp, idx) => {
+      const row = [
+        emp.empNo,
+        emp.name,
+        emp.wd,
+        emp.off,
+        ...monthDays.map((_, i) => ((i + idx) % 7 === 0 ? "OFF" : "GEN"))
+      ];
+      return row;
+    });
+
+    const worksheet = XLSX.utils.aoa_to_sheet([headers, ...data]);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "ShiftRoster");
+
+    const filename = `ShiftRoster_${months[selectedMonth]}_${selectedYear}.xlsx`;
+    XLSX.writeFile(workbook, filename);
+  };
+
   return (
     <div className="shift-roster-container">
       <h2>Shift Roster</h2>
@@ -56,7 +79,7 @@ export default function ShiftRoster() {
           className="search-input"
         />
 
-        <button className="export-btn">Export Excel</button>
+        <button className="export-btn" onClick={handleExport}>Export Excel</button>
       </div>
 
       <div className="table-wrapper">

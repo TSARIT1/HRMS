@@ -1,141 +1,140 @@
+/* PAY Incometax.css */
+
 .tax-container {
-  max-width: 90%;
-  margin: auto;
-  background: #fff;
   padding: 24px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #eee;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fc;
+  color: #333;
 }
 
 .top-controls {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
 
 .input {
-  padding: 10px 12px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  width: 250px;
+  flex: 1;
+  min-width: 250px;
 }
 
 .btn {
   padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: 0.3s;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s ease;
 }
 
 .btn.blue {
-  background: #2563eb;
-  color: #fff;
-}
-
-.btn.blue:hover {
-  background: #1e40af;
+  background-color: #3182ce;
+  color: white;
 }
 
 .btn.yellow {
-  background: #facc15;
-  color: #000;
+  background-color: #ecc94b;
+  color: #333;
 }
 
-.btn.yellow:hover {
-  background: #eab308;
+.btn.border-blue {
+  border: 1px solid #3182ce;
+  color: #3182ce;
+  background: white;
 }
 
 .tabs {
   display: flex;
-  gap: 12px;
-  border-bottom: 2px solid #e2e8f0;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .tab {
   padding: 8px 14px;
-  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: #f1f5f9;
   cursor: pointer;
-  color: #64748b;
+  font-size: 14px;
 }
 
 .active-tab {
-  border-color: #2563eb;
-  color: #2563eb;
-  font-weight: 600;
+  background: #3182ce;
+  color: white;
+  border-color: #3182ce;
 }
 
 .employee-card {
-  background: #eff6ff;
-  padding: 16px;
+  background: white;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  padding: 16px;
   margin-bottom: 20px;
 }
 
 .employee-header {
   display: flex;
-  gap: 12px;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  background: #2563eb;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .name {
   font-size: 18px;
-  font-weight: 700;
-  color: #1e3a8a;
+  font-weight: bold;
 }
 
 .id {
-  font-size: 14px;
-  color: #3b82f6;
+  color: #666;
+  font-size: 13px;
 }
 
 .employee-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
   font-size: 14px;
-  color: #1e40af;
+}
+
+.employee-info div {
+  min-width: 150px;
 }
 
 .info-input {
-  padding: 4px 8px;
-  border: 1px solid #cbd5e1;
-  border-radius: 4px;
-  width: 100%;
+  width: 120px;
+  padding: 4px;
+  margin-top: 4px;
 }
 
 .green {
-  color: #15803d;
+  color: green;
   font-weight: 500;
 }
 
 .total-income {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 16px;
-  color: #1f2937;
+}
+
+.total-income span {
+  color: #2b6cb0;
 }
 
 .tab-content {
-  background: #f1f5f9;
-  padding: 20px;
+  background: white;
+  padding: 16px;
+  border: 1px solid #ddd;
   border-radius: 8px;
 }
 
@@ -146,25 +145,15 @@
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
-  margin-bottom: 20px;
+  margin-top: 16px;
 }
 
-.data-table th, .data-table td {
-  padding: 10px 12px;
+.data-table th,
+.data-table td {
+  padding: 10px;
   border: 1px solid #e2e8f0;
-  text-align: right;
-}
-
-.data-table th {
-  background: #dbeafe;
-  color: #1e3a8a;
-  font-weight: 600;
-}
-
-.data-table td:first-child,
-.data-table th:first-child {
-  text-align: left;
+  font-size: 14px;
+  text-align: center;
 }
 
 .action-buttons {
@@ -174,61 +163,52 @@
 }
 
 .icon-btn {
-  background: none;
   border: none;
+  padding: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  padding: 4px;
+  background: #edf2f7;
 }
 
 .icon-btn.red {
-  color: #dc2626;
+  color: #e53e3e;
 }
 
 .icon-btn.blue {
-  color: #2563eb;
+  color: #3182ce;
 }
 
 .result-inputs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 .result-inputs label {
   font-size: 14px;
-  font-weight: 500;
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .result-inputs input {
-  padding: 6px 8px;
-  border: 1px solid #cbd5e1;
+  margin-top: 4px;
+  padding: 8px;
   border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 .remaining {
-  text-align: right;
-  font-weight: 600;
-  color: #2563eb;
-  margin-top: 12px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
 }
 
 .footer-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.btn.border-blue {
-  border: 1px solid #2563eb;
-  color: #2563eb;
-  background: transparent;
-}
-
-.btn.border-blue:hover {
-  background: #e0f2fe;
+  gap: 10px;
+  margin-top: 24px;
+  justify-content: flex-end;
 }

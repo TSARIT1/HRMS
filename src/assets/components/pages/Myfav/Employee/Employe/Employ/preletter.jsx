@@ -36,52 +36,28 @@ const GenerateLetter = () => {
 
   const getTemplateContent = (templateKey) => {
     const templates = {
-        offer: `
+      offer: `
 Dear [Employee Name],
-We are pleased to offer you the position of [Position] at TSAR IT PVT LTD, based on the recent interviews and
-discussions. We believe your skills and experience will be a great asset to our company, and we are excited 
-to welcome you aboard.
+We are pleased to offer you the position of [Position] at TSAR IT PVT LTD...
 
- Position Details: 
-•	Job Title: XXXXX
-•	Employment Type: XXXXX
-•	Reporting To: XXXXX
-•	Start Date: XXXXX
+Regards,
+[Authorized Signatory]`,
 
- Job Responsibilities: 
-Your responsibilities as an XXXXX will include but are not limited to:
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-•	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+      experience: `
+To Whomsoever It May Concern
 
- Other Benefits: 
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-•	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+This is to certify that Mr.[Employee Name] Emp.No: [EmployeeNum] worked in our Company TSAR IT PVT LTD as Role [Position].
 
- Compensation :
-•	Annual Salary: ₹XXXX LPA, paid on a monthly basis.
-•	Bonus: You may be eligible for performance-based bonuses as per the company policy.
+Regards,
+[Authorized Signatory]`,
 
- Terms & Conditions: 
+      termination: `
+To Whomsoever It May Concern
 
-•	This offer is contingent upon the completion of background checks, as per company policy.
-•	Your employment with TSAR IT PVT LTD is at-will, meaning either you or the company can terminate the employment relationship at any time, with or without cause, and with or without notice.
-We are confident that you will have a rewarding experience working with us and look forward to seeing the positive impact you will have on TSAR IT PVT LTD.
-If you have any questions or require further clarification, please do not hesitate to contact us.
-Please review this offer carefully and indicate your acceptance by signing and returning a copy of this letter.
+This is to certify that Mr.[Employee Name] Emp.No: [EmployeeNum] worked in our Company TSAR IT PVT LTD as Role [Position] and has been relieved.
 
-Warm regards,`,
-      experience: ` To Whomsoever It May Concern 
-This is to certify that Mr.[Employee Name] Emp.No: [EmployeeNum] worked in our Company TSAR IT PVT LTD as Role [Position] from XXXXXX  to XXXXXX.
-We found him sincere, hardworking and technically sound and result oriented during his tenure. He has a friendly, outgoing personality, a good sense of humor and works well as part of a team.
-We thank his for his contribution and wish him success in his future endeavors.`,
-      termination: `To Whomsoever It May Concern 
-This is to certify that Mr.[Employee Name] Emp. No: [EmployeeNum] worked in our Company TSAR IT PVT LTD as Role [Position] from XXXXXX  to XXXXXX.
-We found him sincere, hardworking and technically sound and result oriented during his tenure. He has a friendly, outgoing personality, a good sense of humor and works well as part of a team.
-We thank his for his contribution and wish him success in his future endeavors.`,
+Regards,
+[Authorized Signatory]`,
     };
     return templates[templateKey] || "";
   };
@@ -94,7 +70,8 @@ We thank his for his contribution and wish him success in his future endeavors.
         contentMap[id] = getTemplateContent(templateKey)
           .replace(/\[Employee Name\]/g, emp.name)
           .replace(/\[EmployeeNum\]/g, emp.employeeNum)
-          .replace(/\[Position\]/g, emp.position);
+          .replace(/\[Position\]/g, emp.position)
+          .replace(/\[Authorized Signatory\]/g, formData.general.authorizedSignatory);
       }
     });
     return contentMap;
@@ -335,29 +312,30 @@ We thank his for his contribution and wish him success in his future endeavors.
       </div>
 
       <div className="button-group">
-        <button
-          onClick={handlePreviousAnimated}
-          disabled={currentStep === 1 || animating}
-          className={`btn ${currentStep === 1 ? "disabled" : "gray"}`}
-        >
-          ← Back
-        </button>
-
-        <button onClick={handleCancel} className="btn red">
-          Cancel
-        </button>
-
-        {currentStep < steps.length && (
-          <button onClick={handleNextAnimated} className="btn blue">
-            Next →
+        <div className="left-buttons">
+          <button
+            onClick={handlePreviousAnimated}
+            disabled={currentStep === 1 || animating}
+            className={`btn ${currentStep === 1 ? "disabled" : "gray"}`}
+          >
+            ← Back
           </button>
-        )}
-
-        {currentStep === steps.length && (
-          <button onClick={handleSubmit} className="btn green">
-            Generate Letters
+        </div>
+        <div className="right-buttons">
+          <button onClick={handleCancel} className="btn red">
+            Cancel
           </button>
-        )}
+          {currentStep < steps.length && (
+            <button onClick={handleNextAnimated} className="btn blue">
+              Next →
+            </button>
+          )}
+          {currentStep === steps.length && (
+            <button onClick={handleSubmit} className="btn green">
+              Generate Letters
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

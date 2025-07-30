@@ -25,10 +25,15 @@ h2 {
   background-color: #3182ce;
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 12px 24px; /* Adjusted for visual balance */
   border-radius: 4px;
   cursor: pointer;
+  display: block;         /* Make it take full row */
+  margin: 20px auto;      /* Center horizontally with margin */
+  font-size: 16px;        /* Optional: improve readability */
+  text-align: center;     /* Ensure text is centered inside */
 }
+
 
 .export-btn:hover {
   background-color: #2b6cb0;

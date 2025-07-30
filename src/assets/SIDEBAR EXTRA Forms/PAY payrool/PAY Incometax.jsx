@@ -6,7 +6,6 @@ const EmployeeTaxInfo = () => {
   const [search, setSearch] = useState('');
   const [editing, setEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('Income');
-
   const [incomeTax, setIncomeTax] = useState(45850);
   const [surcharge, setSurcharge] = useState(0);
   const [eduCess, setEduCess] = useState(0);
@@ -23,28 +22,6 @@ const EmployeeTaxInfo = () => {
       processedTime: 'Today at 4:09 PM',
       totalIncome: '₹2,29,250.00',
     },
-    {
-      name: 'Neha Sharma',
-      id: '6272',
-      joinDate: '12 Jun 2020',
-      dob: '14 Mar 1988',
-      gender: 'Female',
-      location: 'Mumbai',
-      taxRegime: 'OLD TAX REGIME',
-      processedTime: 'Today at 3:45 PM',
-      totalIncome: '₹3,50,000.00',
-    },
-    {
-      name: 'Ravi Kumar',
-      id: '6291',
-      joinDate: '05 Jan 2022',
-      dob: '09 Nov 1992',
-      gender: 'Male',
-      location: 'Hyderabad',
-      taxRegime: 'NEW TAX REGIME',
-      processedTime: 'Today at 11:20 AM',
-      totalIncome: '₹2,80,000.00',
-    },
   ];
 
   const [employee, setEmployee] = useState(employeeList[0]);
@@ -55,50 +32,30 @@ const EmployeeTaxInfo = () => {
         emp.name.toLowerCase().includes(search.toLowerCase()) ||
         emp.id === search
     );
-
-    if (match) {
-      setEmployee(match);
-    } else {
-      alert('No employee found.');
-    }
+    match ? setEmployee(match) : alert('No employee found.');
   };
 
-  const handleEditToggle = () => {
-    setEditing(!editing);
-  };
+  const handleEditToggle = () => setEditing(!editing);
 
   const tabs = [
-    'Income',
-    'Income From Previous Employer',
-    'Exemptions',
-    'Perquisite',
-    'Deductions',
-    'Others',
-    'House Property Income',
-    'Regime',
-    'Result',
+    'Income', 'Income From Previous Employer', 'Exemptions', 'Perquisite',
+    'Deductions', 'Others', 'House Property Income', 'Regime', 'Result',
   ];
 
   const incomeFromPreviousEmployer = [
     {
-      month: 'Aug',
-      incomeAfterExemptions: 12000,
-      professionalTax: 233,
-      pf: 330,
-      nps: 440,
-      totalTax: 1120,
-      incomeTax: 550,
-      surcharge: 550,
-      cess: 20,
+      month: 'Aug', incomeAfterExemptions: 12000, professionalTax: 233,
+      pf: 330, nps: 440, totalTax: 1120, incomeTax: 550,
+      surcharge: 550, cess: 20,
     },
   ];
 
   return (
     <div className="tax-container">
-      <div className="top-controls">
+      <div className="top-bar">
         <input
           type="text"
-          className="input"
+          className="input search-input"
           placeholder="Search employee..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -137,9 +94,7 @@ const EmployeeTaxInfo = () => {
                 value={employee.dob}
                 onChange={(e) => setEmployee({ ...employee, dob: e.target.value })}
               />
-            ) : (
-              employee.dob
-            )}
+            ) : employee.dob}
           </div>
           <div><strong>Gender:</strong><br />{employee.gender}</div>
           <div>
@@ -150,26 +105,22 @@ const EmployeeTaxInfo = () => {
                 value={employee.location}
                 onChange={(e) => setEmployee({ ...employee, location: e.target.value })}
               />
-            ) : (
-              employee.location
-            )}
+            ) : employee.location}
           </div>
           <div><strong>Processed:</strong><br />{employee.processedTime}</div>
           <div><strong>Tax Regime:</strong><br /><span className="green">{employee.taxRegime}</span></div>
         </div>
       </div>
 
-      <div className="total-income">
-        Total Income: <span>{employee.totalIncome}</span>
-      </div>
+      <div className="total-income">Total Income: <span>{employee.totalIncome}</span></div>
 
       <div className="tab-content">
-        {activeTab === 'Income From Previous Employer' ? (
+        {activeTab === 'Income From Previous Employer' && (
           <div className="table-wrapper">
             <table className="data-table">
               <thead>
                 <tr>
-                  {['Month', 'Income After Exemptions', 'Professional Tax', 'PF', 'Employer NPS', 'Total Tax', 'Income Tax', 'Surcharge', 'Cess', 'Actions'].map(header => (
+                  {['Month', 'Income After Exemptions', 'Professional Tax', 'PF', 'Employer NPS', 'Total Tax', 'Income Tax', 'Surcharge', 'Cess', 'Actions'].map((header) => (
                     <th key={header}>{header}</th>
                   ))}
                 </tr>
@@ -196,12 +147,14 @@ const EmployeeTaxInfo = () => {
             </table>
 
             <div className="footer-buttons">
-              {["Back To Salary", "Save", "Preview", "Download", "Recalculate"].map((label, i) => (
+              {['Back To Salary', 'Save', 'Preview', 'Download', 'Recalculate'].map((label, i) => (
                 <button key={i} className="btn border-blue">{label}</button>
               ))}
             </div>
           </div>
-        ) : activeTab === 'Result' ? (
+        )}
+
+        {activeTab === 'Result' && (
           <>
             <div className="result-inputs">
               <label>Income Tax
@@ -221,7 +174,7 @@ const EmployeeTaxInfo = () => {
             <table className="data-table">
               <thead>
                 <tr>
-                  {['Description', 'Income Tax', 'Surcharge', 'Edu. Cess', 'Total'].map(header => (
+                  {['Description', 'Income Tax', 'Surcharge', 'Edu. Cess', 'Total'].map((header) => (
                     <th key={header}>{header}</th>
                   ))}
                 </tr>
@@ -242,13 +195,15 @@ const EmployeeTaxInfo = () => {
             <div className="remaining">Remaining Months: 4</div>
 
             <div className="footer-buttons">
-              {["Back To Salary", "Save", "Preview", "Download", "Recalculate"].map((label, i) => (
+              {['Back To Salary', 'Save', 'Preview', 'Download', 'Recalculate'].map((label, i) => (
                 <button key={i} className="btn border-blue">{label}</button>
               ))}
             </div>
           </>
-        ) : (
-          <p>You are viewing <strong>{activeTab}</strong></p>
+        )}
+
+        {(activeTab !== 'Income From Previous Employer' && activeTab !== 'Result') && (
+          <p>You are viewing <strong>{activeTab}</strong> tab content.</p>
         )}
       </div>
     </div>

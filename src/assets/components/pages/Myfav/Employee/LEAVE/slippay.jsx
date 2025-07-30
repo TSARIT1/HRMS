@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import emailjs from "emailjs-com";
-import './slippay.css';
+import "./slippay.css";
 
 const PayslipMailer = () => {
   const [activeTab, setActiveTab] = useState("Payslip");
@@ -16,7 +16,7 @@ const PayslipMailer = () => {
     doc.text(`${activeTab} Report`, 14, 10);
     doc.autoTable({
       head: [["Employee Name", "Employee No", "Remarks", "Payslip Released"]],
-      body: tableData.map(row => [row.name, row.empNo, row.remarks, row.released])
+      body: tableData.map(row => [row.name, row.empNo, row.remarks, row.released]),
     });
     return doc.output("blob");
   };
@@ -26,7 +26,7 @@ const PayslipMailer = () => {
     doc.text(`${activeTab} Report`, 14, 10);
     doc.autoTable({
       head: [["Employee Name", "Employee No", "Remarks", "Payslip Released"]],
-      body: tableData.map(row => [row.name, row.empNo, row.remarks, row.released])
+      body: tableData.map(row => [row.name, row.empNo, row.remarks, row.released]),
     });
     doc.save(`${activeTab.toLowerCase().replace(/\s/g, "_")}_report.pdf`);
   };
@@ -50,14 +50,14 @@ const PayslipMailer = () => {
 
   return (
     <div className="payslip-container">
-      <h1>Payslip Mailer</h1>
+      <h1 className="main-heading">Payslip Mailer</h1>
 
       <div className="tab-buttons">
         {["Payslip", "Settlement Payslip", "Re-Settlement Payslip"].map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={activeTab === tab ? "tab-active" : ""}
+            className={activeTab === tab ? "tab-btn active" : "tab-btn"}
           >
             {tab}
           </button>
@@ -79,7 +79,7 @@ const PayslipMailer = () => {
       </div>
 
       <div className="table-wrapper">
-        <table>
+        <table className="styled-table">
           <thead>
             <tr>
               <th><input type="checkbox" /></th>
@@ -108,8 +108,8 @@ const PayslipMailer = () => {
       </div>
 
       <div className="action-buttons">
-        <button onClick={handleDownloadPDF}>Download As PDF</button>
-        <button onClick={handleSendEmail} className="send-btn">Send Email</button>
+        <button onClick={handleDownloadPDF} className="btn download-btn">Download as PDF</button>
+        <button onClick={handleSendEmail} className="btn send-btn">Send Email</button>
       </div>
     </div>
   );

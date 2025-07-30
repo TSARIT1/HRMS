@@ -1,94 +1,113 @@
+/* === General Container === */
 .aso-container {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
+  background-color: #f8f9fa;
 }
 
+/* === Toolbar with Dropdown and Button === */
 .aso-toolbar {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-  gap: 10px;
-  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .aso-toolbar select {
-  padding: 5px 10px;
+  padding: 6px 10px;
   font-size: 14px;
-}
-
-.export-btn {
-  background-color: #3182ce;
-  color: white;
-  border: none;
-  padding: 8px 14px;
   border-radius: 4px;
-  cursor: pointer;
+  border: 1px solid #ccc;
 }
 
+/* === Export Button === */
+.export-btn {
+  padding: 8px 16px;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-btn:hover {
+  background-color: #1669c1;
+}
+
+/* === Scrollable Table Wrapper === */
 .aso-grid-wrapper {
   overflow-x: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 6px;
 }
 
+/* === Attendance Table === */
 .aso-grid {
+  width: 100%;
   border-collapse: collapse;
-  min-width: 100%;
+  min-width: 1200px;
 }
 
 .aso-grid th,
 .aso-grid td {
-  border: 1px solid #ccc;
-  padding: 6px 8px;
+  padding: 6px 10px;
   text-align: center;
+  border: 1px solid #ccc;
   font-size: 13px;
   white-space: nowrap;
 }
 
-.aso-grid th {
-  background-color: #f8f9fa;
-  font-weight: bold;
+/* === Sticky First Column === */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-right: 2px solid #ddd;
 }
 
-.aso-grid .dow {
-  font-size: 11px;
-  color: #666;
-}
-
+/* === Employee Column Style === */
 .emp-col {
-  min-width: 200px;
+  width: 240px;
   text-align: left;
-  background: #f8f9fa;
 }
 
 .emp-name {
-  font-weight: bold;
+  font-weight: 600;
+}
+
+.emp-id {
+  font-weight: normal;
+  color: #777;
+  font-size: 12px;
 }
 
 .emp-desg {
   font-size: 12px;
+  color: #888;
+}
+
+/* === Day of Week Style in Header === */
+.dow {
+  font-size: 11px;
   color: #666;
 }
 
+/* === Summary Totals Column === */
 .summary-col {
+  background-color: #f1f1f1;
   font-weight: bold;
-  background-color: #edf2f7;
+  min-width: 40px;
 }
 
-.sticky-col {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background: #f8f9fa;
+/* === Status Code Colors (matching inline style fallback) === */
+td {
+  transition: background-color 0.2s;
 }
 
-.aso-grid td.sticky-col {
-  border-right: 1px solid #ccc;
-}
-
-@media(max-width: 768px) {
-  .aso-toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* Optional row hover */
+.aso-grid tbody tr:hover {
+  background-color: #f5f5f5;
 }
