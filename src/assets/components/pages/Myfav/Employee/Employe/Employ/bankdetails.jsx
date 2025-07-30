@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './bankdetails.css';
+import './bank_details.css';
 
 const bankBranches = {
   'SBI': ['Hyderabad', 'Mumbai', 'Delhi'],

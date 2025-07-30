@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Addemployee.css';
+import { FcApproval } from "react-icons/fc";
 
 export default function EmployeeQuickAdd() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ export default function EmployeeQuickAdd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('✅ Employee saved!');
+    alert('<FcApproval /> Employee saved!');
     handleCancel();
   };
 

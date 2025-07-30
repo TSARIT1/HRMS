@@ -149,7 +149,7 @@ export default function EmployeeExitForm() {
 
               {/* Resignation Details */}
               <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold mb-2">📌 Resignation Details</h3>
+                <h3 className="text-lg font-semibold mb-2">Resignation Details</h3>
                 <div className="grid grid-cols-4 gap-6 text-sm">
                   <div>
                     <label>Resignation Submitted On</label>

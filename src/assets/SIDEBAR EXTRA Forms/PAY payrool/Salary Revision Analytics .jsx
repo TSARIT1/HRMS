@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Salary Revision Analytics.css';
+import { FcInfo } from "react-icons/fc";
 
 export default function SalaryRevisionAnalytics() {
   const [revisionRange, setRevisionRange] = useState({ min: 1, max: 19 });
@@ -41,11 +42,11 @@ export default function SalaryRevisionAnalytics() {
 
         <div className="revision-metrics">
           <div className="metric-box">
-            <span>Longest Revision <span className="tooltip">ℹ</span></span>
+            <span>Longest Revision <span className="tooltip"><FcInfo /></span></span>
             <strong>0 months</strong>
           </div>
           <div className="metric-box">
-            <span>Median Revision <span className="tooltip">ℹ</span></span>
+            <span>Median Revision <span className="tooltip"><FcInfo /></span></span>
             <strong>0 months</strong>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { AiTwotoneDelete } from "react-icons/ai";
+
 
 const OpenDeletePageButton = () => {
   const handleOpenInNewTab = () => {
@@ -20,7 +22,7 @@ const OpenDeletePageButton = () => {
         boxShadow: "0px 2px 6px rgba(0,0,0,0.2)",
       }}
     >
-      🗑 Open Delete Employee Page
+      <AiTwotoneDelete />Open Delete Employee Page
     </button>
   );
 };

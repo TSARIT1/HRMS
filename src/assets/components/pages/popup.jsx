@@ -13,7 +13,6 @@ const actions = [
   { title: 'Bank Details', category: 'Employee', icon: <FcBusinessman />, path: '/bankdetails' },
   { title: 'Bulk Data Upload', category: 'Employee', icon: <FcBusinessman />, path: '/bulk' },
   { title: 'Delete Employee', category: 'Employee', icon: <FcBusinessman />, path: '/deleteemp' },
-  { title: 'Asign Manager', category: 'Employee', icon: <FcBusinessman />, path: '/asignmanager' },
   { title: 'Pay slip Mailer', category: 'Employee', icon: <FcBusinessman />, path: '/slip' },
   { title: 'Add Nomination Details', category: 'Employee', icon: <FcBusinessman />, path: '/Nomine' },
   { title: 'Upload Forms / Policies', category: 'Employee', icon: <FcBusinessman />, path: '/policy' },

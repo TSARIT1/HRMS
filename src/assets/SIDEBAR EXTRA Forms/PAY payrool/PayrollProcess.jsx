@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PayrollProcess.css';
+import { FcFlashOn } from "react-icons/fc";
+import { FaRegThumbsUp } from "react-icons/fa";
+
+import { CiSettings } from "react-icons/ci";
 
 export default function PayrollProcess() {
   const [logs] = useState([
@@ -44,10 +48,10 @@ export default function PayrollProcess() {
 
       <div className="button-group">
         <button className="process-btn">
-          ⚙️ Process Payroll
+          <CiSettings /> Process Payroll
         </button>
         <button className="quick-process-btn" onClick={handleQuickProcess}>
-          ⚡ Quick Process
+          <FcFlashOn /> Quick Process
         </button>
       </div>
 
@@ -71,7 +75,7 @@ export default function PayrollProcess() {
                   <small className="processed-on">{log.processedOn}</small>
                 </td>
                 <td className="status-column">
-                  <span role="img" aria-label="completed">👍</span> {log.status}
+                  <span role="img" aria-label="completed"><FaRegThumbsUp /></span> {log.status}
                 </td>
               </tr>
             ))}

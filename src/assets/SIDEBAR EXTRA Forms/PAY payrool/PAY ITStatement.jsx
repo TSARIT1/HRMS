@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './PAY ITStatement.css';
+import { FcBusinesswoman } from "react-icons/fc";
 
 const ITStatement = () => {
   const [employeeData, setEmployeeData] = useState(null);
@@ -35,15 +36,15 @@ const ITStatement = () => {
   return (
     <div className="it-statement">
       <div className="header">
-        <div className="profile-icon">👤</div>
+        <div className="profile-icon"></div>
         <div>
           <div className="employee-name">{employeeData.name}</div>
-          <div className="employee-id">#{employeeData.employeeNo}</div>
+          <div className="employee-id">{employeeData.employeeNo}</div>
         </div>
         <div className="action-buttons">
-          <button className="expand-btn">+ Expand All</button>
-          <button className="collapse-btn">- Collapse All</button>
-          <button className="pdf-btn">⬇ Download As PDF</button>
+          <button className="expand-btn"> Expand All</button>
+          <button className="collapse-btn">Collapse All</button>
+          <button className="pdf-btn"> Download As PDF</button>
         </div>
       </div>
 
