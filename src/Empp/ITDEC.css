@@ -1,0 +1,47 @@
+.itstat-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #fafafa;
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+.itstat-title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.button-wrapper {
+  margin-bottom: 25px;
+}
+
+.tax-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.tax-button:hover {
+  background-color: #0056b3;
+}
+
+.itstat-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.itstat-image {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

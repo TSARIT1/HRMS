@@ -1,0 +1,72 @@
+.leave-calendar-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-section {
+  flex: 2;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter {
+  margin-bottom: 15px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.day-header {
+  font-weight: bold;
+  background: #f3f3f3;
+  padding: 5px;
+}
+
+.day-cell {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.day-cell.today {
+  background: #eaf4ff;
+  border: 1px solid #54585d;
+}
+
+.day-cell.selected {
+  background: #00a709;
+  color: rgb(0, 0, 0);
+}
+
+.transactions-section {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+}

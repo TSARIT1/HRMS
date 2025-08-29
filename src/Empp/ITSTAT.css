@@ -1,0 +1,29 @@
+.itstat-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #fdfdfd;
+  max-width: 750px;
+  margin: 50px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.itstat-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.itstat-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.itstat-image {
+  width: 180%;
+  max-width: 180%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}

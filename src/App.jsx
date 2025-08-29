@@ -65,6 +65,20 @@ import ProcessAttendance from './pages/Myfav/Employee/LEAVE/ProcessAttendance';
 import EmployeSearch from './pages/Myfav/Employee/Employe/Employ/updateemp.no';
 import EmployeeCategories from './pages/Myfav/Employee/Other/Employee Position';
 import EMPDashboard from './EmployeeAdmin/EmployeeDashboard';
+import LeaveEMP from './EmployeeAdmin/Lev/LeaveEMP';
+import LBalance from './EmployeeAdmin/Lev/LBalance';
+import LCalender from './EmployeeAdmin/Lev/LCalender';
+import LHoliday from './EmployeeAdmin/Lev/LHoliday';
+import Payslipp from './Empp/paysli';
+import YDT from './Empp/YTD';
+import ITSTAT from './Empp/ITSTAT';
+import ITDEC from './Empp/ITDEC';
+import Loans from './Empp/Loans';
+import Salaryrev from './Empp/Salaryrev';
+import LeaveApply from './EmployeeAdmin/Lev/LeaveEMP';
+import LeaveCalendar from './EmployeeAdmin/Lev/LCalender';
+import { LogIn } from 'lucide-react';
+import Login from './EmployeeAdmin/login';
 
 
 function App() {
@@ -83,7 +97,7 @@ function App() {
                   <Route path="/popup" element={<ActionPopup/>} />
 
 
-          <Route path="/" element={<DashboardPage/>} />
+          <Route path="/" element={<EMPDashboard/>} />
 
           <Route path="/prepletter" element={<GenerateLetter/>} />
           <Route path="/addemployee" element={<EmployeeQuickAdd/>} />
@@ -175,9 +189,30 @@ function App() {
           <Route path="/W Onboard" element={<EmployeeOnboarding/>} />
           <Route path="/W leavels" element={<WorkflowLevels/>} />
           <Route path="/W reviewers" element={<WorkflowReviewerTypes/>} />
+                    <Route path="/LogoutE" element={<Login/>} />
+
+
+          {/*employee*/}
+          <Route path="/payslipsE" element={<WorkflowReviewerTypes/>} />
+          <Route path="/ytd-reportsE" element={<WorkflowReviewerTypes/>} />
+          <Route path="/it-statementE" element={<ITSTAT/>} />
+          <Route path="/it-declarationE" element={<ITDEC/>} />
+          <Route path="/loansE" element={<Loans/>} />
+          <Route path="/salary-revisionE" element={<Salaryrev/>} />
+
+           {/* Leave*/}
+          <Route path="/leave-applyE" element={<LeaveApply/>} />
+          <Route path="/leave-balancesE" element={<LBalance/>} />
+          <Route path="/leave-calendarE" element={<LeaveCalendar/>} />
+          <Route path="/holiday-calendarE" element={<LHoliday/>} />
+
+
+
 
       </Routes>
-    <EMPDashboard/>
+      
+
+
 </Router>
   );
 

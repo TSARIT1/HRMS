@@ -1,0 +1,36 @@
+.head {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px;
+  color: #ff0000;
+}
+
+.container {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 20px;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+img {
+  display: block;
+  margin: 40px auto;
+  max-width: 90%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    float: none;
+    margin: 10px 0;
+  }
+
+  .head {
+    text-align: center;
+  }
+}

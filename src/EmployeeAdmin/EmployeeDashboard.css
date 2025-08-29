@@ -20,6 +20,12 @@
   overflow-y: auto;
   z-index: 100;
 }
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 
 /* Closed sidebar */
 .sidebar:not(.open) {
@@ -76,7 +82,7 @@
 
 .user-info a {
   font-size: 12px;
-  color: #007bff;
+  color: #0095ff;
   text-decoration: none;
 }
 
@@ -184,6 +190,7 @@
   cursor: pointer;
   background: none;
   border: none;
+  color: #333;
 }
 
 .header-actions {
@@ -232,4 +239,41 @@
 
 .card:hover {
   transform: translateY(-5px);
+}
+/* Right-side Notification Panel */
+.notification-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background: #c4d8de;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

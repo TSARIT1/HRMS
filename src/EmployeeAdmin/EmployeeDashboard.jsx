@@ -6,17 +6,20 @@ import {
   FaChevronDown, FaChevronUp, FaMoneyCheckAlt
 } from "react-icons/fa";
 import "./EmployeeDashboard.css";
+import "./EmployeeDashboard.css";
+import { BsFillFileEarmarkPersonFill } from "react-icons/bs";
+
 
 const EMPDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [logo, setLogo] = useState("/logo.png");
+  const [showNotifications, setShowNotifications] = useState(false);
   const fileInputRef = useRef(null);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-  const toggleDropdown = (menu) => {
-    setOpenDropdown(openDropdown === menu ? null : menu);
-  };
+  const toggleDropdown = (menu) => setOpenDropdown(openDropdown === menu ? null : menu);
+  const toggleNotifications = () => setShowNotifications(!showNotifications);
 
   const handleLogoUpload = (e) => {
     const file = e.target.files[0];
@@ -36,14 +39,13 @@ const EMPDashboard = () => {
           <input
             type="file"
             ref={fileInputRef}
-            accept="gettyimages-1674706748-612x612.jpg"
+            accept="image/*"
             onChange={handleLogoUpload}
             style={{ display: "none" }}
           />
-          <h3>Your Logo</h3>
         </div>
         <div className="user-info">
-          <FaUserAlt className="user-avatar" />
+          <BsFillFileEarmarkPersonFill  className="user-avatar" />
           <div>
             <p>Hi Ismail</p>
             <Link to="/profile">View My Info</Link>
@@ -52,19 +54,8 @@ const EMPDashboard = () => {
 
         <nav className="sidebar-menu">
           <Link to="/" className="menu-item"><FaHome /> Home</Link>
-          <Link to="/engage" className="menu-item"><FaLayerGroup /> Engage</Link>
 
-          {/* My WorkLife */}
-          <div className={`menu-group ${openDropdown === "worklife" ? "open" : ""}`}>
-            <button className="menu-item dropdown-toggle" onClick={() => toggleDropdown("worklife")}>
-              <FaClipboardList /> My WorkLife
-              {openDropdown === "worklife" ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />}
-            </button>
-            <div className="submenu">
-              <Link to="/kudos" className="submenu-item">Kudos</Link>
-              <Link to="/feedback" className="submenu-item">Feedback</Link>
-            </div>
-          </div>
+       
 
           {/* To Do */}
           <div className={`menu-group ${openDropdown === "todo" ? "open" : ""}`}>
@@ -84,12 +75,12 @@ const EMPDashboard = () => {
               {openDropdown === "salary" ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />}
             </button>
             <div className="submenu">
-              <Link to="/payslips" className="submenu-item">Payslips</Link>
-              <Link to="/ytd-reports" className="submenu-item">YTD Reports</Link>
-              <Link to="/it-statement" className="submenu-item">IT Statement</Link>
-              <Link to="/it-declaration" className="submenu-item">IT Declaration</Link>
-              <Link to="/loans" className="submenu-item">Loans & Advances</Link>
-              <Link to="/salary-revision" className="submenu-item">Salary Revision</Link>
+              <Link to="/payslipsE" className="submenu-item">Payslips</Link>
+              <Link to="/ytd-reportsE" className="submenu-item">YTD Reports</Link>
+              <Link to="/it-statementE" className="submenu-item">IT Statement</Link>
+              <Link to="/it-declarationE" className="submenu-item">IT Declaration</Link>
+              <Link to="/loansE" className="submenu-item">Loans & Advances</Link>
+              <Link to="/salary-revisionE" className="submenu-item">Salary Revision</Link>
             </div>
           </div>
 
@@ -100,10 +91,10 @@ const EMPDashboard = () => {
               {openDropdown === "leave" ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />}
             </button>
             <div className="submenu">
-              <Link to="/leave-apply" className="submenu-item">Leave Apply</Link>
-              <Link to="/leave-balances" className="submenu-item">Leave Balances</Link>
-              <Link to="/leave-calendar" className="submenu-item">Leave Calendar</Link>
-              <Link to="/holiday-calendar" className="submenu-item">Holiday Calendar</Link>
+              <Link to="/leave-applyE" className="submenu-item">Leave Apply</Link>
+              <Link to="/leave-balancesE" className="submenu-item">Leave Balances</Link>
+              <Link to="/leave-calendarE" className="submenu-item">Leave Calendar</Link>
+              <Link to="/holiday-calendarE" className="submenu-item">Holiday Calendar</Link>
             </div>
           </div>
 
@@ -114,13 +105,12 @@ const EMPDashboard = () => {
               {openDropdown === "attendance" ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />}
             </button>
             <div className="submenu">
-              <Link to="/attendance-info" className="submenu-item">Attendance Info</Link>
-              <Link to="/regularization" className="submenu-item">Regularization & Permission</Link>
+              <Link to="/attendance-infoE" className="submenu-item">Attendance Info</Link>
+              <Link to="/regularizationE" className="submenu-item">Regularization & Permission</Link>
             </div>
           </div>
 
-          <Link to="/documents" className="menu-item"><FaLayerGroup /> Document Center</Link>
-          <Link to="/requests" className="menu-item"><FaLayerGroup /> Request Hub</Link>
+         
         </nav>
       </aside>
 
@@ -130,15 +120,17 @@ const EMPDashboard = () => {
           <button className="menu-toggle" onClick={toggleSidebar}>☰</button>
           <div className="header-actions">
             <Link to="/QuickLinks"><span className="quick-links">Quick Links ▼</span></Link>
-           <Link to="/Notifications"><FaBell className="icon" /></Link> 
-           <Link to="/Logout"> <FaPowerOff className="icon" /></Link>
+            <button className="icon-buttons" onClick={toggleNotifications}>
+              <FaBell className="icon" />
+            </button>
+            <Link to="/LogoutE"><FaPowerOff className="icon" /></Link>
           </div>
         </header>
 
         <section className="greeting">
           <h1>Good Afternoon</h1>
           <p>Life is 10% what happens to us and 90% how we react to it. - Dennis P. Kimbro</p>
-<img src="man.jpg" alt="Illustration" className="illustration" />
+          <img src="man.jpg" alt="Illustration" className="illustration" />
         </section>
 
         <section className="cards">
@@ -150,6 +142,19 @@ const EMPDashboard = () => {
           <div className="card"><h3>IT Declaration</h3></div>
         </section>
       </div>
+
+      {/* Notification Panel */}
+      {showNotifications && (
+        <div className="notification-panel">
+          <div className="notification-header">
+            <h3>Notifications</h3>
+            <button className="close-btn" onClick={toggleNotifications}>×</button>
+          </div>
+          <div className="notification-content">
+            <p>Hurray! You are all caught up!</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

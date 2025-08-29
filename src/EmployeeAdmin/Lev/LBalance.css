@@ -1,0 +1,32 @@
+.leave-balance-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.actions button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px;
+ 
+}
+
+.igrid {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 6px;
+  font-size: 18px;
+}

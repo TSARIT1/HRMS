@@ -138,12 +138,7 @@
   color: red;
 }
 
-input[type="text"], select {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+
 
 .modal-actions {
   display: flex;
@@ -167,4 +162,13 @@ input[type="text"], select {
   padding: 8px 14px;
   border-radius: 5px;
   cursor: pointer;
+}
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9fafb;
+    transition: border 0.3s;
 }
